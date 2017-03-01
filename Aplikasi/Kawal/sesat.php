@@ -3,7 +3,7 @@ namespace Aplikasi\Kawal; //echo __NAMESPACE__;
 class Sesat extends \Aplikasi\Kitab\Kawal
 {
 #==================================================================================================================
-	function __construct() 
+	function __construct()
 	{
 		parent::__construct();
 		$this->_tajukAtas = 'Enjin - Sesat';
@@ -11,7 +11,7 @@ class Sesat extends \Aplikasi\Kitab\Kawal
 	}
 
 	function index() 
-	{# 1
+	{
 		$this->papar->mesej = 'Halaman ini tidak wujud';
 
 		# pergi papar kandungan
@@ -21,8 +21,8 @@ class Sesat extends \Aplikasi\Kitab\Kawal
 			$this->_folder . '/index', $jenis, 0); # $noInclude=0
 	}
 
-	function parameter() 
-	{# 2
+	function parameter()
+	{
 		$this->papar->mesej = 'Class wujud tapi parameter/method/fungsi tidak wujud';
 
 		# pergi papar kandungan
@@ -32,7 +32,7 @@ class Sesat extends \Aplikasi\Kitab\Kawal
 			$this->_folder . '/index', $jenis, 0); # $noInclude=0
 	}
 
-	function classTidakWujud($amaran) 
+	function classTidakWujud($amaran)
 	{
 		$this->papar->mesej = $amaran;
 		$this->papar->Tajuk_Muka_Surat = $this->_tajukAtas . $this->papar->mesej;
