@@ -20,46 +20,6 @@ function dpt_url_xfilter()
 	return $url;
 }
 
-function semakDataSesi($IP = null)
-{
-	echo "\r";?>
-	<div class="container">
-	<div class="hero-unit">
-	<h1>Data Session</h1>
-	<pre><?php 
-		@session_start();
-			
-		$kunci = \Aplikasi\Kitab\Sesi::get('loggedIn');
-		$level = \Aplikasi\Kitab\Sesi::get('levelPegawai');
-
-		//echo '$_SESSION->', print_r($_SESSION, 1);
-		//echo '<br>$kunci = ' . $kunci . ' | $level = ' . $level . ' |';
-
-		# semak data $_SESSION
-		$senaraiLevel=array('kawal', 'fe', 'kup', 'pegawai');
-		 
-		if ($kunci == true && in_array($level,$senaraiLevel))
-			echo '$kunci wujud<br>';
-		if ($kunci == false || !in_array($level,$senaraiLevel))
-			echo '$kunci tidak wujud<br>';
-
-		//echo '<br>$IP=>'; print_r(dpt_ip());
-		$ip  =$_SERVER['REMOTE_ADDR'];
-		$ip2 = substr($ip,0,10);
-		$hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
-		$server = $_SERVER['SERVER_NAME'];
-
-		echo "<br>Alamat IP : <font color='red'>" . $ip . "</font> |" .
-		//"<br>Alamat IP2 : <font color='red'>" . substr($ip,0,10) . "</font> |" .
-		"\r<br>Nama PC : <font color='red'>" . $hostname . "</font> |" .
-		//"\r<br>Server : <font color='red'>" . $server . "</font>" .
-		"<br>\r";
-	?></pre>
-	</div><!-- / class="hero-unit" -->
-	</div><!-- / class="container" -->
-<?php echo "\r";
-}
-
 function pecah_url($ulang)
 {
 	$pecah  = explode("/", $_SERVER['REQUEST_URI']);
