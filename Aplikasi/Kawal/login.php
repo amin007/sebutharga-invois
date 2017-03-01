@@ -7,7 +7,7 @@ class Login extends \Aplikasi\Kitab\Kawal
 	{
 		//echo '<br>class Index extends Kawal';
 		parent::__construct();
-		\Aplikasi\Kitab\Kebenaran::kawalMasuk();
+		//\Aplikasi\Kitab\Kebenaran::kawalMasuk();
 		$this->_folder = 'login';
 	}
 #==========================================================================================
@@ -16,23 +16,24 @@ class Login extends \Aplikasi\Kitab\Kawal
 		# Set pemboleubah utama
 		$this->papar->menuatas = 'tak';
 		$this->papar->TajukBesar = 'Sila Login';
-		
+
 		# pergi papar kandungan
 		$jenis = $this->papar->pilihTemplate($template=0);
 		$this->papar->bacaTemplate(
 		//$this->papar->paparTemplate(
-		'login/index',$jenis,0); # $noInclude=0
+		'login/index',$jenis,0); # $noInclude=0 
+		//*/
 	}
-#==========================================================================================	
-	function semakid2()
+#==========================================================================================
+	function semakid()
 	{
 		# debug $_POST
-		echo '<pre>Test $_POST->'; print_r($_POST) . '</pre>';
+		//echo '<pre>Test $_POST->'; print_r($_POST) . '</pre>';
 		//$this->tanya->dapatid($_POST['password']);
-		
-		# semak data $this->tanya->ujiID();
-		//$this->tanya->semakid();
 
+		# semak data $this->tanya->ujiID();
+		$this->tanya->semakid();
+		//*/
 	}
 
 	function salah()
@@ -42,7 +43,7 @@ class Login extends \Aplikasi\Kitab\Kawal
 		$this->papar->mesej = 'Ada masalah pada user dan password';
 
 		# Set pemboleubah utama
-		$this->papar->sesat = 'Enjin Carian Ekonomi - Sesat';
+		$this->papar->sesat = 'Enjin Carian - Sesat';
 		$this->papar->isi = '';
 
 		# pergi papar kandungan
@@ -50,9 +51,9 @@ class Login extends \Aplikasi\Kitab\Kawal
 		$this->papar->bacaTemplate(
 		//$this->papar->paparTemplate(
 			'index/salah',$jenis,0); # $noInclude=0
-		
+		//*/
 	}
-#==========================================================================================	
+#==========================================================================================
 	function semaknama($nama)
 	{
 		# semak data $_POST
@@ -60,5 +61,5 @@ class Login extends \Aplikasi\Kitab\Kawal
 		$this->tanya->dapatid($nama);
 		//$this->tanya->ujiID();
 	}
-#==========================================================================================	
+#==========================================================================================
 }
