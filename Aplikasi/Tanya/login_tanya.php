@@ -17,7 +17,7 @@ class Login_Tanya extends \Aplikasi\Kitab\Tanya
 		//*/
 	}
 
-	function ujiID($medan = 'Nama_Penuh,namaPegawai,email,kataLaluan,level', $jadual = 'nama_pegawai')
+	function ujiID($medan = 'namaPenuh,namaPendek,email,kataLaluan,level', $jadual = 'nama_pengguna')
 	{
 		echo 'class Login_Tanya::ujiID() extends \Aplikasi\Kitab\Tanya<br>';
 		$username =  $_POST['username'];
@@ -30,7 +30,7 @@ class Login_Tanya extends \Aplikasi\Kitab\Tanya
 			cariSql($jadual, $medan, $cari, $susun = null);
 	}
 
-	function semakid($medan = 'Nama_Penuh,namaPegawai,email,kataLaluan,level', $jadual = 'nama_pegawai')
+	function semakid($medan = 'namaPenuh,namaPendek,email,kataLaluan,level', $jadual = 'nama_pengguna')
 	{
 		/*$semakLogin = $this->db->prepare("
 			SELECT  $medan FROM  $jadual WHERE 
@@ -48,17 +48,17 @@ class Login_Tanya extends \Aplikasi\Kitab\Tanya
 		//*/
 		$data = $this->data_contoh(0); # data olok-olok | dapatkan medan terlibat
 		$kira = $this->data_contoh(1); # data olok-olok | kira jumlah data	
-		echo ' | $kira=' . $kira;
+		//echo ' |<pre>$data='; print_r($data); echo '</pre> | $kira=' . $kira;
 
-		//$this->kunciPintu($kira, $data); # pilih pintu masuk
+		$this->kunciPintu($kira, $data); # pilih pintu masuk
 	}
 
 	function data_contoh($pilih)
 	{
 		$data = array(
-			'namaPegawai' => 'james007',
-			'Nama_Penuh' => 'Polan Bin Polan',
-			'level' => 'pengguna'
+			'namaPendek' => 'james007',
+			'namaPenuh' => 'Polan Bin Polan',
+			'level' => 'pelawat'
 		); # dapatkan medan terlibat
 		$kira = 1; # kira jumlah data
 		
@@ -70,10 +70,10 @@ class Login_Tanya extends \Aplikasi\Kitab\Tanya
 		if ($kira == 1) 
 		{	# login berjaya
 			\Aplikasi\Kitab\Sesi::init(); # setkan $_SESSION utk 
-			# Nama_Penuh,namaPegawai,kataLaluan,level 
-			\Aplikasi\Kitab\Sesi::set('namaPegawai', $data['namaPegawai']);
-			\Aplikasi\Kitab\Sesi::set('namaPenuh', $data['Nama_Penuh']);
-			\Aplikasi\Kitab\Sesi::set('levelPegawai', $data['level']);
+			# namaPenuh,namaPendek,kataLaluan,level 
+			\Aplikasi\Kitab\Sesi::set('namaPendek', $data['namaPendek']);
+			\Aplikasi\Kitab\Sesi::set('namaPenuh', $data['namaPenuh']);
+			\Aplikasi\Kitab\Sesi::set('levelPengguna', $data['level']);
 			\Aplikasi\Kitab\Sesi::set('loggedIn', true);
 			//echo '<hr>Berjaya';
 			header('location:' . URL . 'ruangtamu');
