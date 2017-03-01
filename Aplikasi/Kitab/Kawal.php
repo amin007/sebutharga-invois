@@ -1,15 +1,15 @@
 <?php
-namespace Aplikasi\Kitab; //echo __NAMESPACE__; 
-class Kawal 
+namespace Aplikasi\Kitab; //echo __NAMESPACE__;
+class Kawal
 {
 #==========================================================================================
-	function __construct() 
+	function __construct()
 	{
 		//echo '<br>class Kawal';
 		$this->papar = new \Aplikasi\Kitab\Papar();
 	}
 #==========================================================================================
-	public function jemaahTaskil($nama) 
+	public function jemaahTaskil($nama)
 	{
 		$failTanya = GetMatchingFiles(GetContents(TANYA),$nama . '_tanya.php');
 		$tanya = $failTanya[0];
