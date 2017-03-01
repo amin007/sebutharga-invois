@@ -1,8 +1,8 @@
 <?php
-namespace Aplikasi\Kitab; //echo __NAMESPACE__; 
+namespace Aplikasi\Kitab; //echo __NAMESPACE__;
 class RahsiaHash
 {
-#-------------------------------------------------------------------------------------------------
+#=============================================================================================
 	/**
 	 * @param string $algo The algorithm (md5, sha1, whirlpool, etc)
 	 * @param string $data The data to encode
@@ -16,6 +16,7 @@ class RahsiaHash
 		
 		return hash_final($context);
 	}
+
 	public static function rahsia($algo, $data)
 	{
 		$context = hash_init($algo);
@@ -23,5 +24,5 @@ class RahsiaHash
 		
 		return hash_final($context);
 	}
-#-------------------------------------------------------------------------------------------------
+#=============================================================================================
 }
