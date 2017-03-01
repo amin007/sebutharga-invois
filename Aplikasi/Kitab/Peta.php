@@ -54,7 +54,7 @@ class Peta
 		//echo '<hr>$fail->' . $fail . '<br>';
 		//echo '<hr>$url[0]->' . $Url[0] . '<br>';
 	}
-	
+
 	/**
 	 *  Cara membaca parameter url GET
 	 *
@@ -134,7 +134,6 @@ class Peta
 
 	function panjangSangatParam()
 	{
-		echo 'Kita sekarang berada di class Peta::panjangSangatParam() <hr>';
 		$amaran = 'parameter lebih daripada 8';
 		require KAWAL . '/sesat.php';
 		$kawal = new \Aplikasi\Kawal\Sesat();
@@ -167,10 +166,9 @@ class Peta
 		//return false;
 		exit;
 	}
-	
+
 	public static function folderPaparTidakWujud()
 	{
-		//echo 'Kita sekarang berada di class Peta::folderPaparTidakWujud() <hr>';
 		require KAWAL . '/sesat.php';
 		$kawal = new \Aplikasi\Kawal\Sesat();
 		$kawal->folderPaparTidakWujud();
