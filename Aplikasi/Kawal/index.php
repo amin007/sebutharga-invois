@@ -2,8 +2,8 @@
 namespace Aplikasi\Kawal; //echo __NAMESPACE__; 
 class Index extends \Aplikasi\Kitab\Kawal
 {
-#==========================================================================================	
-	function __construct() 
+#==========================================================================================
+	function __construct()
 	{
 		//echo '<br>class Index extends Kawal';
 		parent::__construct();
@@ -11,7 +11,7 @@ class Index extends \Aplikasi\Kitab\Kawal
 		$this->_folder = 'index';
 	}
 
-	function index() 
+	function index()
 	{
 		# Set pemboleubah utama
 		$this->papar->Tajuk_Muka_Surat='Enjin';
@@ -22,9 +22,9 @@ class Index extends \Aplikasi\Kitab\Kawal
 		$jenis = $this->papar->pilihTemplate($template=0);
 		$this->papar->bacaTemplate(
 		//$this->papar->paparTemplate(
-			$this->_folder . '/login',$jenis,0); # $noInclude=0
+			$this->_folder . '/login',$jenis,1); # $noInclude=0
 	}
-#==========================================================================================	
+#==========================================================================================
 	function muar() 
 	{
 		# Set pemboleubah utama
