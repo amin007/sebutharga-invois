@@ -24,7 +24,8 @@ class Ruangtamu extends \Aplikasi\Kitab\Kawal
 
 		# pergi papar kandungan
 		$jenis = $this->papar->pilihTemplate($template=0);
-		$this->papar->bacaTemplate(//$this->papar->paparTemplate(
+		$this->papar->bacaTemplate(
+		//$this->papar->paparTemplate(
 			$this->_folder . '/index',$jenis,0); # $noInclude=0
 			//'mobile/mobile',$jenis,0); # $noInclude=0
 		//*/
