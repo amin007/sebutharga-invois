@@ -12,8 +12,9 @@ class DB_Pdo extends \PDO
 		}
 		catch (PDOException $e) 
 		{
+			echo '<pre>';
 			echo $e->getMessage();
-			echo '<br><a href="' . URL . 'ruangtamu/logout">Keluar</a>';
+			echo '</pre><br><a href="' . URL . 'ruangtamu/logout">Keluar</a>';
 			exit;
 		}
 	}
