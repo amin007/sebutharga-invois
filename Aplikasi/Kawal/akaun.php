@@ -3,7 +3,7 @@ namespace Aplikasi\Kawal; //echo __NAMESPACE__;
 class Akaun extends \Aplikasi\Kitab\Kawal
 {
 #==================================================================================================================
-	public function __construct() 
+	public function __construct()
 	{
 		parent::__construct();
 		//\Aplikasi\Kitab\Kebenaran::kawalMasuk();
@@ -23,7 +23,7 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 	}
 
 	public function index() { echo '<br>class Akaun::index() extend Kawal<br>'; }
-	public function rangkabaru($selesai) 
+	public function rangkabaru($selesai)
 	{ 
 		echo '<h1>Selesai Tambah Kes</h1>'; 
 		echo '<br><a href="' . URL. 'rangkabaru/masukdata/3">Tambah Lagi</a>';
@@ -78,19 +78,18 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 			$this->papar->carian = '[tiada id diisi]';
 			$this->papar->_jadual = 'be16_kawal';
 		}
-        
+
 		# isytihar pemboleubah
 		$this->papar->lokasi = 'Akaun - Ubah';
 		$this->papar->cariID = $cariID;
 
 		/*echo '<pre>'; # semak data
-		echo '$this->papar->akaun:<br>'; print_r($this->papar->akaun); 
-		echo '<br>$this->papar->carian:'; print_r($this->papar->carian); 
+		echo '$this->papar->akaun:<br>'; print_r($this->papar->akaun);
+		echo '<br>$this->papar->carian:'; print_r($this->papar->carian);
 		echo '</pre>'; //*/
 
 		# pergi papar kandungan
 		$jenis = $this->papar->pilihTemplate($template=0);
-		//$this->papar->baca
 		$this->papar->bacaTemplate
 		//$this->papar->paparTemplate
 			($this->_folder . '/ubah',$jenis,0); # $noInclude=0
@@ -126,7 +125,7 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 					$posmen[$myTable][$kekunci] = bersih($papar);
 				$posmen[$myTable][$medanID] = $dataID;
 			}
-		
+
 		# ubahsuai $posmen
 		//$posmen = $this->pecah5P($senaraiJadual[0], $posmen);
 		$posmen = $this->tanya->semakPosmen($senaraiJadual[0], $posmen);
@@ -189,8 +188,8 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 			#mula cari $cariID dalam $bulanan
 			foreach ($bulanan as $key => $myTable)
 			{# mula ulang table
-				$this->papar->kesID[$myTable] = 
-				$this->tanya->cariSemuaMedan($sv . $myTable, 
+				$this->papar->kesID[$myTable] =
+				$this->tanya->cariSemuaMedan($sv . $myTable,
 				$medanData, $cari);
 			}# tamat ulang table
 		}
