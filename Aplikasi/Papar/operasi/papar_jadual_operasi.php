@@ -23,7 +23,8 @@
 		$html = new \Aplikasi\Kitab\Html;
 		foreach ( $row[$kira] as $key=>$data )
 		{
-			$html->paparURL($key, $data, $myTable, $cariBatch, $namaPegawai);
+			$html->paparURL($key, $data, $myTable, 
+			$cariBatch = null, $namaPegawai = null);
 		} 
 		?></tr></tbody>
 	<?php
