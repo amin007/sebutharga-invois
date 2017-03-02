@@ -548,9 +548,9 @@ class Html
 				$k1 = URL . 'akaun/ubah/' . $myTable . '/' . $data;
 				$btn = $birutua;
 				$a = '<i class="fa fa-pencil" aria-hidden="true"></i>Ubah1';
-				$pautan = '<a target="_blank" href="' . $k1 . '" class="' . $btn . '">' . $a . '</a>';
+				$pautan = '<a target="_blank" href="' . $k1 . '" class="' . $btn . '">' . $a . '</a>#' . $data;
 
-			?><td><?php echo $pautan ?></td><td><?php echo $data ?></td><?php
+			?><td><?php echo $pautan ?></td><?php
 		}
 		elseif(in_array($key,array('posdaftar')))
 		{
@@ -603,7 +603,7 @@ class Html
 		}
 		elseif(in_array($key,array('Mesej')))
 		{
-			?><td><pre><?php echo $data ?></pre></td><?php
+			?><td><?php echo nl2br($data) ?></td><?php
 		}
 		else
 		{
