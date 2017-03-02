@@ -123,9 +123,8 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 		foreach ($_POST as $myTable => $value)
 			if ( in_array($myTable,$senaraiJadual) )
 			{	foreach ($value as $kekunci => $papar)
-				{
 					$posmen[$myTable][$kekunci] = bersih($papar);
-				}	$posmen[$myTable][$medanID] = $dataID;
+				$posmen[$myTable][$medanID] = $dataID;
 			}
 		
 		# ubahsuai $posmen
@@ -138,14 +137,15 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 		# mula ulang $senaraiJadual
 		foreach ($senaraiJadual as $kunci => $jadual)
 		{# mula ulang table
-			$this->tanya->ubahSqlSimpan
-			//ubahSimpan
+			$this->tanya->//ubahSqlSimpan
+			ubahSimpan
 			($posmen[$jadual], $jadual, $medanID);
+			$paparID = $jadual . '/' . $dataID;
 		}# tamat ulang table
 
 		# pergi papar kandungan
-		echo 'location: ' . URL . 'akaun/ubah/' . $dataID;
-		//header('location: ' . URL . 'akaun/ubah/' . $dataID); //*/
+		//echo 'location: ' . URL . 'akaun/ubah/' . $paparID;
+		header('location: ' . URL . 'akaun/ubah/' . $paparID); //*/
 	}
 
 	function pecah5P($myTable, $posmen) 
