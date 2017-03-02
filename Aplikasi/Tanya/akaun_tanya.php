@@ -162,27 +162,16 @@ class Akaun_Tanya extends \Aplikasi\Kitab\Tanya
 #==========================================================================================
 	public function medanKawalan($cariID) 
 	{ 
-		$news1 = 'http://' . $_SERVER['SERVER_NAME'] . '/ekonomi/ckawalan/ubah/' . $cariID;
+		/*$news1 = 'http://' . $_SERVER['SERVER_NAME'] . '/ekonomi/ckawalan/ubah/' . $cariID;
 		$namaS = $cariID . '/2010/2015/cetak/",replace(nama,\' \',\'-\'),"';
 		$news2 = 'http://' . $_SERVER['SERVER_NAME'] . '/ekonomi/cprosesan/ubah/",kp,"/' . $namaS;
 		$news3 = 'http://' . $_SERVER['SERVER_NAME'] . '/ekonomi/semakan/ubah/",kp,"/' . $cariID . '/2010/2015/';
 		$url1 = '" <a target=_blank href=' . $news1 . '>SEMAK 1</a>"';
 		//$url2 = '" <a target=_blank href=' . $news2 . '>SEMAK 2</a>"';
 		$url2 = 'concat("<a target=_blank href=' . $news2 . '>SEMAK 2</a>")';
-		$url3 = 'concat("<a target=_blank href=' . $news3 . '>SEMAK 3</a>")';
-        $medanKawalan = 'newss,'
-			. 'concat_ws("|",nama,operator,' . $url1 . ',' . $url2 . ',' . $url3 . ') nama,'
-			. 'concat_ws(" | ",nossm,kp,subsektor) as nossm,' . "\r"
-			. 'concat_ws(" | ",borang,fe,pegawai) as pegawai,fe,' . "\r"
-			. 'respon,/*posdaftar,posdaftar_terima,*/nota,/*nota_prosesan,batchProses,*/'
-			. 'lawat,terima,hantar,hantar_prosesan,' . "\r" 
-			. 'concat_ws(" ",alamat1,alamat2,poskod,bandar, NGDBBP_CODE_A) as alamat,' . "\r"
-			//. 'no,batu,jalan,tmn_kg,dp_baru,' . "\r"
-			//. 'concat_ws(" ",no,batu,( if (jalan is null, "", concat("JALAN ",jalan) ) ),tmn_kg,poskod,dp_baru) alamat_baru,' . "\r"
-			. 'concat_ws("-",kp,msic2008) msic2008,' 
-			. 'concat_ws("-",kp,msic2008) keterangan,' 
-			//. 'concat_ws("=>ngdbbp baru=",ngdbbp,ngdbbp_baru) ngdbbp,ngdbbp_baru,' . "\r"
-			//. 'batchAwal,dsk,mko,batchProses,'
+		$url3 = 'concat("<a target=_blank href=' . $news3 . '>SEMAK 3</a//*/
+        $medanKawalan = 'id,Nama,Tajuk,Mesej,Email,Bayaran,Status,Temujanji,Tarikh,'
+			/*. 'concat_ws("|",nama,operator,' . $url1 . ',' . $url2 . ',' . $url3 . ') nama,'
 			. ' concat_ws(" ",' . "\r"
 			. '		if (orang_a is null, "", concat_ws("="," orang", concat(orang_a," |") ) ),' . "\r"
 			. '		if (notel_a is null, "", concat_ws("="," tel", concat(notel_a," |") ) ),' . "\r"
@@ -198,25 +187,8 @@ class Akaun_Tanya extends \Aplikasi\Kitab\Tanya
 			. '		if (aset is null, "", concat_ws("="," aset", concat(format(aset,0)," |") ) ),' . "\r"
 			. '		if (staf is null, "", concat_ws("="," staf", concat(format(staf,0)," |") ) ),' . "\r"
 			. '		if (stok is null, "", concat_ws("="," stok akhir", concat(format(stok,0)," |") ) )' . "\r"
- 			. ' ) as data5P,'
-			. 'notel_a,notel,nofax_a,nofax,'
-			. 'concat_ws(" ",orang_a,"[Pengurus] [Pemilik]") as orang_a,' 
-			. 'responden,esurat_a,email,'
-			. '"" as pecah5P,hasil,belanja,gaji,aset,staf,stok,'
-			. 'concat_ws(" ",' . "\r"
-			. '		if (YR_REFERENCE_YEAR is null, "", concat_ws("="," thnRujuk", concat(YR_REFERENCE_YEAR," |") ) ),' . "\r"
-			. '		if (YR_REVENUE_AMT is null, "", concat_ws("="," hasil", concat(format(YR_REVENUE_AMT,0)," |") ) ),' . "\r"
-			. '		if (YR_EXPENDITURE_AMT is null, "", concat_ws("="," belanja", concat(format(YR_EXPENDITURE_AMT,0)," |") ) ),' . "\r"
-			. '		if (YR_SALARY_AMT is null, "", concat_ws("="," gaji", concat(format(YR_SALARY_AMT,0)," |") ) ),' . "\r"
-			. '		if (YR_FIXED_ASSET_AMT is null, "", concat_ws("="," aset", concat(format(YR_FIXED_ASSET_AMT,0)," |") ) ),' . "\r"
-			. '		if (YR_WORKER_HEAD_COUNT is null, "", concat_ws("="," staf", concat(format(YR_WORKER_HEAD_COUNT,0)," |") ) ),' . "\r"
-			. '		if (YR_OUTPUT_AMT is null, "", concat_ws("="," Output", concat(format(YR_OUTPUT_AMT,0)," |") ) ),' . "\r"
-			. '		if (YR_INPUT_AMT is null, "", concat_ws("="," Input", concat(format(YR_INPUT_AMT,0)," |") ) )' . "\r"
- 			. ' ) as data2010,'	
+ 			. ' ) as data5P,'//*/
 			. '';
-/*			. 'YR_REFERENCE_YEAR thnRujuk, YR_WORKER_HEAD_COUNT thnStaf
-YR_OUTPUT_AMT YR_INPUT_AMT 
-YR_FIXED_ASSET_AMT YR_SALARY_AMT YR_SALES_AMT YR_REVENUE_AMT YR_INCOME_AMT'*/
 		
 		# buang koma di akhir string
 		$medanKawalan = substr($medanKawalan, 0, -1);
