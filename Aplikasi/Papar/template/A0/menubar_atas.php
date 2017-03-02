@@ -12,7 +12,7 @@ $icon['Stats'] = '<span class="glyphicon glyphicon-stats"></span>';
 ?>
 <ul class="<?php echo $classUL ?>">
 <li class="dropdown">
-	<a <?php echo $nav ?> href="#"><?=$icon['User']?>Staf
+	<a <?php echo $nav ?> href="#"><?=$icon['User']?>Apps
 	<b class="caret"></b></a>
 	<ul class="dropdown-menu">
 	<li><a href="<?php echo $url ?>profile/ubah">
@@ -20,9 +20,9 @@ $icon['Stats'] = '<span class="glyphicon glyphicon-stats"></span>';
 	</a></li>
 	<li class="divider"></li><?php 
 	if ( !in_array($paras,array('feprosesan','pegawaiprosesan'))	): ?>
-	<li><a href="<?php echo $url ?>rangkabaru/masukdata/1"><?=$icon['Barcode']?>Tambah Kes</a></li>
-	<li><a href="<?php echo $url ?>operasi/batch"><?=$icon['Barcode']?>Semak Barcode</a></li>
-	<li><a href="<?php echo $url ?>operasi/hantar"><?=$icon['Barcode']?>Hantar Kes</a></li><?php 
+	<li><a href="<?php echo $url ?>operasi/pesanan"><?=$icon['Barcode']?>Pesanan</a></li>
+	<li><a href="<?php echo $url ?>operasi/sebutharga"><?=$icon['Barcode']?>Sebutharga</a></li>
+	<li><a href="<?php echo $url ?>operasi/invois"><?=$icon['Barcode']?>Invois</a></li><?php 
 	elseif ( in_array($paras,array('feprosesan','pegawaiprosesan'))	): ?>
 	<li><a href="<?php echo $url ?>rangkabaru/luarsample/1"><?=$icon['Barcode']?>Tambah Kes Luar Sample</a></li>
 	<li><a href="<?php echo $url ?>prosesan/batch"><?=$icon['Barcode']?>Terima Di Prosesan</a></li><?php else: endif; ?>
@@ -42,24 +42,6 @@ $icon['Stats'] = '<span class="glyphicon glyphicon-stats"></span>';
 	<li><a href="<?php echo $url ?>cari/tentang/johor/2"><?=$icon['Filter']?>LOKALITI JOHOR</a></li>
 	<li><a href="<?php echo $url ?>cari/tentang/malaysia/2"><?=$icon['Filter']?>LOKALITI MALAYSIA</a></li>
 	<li><a href="<?php echo $url ?>cari/tentang/prosesan/1"><?=$icon['Filter']?>Prosesan</a></li>
-	</ul>
-</li>
-<li class="dropdown">
-	<a <?php echo $nav ?> href="#">
-		<?=$icon['Stats']?>Laporan
-	<b class="caret"></b></a>
-	<ul class="dropdown-menu">
-	<li><a href="<?php echo $url ?>laporan/bulanan">Laporan Bulanan</a></li>
-	<li class="divider"></li><?php
-/*	
-	echo "\n\t";
-	$bulanan = bulanan('nama_bulan', null);
-	foreach ($bulanan as $key => $bln):?>
-	<li><a target="_blank" href="<?php echo $url ?>laporan/bulan/<?php echo $bln 
-	?>">Bulan <?php echo ($key+1) . ' - ' . (huruf('Besar_Depan',$bln)) ?></a></li><?php
-	echo "\n\t";
-	endforeach;
-//*/?>	
 	</ul>
 </li>
 <li class="dropdown">
