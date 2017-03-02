@@ -10,13 +10,9 @@ class Operasi extends \Aplikasi\Kitab\Kawal
 		//\Aplikasi\Kitab\Kebenaran::kawalMasuk();
 		\Aplikasi\Kitab\Kebenaran::kawalKeluar();
 		$this->_folder = 'operasi';
-		$this->medanData = 'newss, concat_ws("<br>",nama,operator) nama,'
-			. ' concat_ws("|",kp) kp,'
-			. ' if(respon="A1",respon,"&nbsp;") A1,'
-			. ' if(respon!="A1",respon,"&nbsp;") NONA1,'
-			. ' concat_ws("|",responden,notel,nofax,email) as dataOrang,'
-			. ' concat_ws("|",orang_a,notel_a,nofax_a,esurat_a) as dataOrang2,'
-			. ' nota,hantar,/*hantar_prosesan,*/borang,pegawai,fe'
+		$this->medanData = 'id,Nama,Tajuk,Mesej,Email,Bayaran,Status,Temujanji,Tarikh'
+			//. ' if(respon="A1",respon,"&nbsp;") A1,'
+			//. ' concat_ws("|",responden,notel,nofax,email) as dataOrang,'
 			. '';
 	}
 
@@ -30,7 +26,7 @@ class Operasi extends \Aplikasi\Kitab\Kawal
 		$this->papar->bacaTemplate(	//$this->papar->paparTemplate(
 			$this->_folder . '/index',$jenis,0); # $noInclude=0
 	}
-#==========================================================================================	
+#==========================================================================================
 	private function tiadaDalamRangka($key = 'newss', $data = null)
 	{
 		# butang 
@@ -51,63 +47,25 @@ class Operasi extends \Aplikasi\Kitab\Kawal
 		return $pautan;
 	}
 
-	private function wujudBatchAwal($senaraiJadual, $cariBatch = null, $cariID = null) 
-	{
-		if (!isset($cariBatch) || empty($cariBatch) ):
-			$paparError = 'Tiada batch<br>';
-		elseif((!isset($cariID) || empty($cariID) )):
-				$paparError = 'Tiada id<br>';
-		else: #------------------------------------------------------------------------------
-				$medan = 'newss,nossm,nama,operator,'
-					. 'concat_ws(" ",alamat1,alamat2,poskod,bandar) as alamat,'
-					. 'concat_ws(" ",posdaftar,posdaftar_terima) as posdaftar,'
-					. 'concat_ws(" ",pegawai,borang) as siapapunya';
-				$carian[] = array('fix'=>'x=','atau'=>'WHERE','medan'=>'newss','apa'=>$cariID);
-				$dataKes = $this->tanya->cariSemuaData(//tatasusunanCariID(//cariSql( 
-					$senaraiJadual[0], $medan, $carian, $susun = null);
-				//echo '<pre>', print_r($dataKes, 1) . '</pre><br>';
-				$paparError = (!isset($dataKes[0]['newss'])) ? 
-					$this->tiadaDalamRangka('newss', $cariID) : # jika jumpa
-					'Ada id: <a target="_blank" href="'. URL . 'kawalan/ubah/' 
-					. $dataKes[0]['newss'] .'">' . $dataKes[0]['newss'] . '</a> '
-					. ( empty($dataKes[0]['nossm']) ? '' : '| nossm:' . $dataKes[0]['nossm'] )
-					. '<br> nama:' . $dataKes[0]['nama'] 
-					. ( empty($dataKes[0]['operator']) ? '' : '| operator:' . $dataKes[0]['operator'] )
-					. '<br> alamat:' . $dataKes[0]['alamat']
-					. ( empty($dataKes[0]['posdaftar']) ? '' : '| posdaftar:' . $dataKes[0]['posdaftar'] )
-					. ( empty($dataKes[0]['siapapunya']) ? '' : '|<br> siapapunya:' . $dataKes[0]['siapapunya'] )
-					. '';
-			#------------------------------------------------------------------------------
-		endif;
-
-		return $paparError;
-	}
-
-	public function batch($namaPegawai = null, $cariBatch = null, $cariID = null, $semakID = null) 
+	public function pesanan() // $namaPegawai = null, $cariBatch = null, $cariID = null, $semakID = null 
 	{
 		# Set pemboleubah utama
-		$this->papar->namaPegawai = $namaPegawai;
-		$this->papar->noBatch = $cariBatch;
-		$senaraiJadual = array('be16_kawal'); # set senarai jadual yang terlibat
+		$senaraiJadual = array('kursus_php_lama','kursus_php'); # set senarai jadual yang terlibat
 		# mencari dalam database
-		if ($semakID != null):
+		/*if ($semakID != null):
 			$this->papar->error  = 'Data sudah ada, pandai-pandai ambil ya <br>';
 			$this->papar->error .= $this->wujudBatchAwal($senaraiJadual, $cariBatch, $cariID);
 			# mula carian dalam jadual $myTable
 			$this->cariAwal($senaraiJadual, $namaPegawai, $cariBatch, $cariID, $this->medanData);
-			//$this->cariGroup($senaraiJadual, $namaPegawai, $cariBatch, $cariID, $this->medanData);
 		elseif ($cariID == null):
 			$this->papar->error = 'Kosong';
 			# mula carian dalam jadual $myTable
 			$this->cariAwal($senaraiJadual, $namaPegawai, $cariBatch, $cariID, $this->medanData);
-			//$this->cariGroup($senaraiJadual, $namaPegawai, $cariBatch, $cariID, $this->medanData);
-		else:
+		else://*/
 			# cari $cariBatch atau cariID wujud tak
-			$this->papar->error = $this->wujudBatchAwal($senaraiJadual, $cariBatch, $cariID);
 			# mula carian dalam jadual $myTable
-			$this->cariAwal($senaraiJadual, $namaPegawai, $cariBatch, $cariID, $this->medanData);
-			//$this->cariGroup($senaraiJadual, $namaPegawai, $cariBatch, $cariID, $this->medanData);
-		endif;
+			$this->cariAwal($senaraiJadual, $this->medanData);
+		//endif;
 
 		# semak pembolehubah $this->papar->cariApa
 		//echo '<pre>', print_r($this->papar->cariApa, 1) . '</pre><br>';
@@ -116,32 +74,30 @@ class Operasi extends \Aplikasi\Kitab\Kawal
 		$jenis = $this->papar->pilihTemplate($template=0);
 		$this->papar->bacaTemplate(
 		//$this->papar->paparTemplate(
-			$this->_folder . '/batch',$jenis,0); # $noInclude=0	
+			$this->_folder . '/pesanan',$jenis,0); # $noInclude=0	
 		//*/
 	}
 
-	private function cariAwal($senaraiJadual, $namaPegawai, $cariBatch, $cariID, $medan)
+	private function cariAwal($senaraiJadual, $medan)
 	{
 		$item = 100; $ms = 1; ## set pembolehubah utama
 		## tentukan bilangan mukasurat. bilangan jumlah rekod
 		//echo '$bilSemua:' . $bilSemua . ', $item:' . $item . ', $ms:' . $ms . '<br>';
 		$jum2 = pencamSqlLimit(100, $item, $ms);
-		$jadual = $senaraiJadual[0];
-			/*# sql 1
-			$cari1[] = ($namaPegawai==null) ? 
-				array('fix'=>'x=','atau'=>'WHERE','medan'=>'pegawai','apa'=>'')
-				: array('fix'=>'x=','atau'=>'WHERE','medan'=>'pegawai','apa'=>$namaPegawai);
+			# sql 1
+			$jadual = $senaraiJadual[0];
+			$cari1[] = null; //array('fix'=>'x=','atau'=>'WHERE','medan'=>'pegawai','apa'=>$namaPegawai);
 			$jum = pencamSqlLimit($item, $item, $ms);
-			$cantumSusun[] = array_merge($jum, array('kumpul'=>null,'susun'=>'newss') );
+			$cantumSusun[] = array_merge($jum, array('kumpul'=>null,'susun'=>null) );
 			foreach ($senaraiJadual as $key => $myTable)
 			{# mula ulang table
 				# sql guna limit //$this->papar->cariApa = array();
-					$this->papar->cariApa['semua'] = $this->tanya->//tatasusunanCari(//cariSql( 
+					$this->papar->cariApa[$myTable] = $this->tanya->//tatasusunanCari(//cariSql( 
 						cariSemuaData(
 						$myTable, $medan, $cari1, $cantumSusun);
 			}# tamat ulang table //*/
-			# sql 2
-			$medan2 = 'newss,nossm,'
+			# sql 3
+			/*$medan2 = 'newss,nossm,'
 					. 'concat_ws(" ",nama,operator) as nama,'
 					. 'alamat1,alamat2,'
 					. 'concat_ws(" ",poskod,bandar) as bandar,'
@@ -169,14 +125,7 @@ class Operasi extends \Aplikasi\Kitab\Kawal
 			$susun[] = array_merge($jum2, array('kumpul'=>null,'susun'=>'respon,nama') );
 			$this->papar->cariApa['senarai'] = $this->tanya->//tatasusunanCari(//cariSql( 
 				cariSemuaData(
-				$jadual, $medan2, $cari2, $susun);
-			/*# contoh sql
-			$cariMFG[] = array('fix'=>'x=','atau'=>'WHERE','medan'=>'fe','apa'=>$cariBatch);
-			$cariMFG[] = array('fix'=>'zin','atau'=>'AND','medan'=>'kp','apa'=>'("205","800")');
-					$susunMfg[] = array_merge($jum2, array('kumpul'=>null,'susun'=>'respon,nama') );
-			$this->papar->cariApa['mfg'] = $this->tanya->
-				tatasusunanCariMFG(//cariSql( cariSemuaData(
-				$jadual, $medan, $cariMFG, $susunMfg);//*/
+				$jadual, $medan2, $cari2, $susun);//*/
 	}
 
 	private function cariGroup($senaraiJadual, $namaPegawai, $cariBatch, $cariID, $medan)
