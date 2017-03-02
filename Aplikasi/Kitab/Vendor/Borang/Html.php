@@ -177,7 +177,7 @@ class Html
 		$merah = 'btn btn-danger btn-mini';
 
 		//if ( in_array($key,array(...)) )
-		if(in_array($key,array('nota','catatan','CatatNota')))
+		if(in_array($key,array('nota','catatan','Mesej')))
 		{#kod utk textarea
 			$input = '<textarea ' . $name . ' rows="1" cols="20"' . $tabline2 
 				   . ' class="form-control">' . $data . '</textarea>'
@@ -215,7 +215,7 @@ class Html
 				   . $tabline2 . '</div>'
 				   . '';
 		}
-		elseif(in_array($key,array('email','pecah5P')))
+		elseif(in_array($key,array('Bayaran','Status','temujanji')))
 		{#kod utk input text saiz biasa
 			$input = '<div class="input-group input-group">' . $tabline
 				   . '<span class="input-group-addon">' . $data . '</span>' . $tabline
@@ -524,8 +524,8 @@ class Html
 	function paparURL($key, $data, $myTable = null, $cariBatch = null, $namaPegawai = null)
 	{
 		# set pembolehubah Sesi
-		$pengguna = \Aplikasi\Kitab\Sesi::get('namaPegawai');
-		$level = \Aplikasi\Kitab\Sesi::get('levelPegawai');
+		//$pengguna = \Aplikasi\Kitab\Sesi::get('namaPegawai');
+		//$level = \Aplikasi\Kitab\Sesi::get('levelPegawai');
 		//echo "<br> \$pengguna : $pengguna | \$level = $level";
 
 		# butang 
@@ -543,27 +543,12 @@ class Html
 			//echo '<br> Ada masalah teknikal pada $namaPegawai <br>'; exit();
 			?><td><?php echo $data ?></td><?php
 		}//*/
-		if ($key=='newss')
+		if ($key=='id')
 		{
-			if ( in_array($pengguna,array('amin007','azwan')) && $myTable == 'senarai'):
-				$k1 = URL . 'kawalan/ubah/' . $data;
-				$btn = $birutua;
-				//$btn = $merah;
-				$a = '<i class="fa fa-pencil" aria-hidden="true"></i>Ubah1';
-				$cb = URL . "operasi/buangID/$namaPegawai/$cariBatch/$data";
-				$pautan = '<a target="_blank" href="' . $k1 . '" class="' . $btn . '">' . $a . '</a>'
-					. '<a href="' . $cb . '" class="btn btn-danger btn-mini">Kosong</a>';
-			elseif ($level == 'feprosesan'):
-				$k1 = URL . 'prosesan/ubah/' . $data;
-				$btn =  $birumuda;
-				$a = '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>Ubah2';
-				$pautan = '<a target="_blank" href="' . $k1 . '" class="' . $btn . '">' . $a . '</a>';
-			else:
-				$k1 = URL . 'kawalan/ubah/' . $data;
+				$k1 = URL . 'akaun/ubah/' . $myTable . '/' . $data;
 				$btn = $birutua;
 				$a = '<i class="fa fa-pencil" aria-hidden="true"></i>Ubah1';
 				$pautan = '<a target="_blank" href="' . $k1 . '" class="' . $btn . '">' . $a . '</a>';
-			endif;
 
 			?><td><?php echo $pautan ?></td><td><?php echo $data ?></td><?php
 		}
@@ -615,6 +600,10 @@ class Html
 				?><a target="_blank" href="<?php echo $k2 ?>" class="btn btn-danger btn-mini">cetak</a><?php
 				?></td><?php
 			endif;
+		}
+		elseif(in_array($key,array('Mesej')))
+		{
+			?><td><pre><?php echo $data ?></pre></td><?php
 		}
 		else
 		{
