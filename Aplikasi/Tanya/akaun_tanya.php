@@ -189,7 +189,7 @@ class Akaun_Tanya extends \Aplikasi\Kitab\Tanya
 			. '		if (stok is null, "", concat_ws("="," stok akhir", concat(format(stok,0)," |") ) )' . "\r"
  			. ' ) as data5P,'//*/
 			. '';
-		
+
 		# buang koma di akhir string
 		$medanKawalan = substr($medanKawalan, 0, -1);
 		//$medanKawalan = rtrim($medanKawalan,',');;
