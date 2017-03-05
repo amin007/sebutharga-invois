@@ -50,7 +50,8 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 			# senaraikan tatasusunan jadual dan setkan pembolehubah
 			$this->papar->_jadual = $jadual;
 			$this->papar->carian = 'id';
-			$cari[] = array('fix'=>'like','atau'=>'WHERE','medan'=>'id','apa'=>$cariID);
+			//$cari[] = array('fix'=>'like','atau'=>'WHERE','medan'=>'id','apa'=>$cariID);
+			$cari[] = null; 
 
 			# 1. mula semak dalam rangka 
 			$this->papar->akaun['kes'] = $this->tanya->//cariSql
@@ -61,15 +62,16 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 		else
 		{
 			$this->papar->carian = '[tiada id diisi]';
-			$this->papar->_jadual = 'be16_kawal';
+			$this->papar->_jadual = $jadual;
 		}
 
 		# isytihar pemboleubah
 		$this->papar->lokasi = 'Akaun - Cetak';
 		$this->papar->cariID = $cariID;
+		$bil =  count($this->papar->akaun['kes']);
 
 		/*echo '<pre>'; # semak data
-		echo '$this->papar->akaun:<br>'; print_r($this->papar->akaun);
+		echo '$this->papar->akaun(' . $bil . '):<br>'; print_r($this->papar->akaun);
 		echo '<br>$this->papar->carian:'; print_r($this->papar->carian);
 		echo '</pre>'; //*/
 
