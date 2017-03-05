@@ -35,6 +35,11 @@ table.excel tbody td
 	background:#ffffff;
 }
 .fa-input {font-family: FontAwesome}
+.teksBesar
+{
+	text-align:right;
+	font-size: 225%;
+}
 </style>
 </head>  
 <body>
