@@ -27,7 +27,7 @@ if(isset($this->akaun['kes'][0]['id'])):
 	</p></nav>
 	<?php //*/
 else: # set pembolehubah
-	$mencari = URL . 'kawalan/ubahCari/';
+	$mencari = URL . 'akaun/ubahCari/';
 	$carian = null;
 	$mesej = '::' . $this->cariID . ' tiada dalam ' . $this->_jadual;
 endif;
@@ -78,11 +78,13 @@ else # $this->carian=='ada' - mula
 	}# tamat ulang $row
 	echo "\n\t\t";
 	if(isset($this->akaun['kes'][0]['id'])):
+	$cetak = URL . 'akaun/cetakInvois/' . $this->_jadual . '/' . $this->cariID;
 	?><div class="form-group">
 			<label for="inputSubmit" class="col-sm-3 control-label"><?=$this->_jadual?></label>
 			<div class="col-sm-6">
 				<input type="hidden" name="jadual" value="<?=$this->_jadual?>">
 				<input type="submit" name="Simpan" value="Simpan" class="btn btn-primary btn-large">
+				<a target="_blank" href="<?php echo $cetak ?>" class="btn btn-warning btn-large">Cetak</a>
 				<?php //echo $mencari2 ?>
 			</div>
 		</div>	
