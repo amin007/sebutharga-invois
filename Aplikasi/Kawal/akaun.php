@@ -31,32 +31,56 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 	}
 #==================================================================================================================
 #---------------------------------------------------------------------------------------------------
-	private function cariIndustri($jadualMSIC, $msic)
+	public function cetakInvois($jadual = null, $cariID = null)
 	{
-		#326-46312  substr("abcdef", 0, -1);  // returns "abcde"
-		$msic08 = substr($msic, 4);  // returns "46312"
-		$cariM6[] = array('fix'=>'x=','atau'=>'WHERE','medan'=>'msic','apa'=>$msic08);
+		# Set pemboleubah utama
+		$paparID = $jadual . '/' . $cariID;
+		$this->papar->lokasi = Tajuk_Muka_Surat . ' - cetak';
 
-		# mula cari $cariID dalam $jadual
-		foreach ($jadualMSIC as $m6 => $msic)
-		{# mula ulang table
-			$jadualPendek = substr($msic, 16); //echo "\$msic=$msic|\$jadualPendek=$jadualPendek<br>";
-			# senarai nama medan
-			if($jadualPendek=='msic2008') /*bahagian B,kumpulan K,kelas Kls,*/
-				$medanM6 = 'seksyen S,msic2000,msic,keterangan,notakaki';
-			elseif($jadualPendek=='msic2008_asas') 
-				$medanM6 = 'msic,survey kp,keterangan,keterangan_en';
-			elseif($jadualPendek=='msic_v1') 
-				$medanM6 = 'msic,survey kp,bil_pekerja staf,keterangan,notakaki';
-			else $medanM6 = '*'; 
-			//echo "cariMSIC($msic, $medanM6,<pre>"; print_r($cariM6) . "</pre>)<br>";
-
-			$this->papar->_cariIndustri[$jadualPendek] = $this->tanya->//cariSql
-				cariSemuaData($msic, $medanM6, $cariM6, null);
-		}# tamat ulang table
-
+		# pergi papar kandungan
+		//echo '<br>location: ' . URL . 'akaun/ubah/' . $paparID . '';
+		header('location: ' . URL . 'akaun/cetak/' . $paparID);
 	}
-	#---------------------------------------------------------------------------------------------------
+
+	public function cetak($jadual = null, $cariID = null) 
+	{
+
+		if (!empty($cariID)) 
+		{
+			# senaraikan tatasusunan jadual dan setkan pembolehubah
+			$this->papar->_jadual = $jadual;
+			$this->papar->carian = 'id';
+			$cari[] = array('fix'=>'like','atau'=>'WHERE','medan'=>'id','apa'=>$cariID);
+
+			# 1. mula semak dalam rangka 
+			$this->papar->akaun['kes'] = $this->tanya->//cariSql
+				cariSemuaData
+				($this->papar->_jadual, $this->tanya->medanKawalan($cariID), 
+				$cari, $susun = null);
+		}
+		else
+		{
+			$this->papar->carian = '[tiada id diisi]';
+			$this->papar->_jadual = 'be16_kawal';
+		}
+
+		# isytihar pemboleubah
+		$this->papar->lokasi = 'Akaun - Cetak';
+		$this->papar->cariID = $cariID;
+
+		/*echo '<pre>'; # semak data
+		echo '$this->papar->akaun:<br>'; print_r($this->papar->akaun);
+		echo '<br>$this->papar->carian:'; print_r($this->papar->carian);
+		echo '</pre>'; //*/
+
+		# pergi papar kandungan
+		$jenis = $this->papar->pilihTemplate($template=0);
+		$this->papar->bacaTemplate
+		//$this->papar->paparTemplate
+			($this->_folder . '/cetak',$jenis,1); # $noInclude=0
+		//*/
+	}
+#---------------------------------------------------------------------------------------------------
 	public function ubah($jadual = null, $cariID = null) 
 	{//echo '<br>Anda berada di class Imej extends Kawal:ubah($cari)<br>';
 
@@ -111,7 +135,7 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 		//echo '<br>location: ' . URL . 'akaun/ubah/' . $dataID . '';
 		header('location: ' . URL . 'akaun/ubah/' . $dataID);
 	}
-
+#---------------------------------------------------------------------------------------------------
 	public function ubahSimpan($dataID)
 	{
 		$posmen = array();
