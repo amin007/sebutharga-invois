@@ -44,14 +44,15 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 
 	public function cetak($jadual = null, $cariID = null) 
 	{
-
+		$cariID = 'spam';
 		if (!empty($cariID)) 
 		{
 			# senaraikan tatasusunan jadual dan setkan pembolehubah
 			$this->papar->_jadual = $jadual;
 			$this->papar->carian = 'id';
 			//$cari[] = array('fix'=>'like','atau'=>'WHERE','medan'=>'id','apa'=>$cariID);
-			$cari[] = null; 
+			$cari[] = array('fix'=>'x%like%','atau'=>'WHERE','medan'=>'status','apa'=>$cariID);
+			//$cari[] = null; 
 
 			# 1. mula semak dalam rangka 
 			$this->papar->akaun['kes'] = $this->tanya->//cariSql
@@ -72,15 +73,33 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 
 		/*echo '<pre>'; # semak data
 		echo '$this->papar->akaun(' . $bil . '):<br>'; print_r($this->papar->akaun);
+		$this->debug($this->papar->akaun);
 		echo '<br>$this->papar->carian:'; print_r($this->papar->carian);
 		echo '</pre>'; //*/
-
+		
 		# pergi papar kandungan
 		$jenis = $this->papar->pilihTemplate($template=0);
 		$this->papar->bacaTemplate
 		//$this->papar->paparTemplate
 			($this->_folder . '/cetak',$jenis,1); # $noInclude=0
 		//*/
+	}
+#---------------------------------------------------------------------------------------------------
+	private function debug($akaun)
+	{
+		$i = 0;
+		@list($dataAsal, $data) = explode('Tarikh',$akaun['kes'][$i]['Mesej']);
+		@list($tarikh, $data2) = explode('Masa',$data);
+		@list($dataPC, $data3) = explode('Mesej',$data2);
+		$data4 = (isset($data3)) ? $data3 : '';
+		@list($dataMesej, $dataAkhir) = explode('-',$data4);
+		$dataMesej = (isset($dataMesej)) ? $dataMesej : '';
+		$bilRujukan =  \Aplikasi\Kitab\RahsiaHash::rahsia('md5', $dataMesej);
+		$id = $this->akaun['kes'][0]['id'];
+		$bilRujukan = $bilRujukan . '@'. $i . '@' . $id . '/' .$kira;
+		echo '<pre>$tarikh '; print_r($tarikh); echo '</pre>';
+		echo '<pre>$dataMesej:'; print_r($dataMesej); echo '</pre>';
+
 	}
 #---------------------------------------------------------------------------------------------------
 	public function ubah($jadual = null, $cariID = null) 
