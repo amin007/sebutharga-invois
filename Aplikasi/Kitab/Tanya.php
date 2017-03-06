@@ -20,6 +20,8 @@ class Tanya
 			$dimana .= " $atau`$medan` is not null  $akhir\r";
 		elseif($fix=='x=')
 			$dimana .= " $atau`$medan` = '$cariApa' $akhir\r";
+		elseif($fix=='x!=')
+			$dimana .= " $atau`$medan` != '$cariApa' $akhir\r";
 		elseif($fix=='x<=')
 			$dimana .= " $atau`$medan` <= '$cariApa' $akhir\r";
 		elseif($fix=='x>=')
@@ -111,7 +113,7 @@ class Tanya
 				if ($order!=null)  $susunan .= " ORDER BY $order\r";
 				if ($max!=null)    $susunan .= ($dari==0) ? 
 					" LIMIT $max\r" : " LIMIT $dari,$max\r";
-		endif; 
+		endif;
 
 		return $susunan; //echo '<pre>'; print_r($susunan); echo '</pre>';
 	}
