@@ -23,12 +23,6 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 	}
 
 	public function index() { echo '<br>class Akaun::index() extend Kawal<br>'; }
-	public function rangkabaru($selesai)
-	{ 
-		echo '<h1>Selesai Tambah Kes</h1>'; 
-		echo '<br><a href="' . URL. 'rangkabaru/masukdata/3">Tambah Lagi</a>';
-		echo '<br><a href="' . URL. 'ruangtamu">Menu Utama</a>';
-	}
 #==================================================================================================================
 #---------------------------------------------------------------------------------------------------
 	public function cetakInvois($jadual = null, $cariID = null)
@@ -45,7 +39,7 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 	public function cetak($jadual = null, $cariID = null) 
 	{
 		$cariID = 'spam';
-		if (!empty($cariID)) 
+		if (!empty($cariID))
 		{
 			# senaraikan tatasusunan jadual dan setkan pembolehubah
 			$this->papar->_jadual = $jadual;
@@ -73,7 +67,6 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 
 		/*echo '<pre>'; # semak data
 		echo '$this->papar->akaun(' . $bil . '):<br>'; print_r($this->papar->akaun);
-		$this->debug($this->papar->akaun);
 		echo '<br>$this->papar->carian:'; print_r($this->papar->carian);
 		echo '</pre>'; //*/
 		
@@ -83,23 +76,6 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 		//$this->papar->paparTemplate
 			($this->_folder . '/cetak',$jenis,1); # $noInclude=0
 		//*/
-	}
-#---------------------------------------------------------------------------------------------------
-	private function debug($akaun)
-	{
-		$i = 0;
-		@list($dataAsal, $data) = explode('Tarikh',$akaun['kes'][$i]['Mesej']);
-		@list($tarikh, $data2) = explode('Masa',$data);
-		@list($dataPC, $data3) = explode('Mesej',$data2);
-		$data4 = (isset($data3)) ? $data3 : '';
-		@list($dataMesej, $dataAkhir) = explode('-',$data4);
-		$dataMesej = (isset($dataMesej)) ? $dataMesej : '';
-		$bilRujukan =  \Aplikasi\Kitab\RahsiaHash::rahsia('md5', $dataMesej);
-		$id = $this->akaun['kes'][0]['id'];
-		$bilRujukan = $bilRujukan . '@'. $i . '@' . $id . '/' .$kira;
-		echo '<pre>$tarikh '; print_r($tarikh); echo '</pre>';
-		echo '<pre>$dataMesej:'; print_r($dataMesej); echo '</pre>';
-
 	}
 #---------------------------------------------------------------------------------------------------
 	public function ubah($jadual = null, $cariID = null) 
