@@ -47,7 +47,7 @@ class Operasi extends \Aplikasi\Kitab\Kawal
 		return $pautan;
 	}
 
-	public function pesanan() // $namaPegawai = null, $cariBatch = null, $cariID = null, $semakID = null 
+	public function pesanan($cariID = null) // $namaPegawai = null, $cariBatch = null, $cariID = null, $semakID = null 
 	{
 		# Set pemboleubah utama
 		$senaraiJadual = array('kursus_php_lama','kursus_php'); # set senarai jadual yang terlibat
@@ -64,7 +64,7 @@ class Operasi extends \Aplikasi\Kitab\Kawal
 		else://*/
 			# cari $cariBatch atau cariID wujud tak
 			# mula carian dalam jadual $myTable
-			$this->cariAwal($senaraiJadual, $this->medanData);
+			$this->cariAwal($senaraiJadual, $this->medanData, $cariID);
 		//endif;
 
 		# semak pembolehubah $this->papar->cariApa
@@ -78,15 +78,17 @@ class Operasi extends \Aplikasi\Kitab\Kawal
 		//*/
 	}
 
-	private function cariAwal($senaraiJadual, $medan)
+	private function cariAwal($senaraiJadual, $medan, $cariID)
 	{
-		$item = 100; $ms = 1; ## set pembolehubah utama
+		$item = 200; $ms = 1; ## set pembolehubah utama
 		## tentukan bilangan mukasurat. bilangan jumlah rekod
 		//echo '$bilSemua:' . $bilSemua . ', $item:' . $item . ', $ms:' . $ms . '<br>';
-		$jum2 = pencamSqlLimit(100, $item, $ms);
+		$jum2 = pencamSqlLimit(200, $item, $ms);
 			# sql 1
 			$jadual = $senaraiJadual[0];
-			$cari1[] = null; //array('fix'=>'x=','atau'=>'WHERE','medan'=>'pegawai','apa'=>$namaPegawai);
+			//$cari1[] = null; //array('fix'=>'x=','atau'=>'WHERE','medan'=>'pegawai','apa'=>$namaPegawai);
+			//$cari1[] = array('fix'=>'%like%','atau'=>'WHERE','medan'=>'Email','apa'=>$cariID);			
+			$cari1[] = array('fix'=>'x%like%','atau'=>'WHERE','medan'=>'status','apa'=>'spam');
 			$jum = pencamSqlLimit($item, $item, $ms);
 			$cantumSusun[] = array_merge($jum, array('kumpul'=>null,'susun'=>null) );
 			foreach ($senaraiJadual as $key => $myTable)
@@ -96,10 +98,9 @@ class Operasi extends \Aplikasi\Kitab\Kawal
 						cariSemuaData(
 						$myTable, $medan, $cari1, $cantumSusun);
 			}# tamat ulang table //*/
-			# sql 3
-			/*$medan2 = 'newss,nossm,'
+			# sql 2
+			/*$medan2 = ''
 					. 'concat_ws(" ",nama,operator) as nama,'
-					. 'alamat1,alamat2,'
 					. 'concat_ws(" ",poskod,bandar) as bandar,'
 					. ' concat_ws(" ",' . "\r"
 					. '		if (respon is null, "", concat_ws("="," respon", concat(respon," |") ) ),' . "\r"
@@ -119,13 +120,28 @@ class Operasi extends \Aplikasi\Kitab\Kawal
 					. '		if (staf is null, "", concat_ws("="," staf", concat(format(staf,0)," |") ) ),' . "\r"
 					. '		if (stok is null, "", concat_ws("="," stok akhir", concat(format(stok,0)," |") ) )' . "\r"
 					. ' ) as data5P'
-					. '';
-			$cari2[] = array('fix'=>'x=','atau'=>'WHERE','medan'=>'borang','apa'=>$cariBatch);
-			$cari2[] = array('fix'=>'x=','atau'=>'AND','medan'=>'pegawai','apa'=>$namaPegawai);
-			$susun[] = array_merge($jum2, array('kumpul'=>null,'susun'=>'respon,nama') );
-			$this->papar->cariApa['senarai'] = $this->tanya->//tatasusunanCari(//cariSql( 
-				cariSemuaData(
-				$jadual, $medan2, $cari2, $susun);//*/
+					. '';//*/
+			$cari2[] = array('fix'=>'%like%','atau'=>'WHERE','medan'=>'status','apa'=>'spam');
+			$susun[] = array_merge($jum2, array('kumpul'=>null,'susun'=>null) );
+			foreach ($senaraiJadual as $key => $myTable)
+			{# mula ulang table
+				# sql guna limit //$this->papar->cariApa = array();
+					$this->papar->cariApa['spam_' . $key] = $this->tanya->//tatasusunanCari(//cariSql( 
+						cariSemuaData(
+						$myTable, $medan, $cari2, $cantumSusun);
+			}# tamat ulang table //*/
+			# sql3 
+			$medan3 = 'count(*)';
+			$cari3[] = array('fix'=>'x%like%','atau'=>'WHERE','medan'=>'status','apa'=>'spam');
+			$susun[] = array_merge($jum2, array('kumpul'=>null,'susun'=>null) );
+			foreach ($senaraiJadual as $key => $myTable)
+			{# mula ulang table
+				# sql guna limit //$this->papar->cariApa = array();
+					$this->papar->cariApa['kira_' . $key] = $this->tanya->//tatasusunanCari(//cariSql( 
+						cariSemuaData(
+						$myTable, $medan3, $cari3, $cantumSusun);
+			}# tamat ulang table //*/
+
 	}
 
 	private function cariGroup($senaraiJadual, $namaPegawai, $cariBatch, $cariID, $medan)
