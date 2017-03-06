@@ -87,7 +87,7 @@ else # $this->carian=='ada' - mula
 				<a target="_blank" href="<?php echo $cetak ?>" class="btn btn-warning btn-large">Cetak</a>
 				<?php //echo $mencari2 ?>
 			</div>
-		</div>	
+		</div>
 	</form>
 	<hr><?php 
 	endif;
