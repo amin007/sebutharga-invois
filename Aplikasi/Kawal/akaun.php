@@ -25,7 +25,7 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 	public function index() { echo '<br>class Akaun::index() extend Kawal<br>'; }
 #==================================================================================================================
 #---------------------------------------------------------------------------------------------------
-	public function cetakInvois($jadual = null, $cariID = null) 
+	public function cetakSebutHarga($jadual = null, $cariID = null) 
 	{
 		$cariID = 'spam';
 		if (!empty($cariID))
@@ -33,9 +33,7 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 			# senaraikan tatasusunan jadual dan setkan pembolehubah
 			$this->papar->_jadual = $jadual;
 			$this->papar->carian = 'id';
-			//$cari[] = array('fix'=>'like','atau'=>'WHERE','medan'=>'id','apa'=>$cariID);
 			$cari[] = array('fix'=>'x%like%','atau'=>'WHERE','medan'=>'status','apa'=>$cariID);
-			//$cari[] = null; 
 
 			# 1. mula semak dalam pangkalan data
 			$this->papar->akaun['kes'] = $this->tanya->//cariSql
@@ -49,8 +47,51 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 			$this->papar->_jadual = $jadual;
 		}
 
+		# isytihar pemboleubah
+		$this->papar->Tajuk_Muka_Surat = 'SebutHarga';
+
 		/*echo '<pre>'; # semak data
-		echo '$this->papar->akaun(' . $bil . '):<br>'; print_r($this->papar->akaun);
+		echo '$this->papar->akaun:<br>'; print_r($this->papar->akaun);
+		echo '<br>$this->papar->carian:'; print_r($this->papar->carian);
+		echo '</pre>'; //*/
+
+		# pergi papar kandungan
+		$jenis = $this->papar->pilihTemplate($template=0);
+		$this->papar->bacaTemplate
+		//$this->papar->paparTemplate
+			($this->_folder . '/cetakSebutHarga',$jenis,1); # $noInclude=0
+		//*/
+	}
+
+#---------------------------------------------------------------------------------------------------
+	public function cetakInvois($jadual = null, $cariID = null) 
+	{
+		$cariID = 'spam';
+		if (!empty($cariID))
+		{
+			# senaraikan tatasusunan jadual dan setkan pembolehubah
+			$this->papar->_jadual = $jadual;
+			$this->papar->carian = 'id';
+			$cari[] = array('fix'=>'x%like%','atau'=>'WHERE','medan'=>'status','apa'=>$cariID);
+
+			# 1. mula semak dalam pangkalan data
+			$this->papar->akaun['kes'] = $this->tanya->//cariSql
+				cariSemuaData
+				($this->papar->_jadual, $this->tanya->medanKawalan($cariID), 
+				$cari, $susun = null);
+		}
+		else
+		{
+			$this->papar->carian = '[tiada id diisi]';
+			$this->papar->_jadual = $jadual;
+		}
+
+		# isytihar pemboleubah
+		$this->papar->Tajuk_Muka_Surat = 'Invois';
+
+
+		/*echo '<pre>'; # semak data
+		echo '$this->papar->akaun:<br>'; print_r($this->papar->akaun);
 		echo '<br>$this->papar->carian:'; print_r($this->papar->carian);
 		echo '</pre>'; //*/
 
