@@ -2,7 +2,7 @@
 namespace Aplikasi\Kawal; //echo __NAMESPACE__; 
 class Akaun extends \Aplikasi\Kitab\Kawal
 {
-#==================================================================================================================
+#====================================================================================================
 	public function __construct()
 	{
 		parent::__construct();
@@ -10,20 +10,16 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 		\Aplikasi\Kitab\Kebenaran::kawalKeluar();
 		$this->_folder = 'akaun';
 
-		$this->papar->js = array(
-		/*'bootstrap-transition.js','bootstrap-alert.js','bootstrap-modal.js','bootstrap-dropdown.js',
-			'bootstrap-scrollspy.js','bootstrap-tab.js','bootstrap-tooltip.js','bootstrap-popover.js',
-			'bootstrap-button.js','bootstrap-collapse.js','bootstrap-carousel.js','bootstrap-typeahead.js',
-			'bootstrap-affix.js',*/
+		/*$this->papar->js = array(
 			'bootstrap-datepicker.js','bootstrap-datepicker.min.js',
 			'bootstrap-datepicker.ms.js','bootstrap-editable.min.js');
 		$this->papar->css = array(
 			'bootstrap-datepicker.css',
-			'bootstrap-editable.css');
+			'bootstrap-editable.css');//*/
 	}
 
 	public function index() { echo '<br>class Akaun::index() extend Kawal<br>'; }
-#==================================================================================================================
+#====================================================================================================
 #---------------------------------------------------------------------------------------------------
 	public function cetakSebutHarga($jadual = null, $cariID = null) 
 	{
@@ -62,7 +58,6 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 			($this->_folder . '/cetakSebutHarga',$jenis,1); # $noInclude=0
 		//*/
 	}
-
 #---------------------------------------------------------------------------------------------------
 	public function cetakInvois($jadual = null, $cariID = null) 
 	{
@@ -89,7 +84,6 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 		# isytihar pemboleubah
 		$this->papar->Tajuk_Muka_Surat = 'Invois';
 
-
 		/*echo '<pre>'; # semak data
 		echo '$this->papar->akaun:<br>'; print_r($this->papar->akaun);
 		echo '<br>$this->papar->carian:'; print_r($this->papar->carian);
@@ -101,6 +95,15 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 		//$this->papar->paparTemplate
 			($this->_folder . '/cetak',$jenis,1); # $noInclude=0
 		//*/
+	}
+#---------------------------------------------------------------------------------------------------
+	private function debug($paparAkaun = null, $paparCarian = null) 
+	{
+		// $this->debug($paparAkaun, $paparCarian) # semak data
+		/*echo '<pre>'; 
+		echo '$this->papar->akaun:<br>'; print_r($paparAkaun);
+		echo '<br>$this->papar->carian:'; print_r($paparCarian);
+		echo '</pre>'; //*/
 	}
 #---------------------------------------------------------------------------------------------------
 	public function ubah($jadual = null, $cariID = null) 
@@ -129,10 +132,7 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 		$this->papar->lokasi = 'Akaun - Ubah';
 		$this->papar->cariID = $cariID;
 
-		/*echo '<pre>'; # semak data
-		echo '$this->papar->akaun:<br>'; print_r($this->papar->akaun);
-		echo '<br>$this->papar->carian:'; print_r($this->papar->carian);
-		echo '</pre>'; //*/
+		// $this->debug($paparAkaun, $paparCarian) # semak data
 
 		# pergi papar kandungan
 		$jenis = $this->papar->pilihTemplate($template=0);
