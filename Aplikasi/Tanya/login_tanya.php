@@ -76,13 +76,21 @@ class Login_Tanya extends \Aplikasi\Kitab\Tanya
 			\Aplikasi\Kitab\Sesi::set('levelPengguna', $data['level']);
 			\Aplikasi\Kitab\Sesi::set('loggedIn', true);
 			//echo '<hr>Berjaya';
-			header('location:' . URL . 'ruangtamu');
+			$this->levelPengguna($kira, $data, $data['level']);
 		} 
 		else # login gagal
-		{
-			//echo '<hr>Tidak Berjaya';
+		{	//echo '<hr>Tidak Berjaya';
 			header('location:' . URL . 'login/salah');
 		}//*/
+	}
+
+	function levelPengguna($kira, $data, $level)
+	{
+		//header('location:' . URL . 'ruangtamu');
+		if ($level != 'pelawat')
+			header('location:' . URL . 'ruangtamu');
+		else
+			header('location:' . URL . 'ruangtamu/pelawat'); //*/
 	}
 #---------------------------------------------------------------------------------------------------#
 }
