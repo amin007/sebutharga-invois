@@ -30,6 +30,20 @@ class Ruangtamu extends \Aplikasi\Kitab\Kawal
 			//'mobile/mobile',$jenis,0); # $noInclude=0
 		//*/
 	}
+
+	public function pelawat()
+	{
+		# Set pemboleubah utama
+		$this->papar->tajuk = 'Ruangtamu';
+
+		# pergi papar kandungan
+		$jenis = $this->papar->pilihTemplate($template=1);
+		$this->papar->bacaTemplate(
+		//$this->papar->paparTemplate(
+			$this->_folder . '/pelawat',$jenis,1); # $noInclude=0
+			//'mobile/mobile',$jenis,0); # $noInclude=0
+		//*/
+	}
 #==========================================================================================
 	function semaknama($nama)
 	{
@@ -40,8 +54,8 @@ class Ruangtamu extends \Aplikasi\Kitab\Kawal
 		//echo 'Kod:' . RahsiaHash::create('sha256', $_POST['password'], HASH_PASSWORD_KEY) . ': ';
 	}
 
-	function menu() 
-	{	
+	function menu()
+	{
 		// Set pemboleubah utama
 		$this->papar->pegawai = senarai_kakitangan();
 		$this->papar->tajuk = 'Menu';
