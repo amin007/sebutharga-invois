@@ -37,10 +37,10 @@ class Ruangtamu extends \Aplikasi\Kitab\Kawal
 		$this->papar->tajuk = 'Ruangtamu';
 
 		# pergi papar kandungan
-		$jenis = $this->papar->pilihTemplate($template=1);
+		$jenis = $this->papar->pilihTemplate($template=0);
 		$this->papar->bacaTemplate(
 		//$this->papar->paparTemplate(
-			$this->_folder . '/pelawat',$jenis,1); # $noInclude=0
+			$this->_folder . '/pelawat',$jenis,0); # $noInclude=0
 			//'mobile/mobile',$jenis,0); # $noInclude=0
 		//*/
 	}
