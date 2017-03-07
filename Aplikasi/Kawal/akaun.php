@@ -45,11 +45,7 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 
 		# isytihar pemboleubah
 		$this->papar->Tajuk_Muka_Surat = 'SebutHarga';
-
-		/*echo '<pre>'; # semak data
-		echo '$this->papar->akaun:<br>'; print_r($this->papar->akaun);
-		echo '<br>$this->papar->carian:'; print_r($this->papar->carian);
-		echo '</pre>'; //*/
+		// $this->debug($this->papar->akaun, $this->papar->carian) # semak data
 
 		# pergi papar kandungan
 		$jenis = $this->papar->pilihTemplate($template=0);
@@ -83,11 +79,7 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 
 		# isytihar pemboleubah
 		$this->papar->Tajuk_Muka_Surat = 'Invois';
-
-		/*echo '<pre>'; # semak data
-		echo '$this->papar->akaun:<br>'; print_r($this->papar->akaun);
-		echo '<br>$this->papar->carian:'; print_r($this->papar->carian);
-		echo '</pre>'; //*/
+		// $this->debug($this->papar->akaun, $this->papar->carian) # semak data
 
 		# pergi papar kandungan
 		$jenis = $this->papar->pilihTemplate($template=0);
@@ -99,15 +91,15 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 #---------------------------------------------------------------------------------------------------
 	private function debug($paparAkaun = null, $paparCarian = null) 
 	{
-		// $this->debug($paparAkaun, $paparCarian) # semak data
-		/*echo '<pre>'; 
+		// $this->debug($this->papar->akaun, $this->papar->carian) # semak data
+		echo '<pre>'; 
 		echo '$this->papar->akaun:<br>'; print_r($paparAkaun);
 		echo '<br>$this->papar->carian:'; print_r($paparCarian);
-		echo '</pre>'; //*/
+		echo '</pre>';
 	}
 #---------------------------------------------------------------------------------------------------
 	public function ubah($jadual = null, $cariID = null) 
-	{//echo '<br>Anda berada di class Imej extends Kawal:ubah($cari)<br>';
+	{//echo '<br>Anda berada di class ... extends Kawal:ubah($cari)<br>';
 
 		if (!empty($cariID)) 
 		{
@@ -131,8 +123,7 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 		# isytihar pemboleubah
 		$this->papar->lokasi = 'Akaun - Ubah';
 		$this->papar->cariID = $cariID;
-
-		// $this->debug($paparAkaun, $paparCarian) # semak data
+		// $this->debug($this->papar->akaun, $this->papar->carian) # semak data
 
 		# pergi papar kandungan
 		$jenis = $this->papar->pilihTemplate($template=0);
