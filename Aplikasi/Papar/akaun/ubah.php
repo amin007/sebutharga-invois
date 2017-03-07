@@ -1,11 +1,12 @@
 <style>
-.floating-menu {
-padding: 5px;;
-width: 300px;
-z-index: 100;
-position: fixed;
-bottom: 0px;
-right: 0px;
+.floating-menu 
+{
+	padding: 5px;
+	width: 300px;
+	z-index: 100;
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
 }
 </style>
 <?php 
@@ -61,8 +62,7 @@ else # $this->carian=='ada' - mula
 	foreach ($this->akaun as $myTable => $row)
 	{# mula ulang $row
 		for ($kira=0; $kira < count($row); $kira++)
-		{# print the data row
-		#----------------------------------------------------------------------------
+		{# print the data row -------------------------------------------------------
 		foreach ($row[$kira] as $key=>$data): echo "\n\t\t";
 			?><div class="form-group">
 			<label for="input<?php echo $key 
@@ -72,24 +72,27 @@ else # $this->carian=='ada' - mula
 			echo "\n\t\t\t"; ?></div>
 		</div><?php 
 		endforeach;
-		}# final print the data row
-		#----------------------------------------------------------------------------
+		}# final print the data row -------------------------------------------------
 	}# tamat ulang $row
 	echo "\n\t\t";
 	if(isset($this->akaun['kes'][0]['id'])):
-	$cetakSebutHarga = URL . 'akaun/cetakSebutHarga/' . $this->_jadual . '/' . $this->cariID;
-	$cetakInvois = URL . 'akaun/cetakInvois/' . $this->_jadual . '/' . $this->cariID;
-	?><div class="form-group">
-			<label for="inputSubmit" class="col-sm-3 control-label"><?=$this->_jadual?></label>
-			<div class="col-sm-6">
-				<input type="hidden" name="jadual" value="<?=$this->_jadual?>">
-				<input type="submit" name="Simpan" value="Simpan" class="btn btn-primary btn-large">
-				<a target="_blank" href="<?php echo $cetakSebutHarga ?>" class="btn btn-warning btn-large">Cetak Sebut Harga</a>
-				<a target="_blank" href="<?php echo $cetakInvois ?>" class="btn btn-warning btn-large">Cetak Invois</a>
-			</div>
-		</div>
-	</form>
-	<hr><?php 
+		butangHantar($this->_jadual, $this->cariID);
 	endif;
+	?></form><hr><?php 	
 } # $this->carian=='ada' - tamat 
 //*/
+function butangHantar($_jadual, $cariID)
+{
+	$cetakSebutHarga = URL . 'akaun/cetakSebutHarga/' . $_jadual . '/' . $cariID;
+	$cetakInvois = URL . 'akaun/cetakInvois/' . $_jadual . '/' . $cariID;
+	?><div class="form-group">
+			<label for="inputSubmit" class="col-sm-3 control-label"><?=$_jadual?></label>
+			<div class="col-sm-6">
+				<input type="hidden" name="jadual" value="<?=$_jadual?>">
+				<input type="submit" name="Simpan" value="Simpan" class="btn btn-primary btn-large">
+				<a target="_blank" href="<?php echo $cetakSebutHarga ?>" class="btn btn-warning btn-large">Cetak Sebut Harga</a>
+				<a target="_blank" href="<?php echo $cetakInvois ?>" class="btn btn-success btn-large">Cetak Invois</a>
+			</div>
+		</div>
+	<?php
+}
