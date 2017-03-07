@@ -85,7 +85,7 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 		$jenis = $this->papar->pilihTemplate($template=0);
 		$this->papar->bacaTemplate
 		//$this->papar->paparTemplate
-			($this->_folder . '/cetak',$jenis,1); # $noInclude=0
+			($this->_folder . '/cetakInvois',$jenis,1); # $noInclude=0
 		//*/
 	}
 #---------------------------------------------------------------------------------------------------
