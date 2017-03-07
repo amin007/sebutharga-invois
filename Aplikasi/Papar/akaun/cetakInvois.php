@@ -57,7 +57,7 @@ else # $this->carian=='ada' - mula
 	$namaAkaunBank = '8000522622';//*/
 
 	$kiraPesanan = count($this->akaun['kes']);
-	for($i = 0; $i < $kira; $i++):
+	for($i = 0; $i < $kiraPesanan; $i++):
 		list($tarikh,$dataMesej) = pecahTarikhMesej($this->akaun['kes'][$i]['Mesej']);
 		# untuk semakan ID
 		$bilRujukan =  \Aplikasi\Kitab\RahsiaHash::rahsia('md5', $dataMesej);
@@ -66,7 +66,7 @@ else # $this->carian=='ada' - mula
 		# untuk semakan email
 		$email = ($this->akaun['kes'][$i]['Email']);
 		$email = (isset($email)) ? $email : '';
-		/*echo '<pre>jumlah data = ' . $kira . '</pre>'; # debug data
+		/*echo '<pre>jumlah data = ' . $kiraPesanan . '</pre>'; # debug data
 		echo '<pre>$tarikh '; print_r($tarikh); echo '</pre>';
 		echo '<pre>$dataMesej:'; print_r($dataMesej); echo '</pre>';//*/
 ?>
