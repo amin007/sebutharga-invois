@@ -112,7 +112,7 @@ class Operasi extends \Aplikasi\Kitab\Kawal
 			foreach ($senaraiJadual as $key => $myTable)
 			{# mula ulang table
 				# sql guna limit //$this->papar->cariApa = array();
-					$this->papar->cariApa['spam_' . $key] = $this->tanya->//tatasusunanCari(//cariSql( 
+					$this->papar->cariApa['spam_' . $key] = $this->tanya->//tatasusunanCari(//cariSql(
 						cariSemuaData(
 						$myTable, $medan, $cari2, $cantumSusun);
 			}# tamat ulang table //*/
@@ -133,9 +133,9 @@ class Operasi extends \Aplikasi\Kitab\Kawal
 			foreach ($senaraiJadual as $key => $myTable)
 			{# mula ulang table
 				# sql guna limit //$this->papar->cariApa = array();
-					$this->papar->cariApa['kira_' . $key] = $this->tanya->//tatasusunanCari(//cariSql( 
+					$this->papar->cariApa['kira_' . $key] = $this->tanya->//tatasusunanCari(//cariSql(
 						cariSemuaData(
-						$myTable, $medan1, $cari1, $cantumSusun);
+						$myTable, $medan1, $cari1, $susun);
 			}# tamat ulang table //*/
 
 	}
