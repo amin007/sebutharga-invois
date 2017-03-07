@@ -20,8 +20,7 @@ if(isset($this->akaun['kes'][0]['id'])):
 	$mencari = URL . 'akaun/ubahCari/';
 	$carian = $this->cariID;
 	$mesej = ''; //$carian .' ada dalam ' . $this->_jadual;
-	/*list($namaSyarikat, $semak1, $semak3) = explode("|", $this->akaun['kes'][0]['Tajuk']);
-	?><nav class="floating-menu">
+	/*?><nav class="floating-menu">
 	<p class="bg-primary">
 	<?php echo "\n&nbsp;" . $namaSyarikat ?>
 	</p></nav>
@@ -37,7 +36,7 @@ endif;
 <div class="form-group">
 	<h1>Ubah Data<?=$mesej?>
 	<div class="input-group">
-		<input type="text" name="cari" class="form-control" value="<?=$carian;?>" 
+		<input type="text" name="cari" class="form-control" value="<?=$carian;?>"
 		id="inputString" onkeyup="lookup(this.value);" onblur="fill();">
 		<span class="input-group-addon">
 			<input type="submit" value="mencari">
@@ -62,7 +61,7 @@ else # $this->carian=='ada' - mula
 	foreach ($this->akaun as $myTable => $row)
 	{# mula ulang $row
 		for ($kira=0; $kira < count($row); $kira++)
-		{# print the data row // <button type="button" class="btn btn-info">Info</button>
+		{# print the data row
 		#----------------------------------------------------------------------------
 		foreach ($row[$kira] as $key=>$data): echo "\n\t\t";
 			?><div class="form-group">
@@ -78,14 +77,15 @@ else # $this->carian=='ada' - mula
 	}# tamat ulang $row
 	echo "\n\t\t";
 	if(isset($this->akaun['kes'][0]['id'])):
-	$cetak = URL . 'akaun/cetakInvois/' . $this->_jadual . '/' . $this->cariID;
+	$cetakSebutHarga = URL . 'akaun/cetakSebutHarga/' . $this->_jadual . '/' . $this->cariID;
+	$cetakInvois = URL . 'akaun/cetakInvois/' . $this->_jadual . '/' . $this->cariID;
 	?><div class="form-group">
 			<label for="inputSubmit" class="col-sm-3 control-label"><?=$this->_jadual?></label>
 			<div class="col-sm-6">
 				<input type="hidden" name="jadual" value="<?=$this->_jadual?>">
 				<input type="submit" name="Simpan" value="Simpan" class="btn btn-primary btn-large">
-				<a target="_blank" href="<?php echo $cetak ?>" class="btn btn-warning btn-large">Cetak</a>
-				<?php //echo $mencari2 ?>
+				<a target="_blank" href="<?php echo $cetakSebutHarga ?>" class="btn btn-warning btn-large">Cetak Sebut Harga</a>
+				<a target="_blank" href="<?php echo $cetakInvois ?>" class="btn btn-warning btn-large">Cetak Invois</a>
 			</div>
 		</div>
 	</form>
@@ -93,4 +93,3 @@ else # $this->carian=='ada' - mula
 	endif;
 } # $this->carian=='ada' - tamat 
 //*/
-?><?php
