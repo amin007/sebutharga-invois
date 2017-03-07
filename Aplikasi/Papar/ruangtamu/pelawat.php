@@ -2,7 +2,7 @@
 <hr><h1>Ruangtamu - Untuk Pelawat</h1><hr>
 <div class="hero-unit">
 <?php butangHantar(); ?>
-<a class="btn btn-primary btn-large" href="<?php echo URL ?>ruangtamu/logout">Pergi Lebih Jauh<i class="fa fa-binoculars fa-2x"></i></a>
+<a class="btn btn-primary btn-large" href="<?php echo URL ?>ruangtamu/logout">Keluar<i class="fa fa-binoculars fa-2x"></i></a>
 
 </div><!-- / class="hero-unit" -->
 </div><!-- / class="container" -->
