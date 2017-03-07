@@ -25,18 +25,7 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 	public function index() { echo '<br>class Akaun::index() extend Kawal<br>'; }
 #==================================================================================================================
 #---------------------------------------------------------------------------------------------------
-	public function cetakInvois($jadual = null, $cariID = null)
-	{
-		# Set pemboleubah utama
-		$paparID = $jadual . '/' . $cariID;
-		$this->papar->lokasi = Tajuk_Muka_Surat . ' - cetak';
-
-		# pergi papar kandungan
-		//echo '<br>location: ' . URL . 'akaun/ubah/' . $paparID . '';
-		header('location: ' . URL . 'akaun/cetak/' . $paparID);
-	}
-
-	public function cetak($jadual = null, $cariID = null) 
+	public function cetakInvois($jadual = null, $cariID = null) 
 	{
 		$cariID = 'spam';
 		if (!empty($cariID))
@@ -48,7 +37,7 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 			$cari[] = array('fix'=>'x%like%','atau'=>'WHERE','medan'=>'status','apa'=>$cariID);
 			//$cari[] = null; 
 
-			# 1. mula semak dalam rangka 
+			# 1. mula semak dalam pangkalan data
 			$this->papar->akaun['kes'] = $this->tanya->//cariSql
 				cariSemuaData
 				($this->papar->_jadual, $this->tanya->medanKawalan($cariID), 
@@ -60,16 +49,11 @@ class Akaun extends \Aplikasi\Kitab\Kawal
 			$this->papar->_jadual = $jadual;
 		}
 
-		# isytihar pemboleubah
-		$this->papar->lokasi = 'Akaun - Cetak';
-		$this->papar->cariID = $cariID;
-		$bil =  count($this->papar->akaun['kes']);
-
 		/*echo '<pre>'; # semak data
 		echo '$this->papar->akaun(' . $bil . '):<br>'; print_r($this->papar->akaun);
 		echo '<br>$this->papar->carian:'; print_r($this->papar->carian);
 		echo '</pre>'; //*/
-		
+
 		# pergi papar kandungan
 		$jenis = $this->papar->pilihTemplate($template=0);
 		$this->papar->bacaTemplate
