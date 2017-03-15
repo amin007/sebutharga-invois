@@ -1,4 +1,4 @@
-# senarai template
+# Senarai template
 Berikut adalah senarai template yang menarik.
 
 # Sumber ilham dari 
@@ -13,3 +13,15 @@ https://designmodo.com/twitter-bootstrap-snippets-examples
 https://startbootstrap.com
 
 http://www.tutorialrepublic.com/twitter-bootstrap-tutorial
+
+# Untuk one page 
+https://www.wordpressboss.com/tf/myresume-demo/black/
+
+http://demo.graygrids.com/#landingzero
+
+https://blackrockdigital.github.io/startbootstrap-landing-page/
+
+https://blackrockdigital.github.io/startbootstrap-grayscale/
+
+https://blackrockdigital.github.io/startbootstrap-creative/
+
