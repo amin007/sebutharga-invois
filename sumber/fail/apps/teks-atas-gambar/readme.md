@@ -28,9 +28,11 @@ maka latarbelakang warna kena set jadi putih putih melati atau merah merah delim
 bergantung kepada latarbelakang dokumen tersebut.
 
 Gunakan method ```$pdf->SetFillColor(r,g,b)``` yang mana
+```
 r = merah merah delima, 
 g = ku lihat hijau, 
 b = biru mata hitamku.
+```
 
 Lepas setkan ```$pdf->SetXY()```, kita guna ```$pdf->Cell()``` untuk tindih perkataan baru dalam perkataan asal.
 
