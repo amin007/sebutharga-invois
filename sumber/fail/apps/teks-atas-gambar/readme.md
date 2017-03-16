@@ -6,13 +6,16 @@ Adalah baik dokumen yang hendak diubah kita scanner dalam format pdf.
 
 Mula2 cari fail tcpdf dan fpdi dan include dalam sistem seperti contoh di bawah.
 
+```php
 $folder = 'sumber/aplikasi/kitab/vendor/pdf/';
 require($folder . 'tcpdf/181/fpdf.php');
 require($folder . 'fpdi/1.6.1/fpdi.php');
+```
 
-lepas itu isytihar $pdf = new FPDI();
+lepas itu isytihar ```php $pdf = new FPDI(); ```
 
-Jika borang asal warna putih putih melati, kita setkan nilai $pdf->SetXY().
+Jika borang asal warna putih putih melati, kita setkan nilai 
+```php $pdf->SetXY();```
 
 Terpaksa teka graf yang betul pada persamaan titik x & y.
 
