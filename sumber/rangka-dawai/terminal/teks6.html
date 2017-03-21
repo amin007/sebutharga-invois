@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TypeWriting.js Demo Page</title>
+<style type="text/css">
+body {
+  width: 100%;
+  margin: 0px;
+  font-family: 'Helvetica Neue';
+  background-color: #020202;
+}
+
+#t {
+  line-height: 28px;
+  font-size: 26px;
+  color: #00fd55;
+  letter-spacing: 2px;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+
+#t::before { content: ">"; margin-right: 10px; }
+.g { margin: 20px; }
+</style>
+</head>
+<body>
+<div id="t" class="terminal"></div>
+<script src="contoh/typewriting/src/typewriting.js"></script>
+<script>
+var typeWriting = new TypeWriting({
+    targetElement   : document.getElementsByClassName('terminal')[0],
+    inputString     : 'hello world'+
+		'<h1>https://www.npmjs.com/package/typewriting</h1>'+
+		'Assalamualaikum <br>'+
+		'dan selamat sejahtera.<br>',
+    typing_interval : 130,
+    blink_interval  : '1s',
+    cursor_color    : '#00fd55',
+}, function() {
+    console.log("END");
+});
+</script>
+</body>
+</html>
