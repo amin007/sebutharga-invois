@@ -8,11 +8,11 @@
 <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
 <style>
 body { background-color:#384047; color:#fff; font-family:'Quicksand'; line-height:1.6}
-.container { margin:150px auto; max-width:960px;}
+.container { margin:10px auto; max-width:1000px;}
 h2 { color:#EF476F;}
 .bawah {
 	position: fixed;
-	height: 30px;
+	height: 20px;
 	width: 100%;
 	bottom: 0;
 	left: 0;
@@ -30,29 +30,105 @@ h2 { color:#EF476F;}
 </style>
 </head><body>
 
+<h2>HTML Content (With Cursor)</h2>
 <div class="container">
-	<h1>jQuery Typewriter Demo Page</h1>
-	<h2>Plain Text (No Cursor)</h2>
-	<h3 class="demo1"> </h3>
-	<h2>HTML Content (With Cursor)</h2>
-	<h3 class="demo2"> </h3>
+	<!-- h3 class="demo1"></h3 -->
+	<h3 class="demo2"></h3>
 </div>
 
-<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!-- script src="http://code.jquery.com/jquery-1.12.4.min.js"></script -->
+<script src="sumber/jquery//jquery-2.2.3.min.js"></script>
 <script src="contoh/terminal-text-typing-effect-typewriter/js/typewriter.js"></script>
 <script>
 $('.demo1')
-	.typeIt('Typewriter is a very small jQuery plugin which simulates the typewriter '+
-		'like typing effect for your text and even html content.', 0.06, 'text')
+	.typeIt(''+
+		'Typewriter is a very small jQuery plugin which simulates the terminal <br> '+
+		'typewriter like typing effect for your text and even html content.', 0.06, 'text')
 	.pauseIt(0.5)
 	.typeIt(' :)', 0, 'text')
 	.hideCursor();
 		
 $('.demo2')
-	.typeIt('Typewriter is a very small jQuery plugin which simulates the terminal <br> '+
-		'typewriter like typing effect for your text and even html content.', 0.06, 'html')
+	.typeIt(
+	'Negaraku<br>'+
+	'Negaraku<br>'+
+	'Ku beri sepenuhnya<br>'+
+	'Ku beri sepenuhnya<br>'+
+	'Ini negaraku<br>'+
+	'Oh darahku<br>'+
+	'Hiduplah sepenuhnya<br>'+
+	'Dirgahayu semua<br><br>'+
+	''+
+	'Kalau kata itu kota, kami bina tamadun<br>'+
+	'Lihat rangkap-rangkap pantun hidup beratus tahun<br>'+
+	'Bangkit seribu perwira selamat sejuta insan<br>'+
+	'Gelap dalam matahari insan juga bisa insaf<br>'+
+	'Mana cerita panglima yang wujud benar<br>'+
+	'Awang hitam kaji awan putih bila belayar<br>'+
+	'Hamba keliling dunia tuannya yang terkenal<br>'+
+	'Nak merdeka di jasad, harus bebas di akal<br><br>'+
+	''+
+	'Hatiku tetap hanya padamu<br>'+
+	'Keranamu aku berdiri<br>'+
+	'Tanpamu cita-cita hanya kekal sebagai mimpi<br>'+
+	'Semuanya bermula dari sini<br><br>'+
+	''+
+	'Negaraku<br>'+
+	'Negaraku<br>'+
+	'Ku beri sepenuhnya<br>'+
+	'Ku beri sepenuhnya<br>'+
+	'Demi negaraku<br>'+
+	'Oh darahku<br>'+
+	'Hiduplah sepenuhnya<br>'+
+	'Dirgahayu semua<br><br>'+
+	''+
+	'Dan dari 57, jalannya telah disuluh<br>'+
+	'Bangkit seakan subuh rebung dilentur buluh<br>'+
+	'Terus ke 63, kami menjadi kita<br>'+
+	'Jangan dipersia akibat titik-titik nila<br>'+
+	'Biar hujan batu turun selebat tengkujuh<br>'+
+	'Selagi kami mampu semangat tak pernah lumpuh<br>'+
+	'Selagi ada tubuh untuk kamu aku memburuh<br>'+
+	'Usaha yang aku bubuh semua petir tiada guruh<br><br>'+
+	''+
+	'Hatiku tetap hanya padamu<br>'+
+	'Keranamu aku berdiri<br>'+
+	'Tanpamu cita-cita hanya kekal sebagai mimpi<br>'+
+	'Semuanya bermula dari sini<br><br>'+
+	''+
+	'Negaraku<br>'+
+	'Negaraku<br>'+
+	'Ku beri sepenuhnya<br>'+
+	'Ku beri sepenuhnya<br>'+
+	'Demi negaraku<br>'+
+	'Oh darahku<br>'+
+	'Hiduplah sepenuhnya<br>'+
+	'Dirgahayu semua<br><br>'+
+	''+
+	'Ini untuk kamu yang terima undi aku<br>'+
+	'Try`na change the world, bagi dunia suara baru<br>'+
+	'Ini bukan negara aku, ini negara kita<br>'+
+	'Buat je cara kita<br>'+
+	'Buat je cara kita<br><br>'+
+	''+
+	'Negaraku<br>'+
+	'Negaraku<br>'+
+	'Ku beri sepenuhnya<br>'+
+	'Ku beri sepenuhnya<br>'+
+	'Demi negaraku<br>'+
+	'Oh darahku<br>'+
+	'Hiduplah sepenuhnya<br>'+
+	'Dirgahayu semua<br><br>'+
+	''+
+	'Ini untuk kamu yang terima undi aku<br>'+
+	'Try`na change the world, bagi dunia suara baru<br>'+
+	'Ini bukan negara aku, ini negara kita<br>'+
+	'Buat je cara kita<br>'+
+	'Buat je cara kita<br><br>'+
+	''+
+	'Negaraku.', 0.10, 'html')
 	.pauseIt(0.5)
-	.typeIt(' :)', 0, 'text')
+	.typeIt('', 0, 'text')
 	.showCursor();
 </script>
 
