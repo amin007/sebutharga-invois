@@ -10,10 +10,15 @@ class Login_Tanya extends \Aplikasi\Kitab\Tanya
 
 	function dapatid($nama)
 	{
-		echo '<pre>$_POST->'; print_r($_POST) . '</pre>| ';
+		//echo '<pre>$_POST->'; print_r($_POST) . '</pre>| ';
 		echo '<pre>$nama->'; print_r($nama) . '</pre>| ';
-		echo 'Kod:' . \Aplikasi\Kitab\RahsiaHash::rahsia('md5', $nama) . ': ';
+		//echo 'Kod:' . \Aplikasi\Kitab\RahsiaHash::rahsia('md5', $nama) . ': ';
 		//echo 'Kod:' . RahsiaHash::create('sha256', $_POST['password'], HASH_PASSWORD_KEY) . ': ';
+		# rujuk https://gist.github.com/odan/1d4ff4c4088e906a5a49
+		$garam = \Aplikasi\Kitab\RahsiaHash::cincang($nama);
+		echo '<br>Kod:' . $garam . ': ';
+		//$nama = $nama . 'cubaan';
+		echo '<br>Kod:' . \Aplikasi\Kitab\RahsiaHash::sahkan($nama, $garam) . ': ';
 		//*/
 	}
 
