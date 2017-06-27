@@ -232,9 +232,9 @@ class Tempahan_Tanya extends \Aplikasi\Kitab\Tanya
         {   if ( in_array($myTable,$senarai) )
             {   foreach ($value as $kekunci => $papar)
 				{	$posmen[$myTable][$kekunci]= 
-						( in_array($kekunci,$nilaiRM) ) ? # $nilaiRM rujuk line 154
-						str_replace( ',', '', bersih($papar) ) # buang koma	
-						: bersih($papar);
+					( in_array($kekunci,$nilaiRM) ) ? # $nilaiRM rujuk line 154
+					str_replace( ',', '', bersih($papar) ) # buang koma	
+					: bersih($papar);
 				}	$posmen[$myTable][$medanID] = $dataID;
             }
         }
