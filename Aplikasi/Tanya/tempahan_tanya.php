@@ -159,7 +159,7 @@ class Tempahan_Tanya extends \Aplikasi\Kitab\Tanya
 		# pulangkan pemboleubah
 		return $senaraiMedan;
 	}
-	
+
 	public function senaraiPencam($unit, $tarikh, $masa, $tujuan)
 	{
 		//echo '<br>class Tempahan_Tanya::senaraiPencam(' . $unit . ', ' . $tarikh 
@@ -193,6 +193,25 @@ class Tempahan_Tanya extends \Aplikasi\Kitab\Tanya
 		$data['penyelia'] = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 		$data['boss'] = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 		#
+		$data['jenis_kenderaan'][0]['jenama'] = 'PREVE';
+		$data['jenis_kenderaan'][0]['no_plat'] = 'WAWASAN2020';
+		$data['jenis_kenderaan'][0]['pemandu'] = null;
+		$data['jenis_kenderaan'][1]['jenama'] = 'PAJERO';
+		$data['jenis_kenderaan'][1]['no_plat'] = 'TN50';
+		$data['jenis_kenderaan'][1]['pemandu'] = null;
+
+		# semak pembolehubah $data
+		//echo '<pre>$data:'; print_r($data) . '</pre><br>';
+
+		# pulangkan data
+		return $data;
+	}
+
+	public function senaraiPencam2()
+	{
+		//echo '<br>class Tempahan_Tanya::senaraiPencam() extend Tanya<br>';
+
+		# isytihar pembolehubah
 		$data['jenis_kenderaan'][0]['jenama'] = 'PREVE';
 		$data['jenis_kenderaan'][0]['no_plat'] = 'WAWASAN2020';
 		$data['jenis_kenderaan'][0]['pemandu'] = null;
