@@ -27,5 +27,19 @@ class Tempahan extends \Aplikasi\Kitab\Kawal
 			($this->_folder . '/kenderaan',$jenis,1); # $noInclude=0
 		//*/
 	}
+#---------------------------------------------------------------------------------------------------
+	public function mohon() 
+	{
+		$this->papar->data = $this->tanya->senaraiPencam2();
+		# semak pembolehubah $this->papar->data
+		//echo '<pre>$this->papar->data:'; print_r($this->papar->data) . '</pre><br>';
+
+		# pergi papar kandungan
+		$jenis = $this->papar->pilihTemplate($template=0);
+		$this->papar->bacaTemplate
+		//$this->papar->paparTemplate
+			($this->_folder . '/kenderaan_mohon',$jenis,0); # $noInclude=0
+		//*/
+	}
 #==================================================================================================================
 }
