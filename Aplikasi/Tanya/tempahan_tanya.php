@@ -174,12 +174,12 @@ class Tempahan_Tanya extends \Aplikasi\Kitab\Tanya
 				. '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
 				. '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
 				. '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-		$data['unit'] = 'PANTAS-DAN-MARAH-8';
-		$data['tarikh'][0] = '11-06-2017&nbsp;-&nbsp;12-06-2017';
+		$data['unit'] = tukarHuruf('PANTAS_DAN_GARANG_8');
+		$data['tarikh'][0] = tukarHuruf('11-06-2017_-_12-06-2017');
 		$data['tarikh'][1] = null;
-		$data['masa'][0] = '7.30&nbsp;pagi';
+		$data['masa'][0] = tukarHuruf('7.30_pagi');
 		$data['masa'][1] = null;
-		$data['tujuan'] = 'JALAN-JALAN-CARI-MAKAN';
+		$data['tujuan'] = tukarHuruf('JALAN_JALAN_CARI_MAKAN');
 		$data['tempat'][0] = '&nbsp;BANDAR&nbsp;SEGAMAT' . $ruang;
 		$data['tempat'][1] = '&nbsp;BANDAR&nbsp;MUAR' . $ruang;
 		$data['tempat'][2] = '&nbsp;BANDAR&nbsp;BATU&nbsp;PAHAT' . $ruang;
