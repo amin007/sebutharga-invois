@@ -115,7 +115,7 @@ function bahagian_pertama($data)
 <!-- bahagian 1 - mula -->	
 	<table border="0">
 	<tr><td align="center">
-		<table border="0" width="90%">
+		<table border="0" width="100%">
 		<tr><td>Nota&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </td><td> i) Dua salinan diperlukan.</td></tr>
 		<tr><td>&nbsp;</td><td>ii) Sekurang-kurangnya mesti ditandatangani oleh Penyelia / Ketua Seksyen.&nbsp;</td></tr>
 		<tr><td>&nbsp;</td><td>iii) Permohonan hendaklah dikemukakan 2 hari sebelum tarikh diperlukan.&nbsp;</td></tr>
@@ -132,7 +132,7 @@ function bahagian_pertama($data)
 		<tr><td colspan="6">&nbsp;</td></tr>
 		<tr><td colspan="6">
 			<table><tr>
-			<td class="nospace">TARIKH DIPERLUKAN</td>
+			<td class="nospace">TARIKH&nbsp;DIPERLUKAN</td>
 			<td class="underline2">:<?php echo $data['tarikh'][0] ?></td>
 			<td class="nospace2">MASA&nbsp;DIPERLUKAN:</td>
 			<td class="underline2"><?php echo $data['masa'][0] ?></td>
