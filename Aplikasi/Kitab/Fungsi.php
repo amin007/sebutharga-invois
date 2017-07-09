@@ -242,6 +242,13 @@ function bersihGET_nama($papar)
     return $paparHTML;
 }
 
+function tukarHuruf($asal)
+{
+	$asal = str_replace('_','&nbsp;', $asal);
+
+	return $asal;
+}
+
 function gambar_latarbelakang($lokasi)
 {
 	// '$lokasi=' . $lokasi;
