@@ -245,6 +245,8 @@ function bersihGET_nama($papar)
 function tukarHuruf($asal)
 {
 	$asal = str_replace('_','&nbsp;', $asal);
+	//$asal = preg_replace('/[^a-zA-Z0-9-]/', '&nbsp;', $asal;
+	//$asal = str_replace(array(' ', '<', '>', '&', '{', '}', '*'), array('&nbsp;'), $asal);
 
 	return $asal;
 }
