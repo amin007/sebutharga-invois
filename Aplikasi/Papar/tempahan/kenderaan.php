@@ -114,75 +114,69 @@ function bahagian_pertama($data)
 {?>
 <!-- bahagian 1 - mula -->	
 	<table border="0">
-	<tr><td align="center">
-		<table border="0" width="100%">
+	<tr><td align="center" colspan="6">
+		<table border="0" width="95%">
 		<tr><td>Nota&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </td><td> i) Dua salinan diperlukan.</td></tr>
-		<tr><td>&nbsp;</td><td>ii) Sekurang-kurangnya mesti ditandatangani oleh Penyelia / Ketua Seksyen.&nbsp;</td></tr>
-		<tr><td>&nbsp;</td><td>iii) Permohonan hendaklah dikemukakan 2 hari sebelum tarikh diperlukan.&nbsp;</td></tr>
+		<tr><td>&nbsp;</td>
+			<td>ii) Sekurang-kurangnya mesti ditandatangani oleh Penyelia&nbsp;/&nbsp;Ketua Seksyen.</td></tr>
+		<tr><td>&nbsp;</td>
+			<td>iii) Permohonan hendaklah dikemukakan 2 hari sebelum tarikh diperlukan.</td></tr>
 		</table>
 	</td></tr>
 	<tr><td>&nbsp;</td></tr>
-	<tr><td>
-		<table border="0" width="90%">
-		<tr>
-			<td class="nospace">UNIT / BAHAGIAN</td>
-			<td colspan="5" class="underline">: <?php echo $data['unit'] ?>&nbsp;</td>
-			<!-- td class="underline"> <?php  echo $data['tempat'][3] ?>&nbsp;</td -->
-		</tr>
-		<tr><td colspan="6">&nbsp;</td></tr>
-		<tr><td colspan="6">
-			<table><tr>
-			<td class="nospace">TARIKH&nbsp;DIPERLUKAN</td>
-			<td class="underline2">:<?php echo $data['tarikh'][0] ?></td>
-			<td class="nospace2">MASA&nbsp;DIPERLUKAN:</td>
-			<td class="underline2"><?php echo $data['masa'][0] ?></td>
-			</tr></table>
-		</tr>
-		<tr><td colspan="6">&nbsp;</td></tr>
-		<tr>
-			<td class="nospace">TUJUAN</td>
-			<td colspan="5" class="underline">:<?php echo $data['tujuan'] ?>&nbsp;</td>
-		</tr>
-		<tr><td colspan="6">&nbsp;</td></tr>
-		<tr>
-			<td class="nospace">KE&nbsp;TEMPAT-TEMPAT&nbsp;</td>
-			<td colspan="5" class="underline">: i)<?php echo $data['tempat'][0] ?>&nbsp;</td>
-		</tr>
-		<tr><td class="nospace">&nbsp;</td>
-			<td colspan="5" class="underline">&nbsp;&nbsp;ii)<?php echo $data['tempat'][1] ?>&nbsp;</td>
-		</tr>
-		<tr><td class="nospace">&nbsp;</td>
-			<td colspan="5" class="underline">&nbsp;&nbsp;iii)<?php echo $data['tempat'][2] ?>&nbsp;</td>
-		</tr>
-		<tr><td>&nbsp;</td></tr>
-		<tr>
-			<td class="nospace">NAMA-NAMA&nbsp;PENUMPANG&nbsp;&nbsp;</td>
-			<td class="underline">:&nbsp;i)<?php echo $data['penumpang'][0] ?>&nbsp;</td>
-			<td colspan="3" class="underline"> iv)<?php echo $data['penumpang'][3] ?>&nbsp;</td>
-		</tr>
-		<tr><td class="nospace">&nbsp;</td>
-			<td class="underline">&nbsp;&nbsp;ii)<?php echo $data['penumpang'][1] ?>&nbsp;</td>
-			<td colspan="3" class="underline"> v)<?php echo $data['penumpang'][4] ?>&nbsp;</td>
-		</tr>
-		<tr><td class="nospace">&nbsp;</td>
-			<td class="underline">&nbsp;&nbsp;iii)<?php echo $data['penumpang'][2] ?>&nbsp;</td>
-			<td colspan="3" class="underline"> vi)<?php echo $data['penumpang'][5] ?>&nbsp;</td>
-		</tr>
-		<tr><td colspan="6">&nbsp;</td></tr>
-		<tr>
-			<td colspan="2" class="nospace2">Tandatangan Penyelia / Ketua Seksyen</td>
-			<td colspan="4" class="underline2">:</td>
-		</tr>
-		<tr><td colspan="6">&nbsp;</td></tr>
-		<tr>
-			<td colspan="2" class="nospace2">Nama Penandatangan</td>
-			<td colspan="4" class="underline2">:</td>
-		</tr>
-		<tr><td colspan="6">&nbsp;</td></tr>
-		</table>
-
-	</td></tr>
+	<tr>
+		<td class="nospace">UNIT / BAHAGIAN</td>
+		<td colspan="5" class="underline">: <?php echo $data['unit'] ?>&nbsp;</td>
+		<!-- td class="underline"> <?php  echo $data['tempat'][3] ?>&nbsp;</td -->
+	</tr>
+	<tr><td colspan="6">&nbsp;</td></tr>
+	<tr><td class="nospace">TARIKH&nbsp;DIPERLUKAN</td>
+		<td colspan="2" class="underline2">:<?php echo $data['tarikh'][0] ?></td>
+		<td class="nospace2">MASA&nbsp;DIPERLUKAN:</td>
+		<td class="underline2"><?php echo $data['masa'][0] ?></td>
+	</tr>
+	<tr><td colspan="6">&nbsp;</td></tr>
+	<tr>
+		<td class="nospace">TUJUAN</td>
+		<td colspan="5" class="underline">:<?php echo $data['tujuan'] ?>&nbsp;</td>
+	</tr>
+	<tr><td colspan="6">&nbsp;</td></tr>
+	<tr>
+		<td class="nospace">KE&nbsp;TEMPAT-TEMPAT&nbsp;</td>
+	<td colspan="5" class="underline">: i)<?php echo $data['tempat'][0] ?>&nbsp;</td>
+	</tr>
+	<tr><td class="nospace">&nbsp;</td>
+		<td colspan="5" class="underline">&nbsp;&nbsp;ii)<?php echo $data['tempat'][1] ?>&nbsp;</td>
+	</tr>
+	<tr><td class="nospace">&nbsp;</td>
+		<td colspan="5" class="underline">&nbsp;&nbsp;iii)<?php echo $data['tempat'][2] ?>&nbsp;</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td class="nospace">NAMA-NAMA&nbsp;PENUMPANG&nbsp;&nbsp;</td>
+		<td class="underline">:&nbsp;i)<?php echo $data['penumpang'][0] ?>&nbsp;</td>
+		<td colspan="3" class="underline"> iv)<?php echo $data['penumpang'][3] ?>&nbsp;</td>
+	</tr>
+	<tr><td class="nospace">&nbsp;</td>
+		<td class="underline">&nbsp;&nbsp;ii)<?php echo $data['penumpang'][1] ?>&nbsp;</td>
+		<td colspan="3" class="underline"> v)<?php echo $data['penumpang'][4] ?>&nbsp;</td>
+	</tr>
+	<tr><td class="nospace">&nbsp;</td>
+		<td class="underline">&nbsp;&nbsp;iii)<?php echo $data['penumpang'][2] ?>&nbsp;</td>
+		<td colspan="3" class="underline"> vi)<?php echo $data['penumpang'][5] ?>&nbsp;</td>
+	</tr>
+	<tr><td colspan="6">&nbsp;</td></tr>
+	<tr>
+		<td colspan="2" class="nospace2">Tandatangan Penyelia / Ketua Seksyen</td>
+		<td colspan="4" class="underline2">:</td>
+	</tr>
+	<tr><td colspan="6">&nbsp;</td></tr>
+	<tr>
+		<td colspan="2" class="nospace2">Nama Penandatangan</td>
+		<td colspan="4" class="underline2">:</td>
+	</tr>
+	<tr><td colspan="6">&nbsp;</td></tr>
 	</table>
-	<!-- bahagian 1 - tamat -->	
+<!-- bahagian 1 - tamat -->	
 <?php
 }
