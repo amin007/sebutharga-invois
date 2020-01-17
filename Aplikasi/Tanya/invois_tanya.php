@@ -4,7 +4,27 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 {
 #==========================================================================================
 	public function __construct() { parent::__construct(); }
+#-------------------------------------------------------------------------------------------------#
+	public function contohInvois001($jadual, $medan, $cari, $susun)
+	{
+		# ada nilai
+		$hasil = array ( '0' => array (
+				'id' => '1',
+				'Nama' => 'Fulan Bin Fulan',
+				'Tajuk' => 'Test 123',
+				'Mesej' => 'Test 123 daaa',
+				'Email' => 'fulan@mail.com',
+				'Bayaran' => 'Belum Daa',
+				'Status' => 'Fulan2 Bin Fulan2',
+				'Temujanji' => 'Fulan2 Bin Fulan2',
+				'Tarikh' => 'Fulan2 Bin Fulan2',
+				));
 
+		$hasil2 = array(); # tiada nilai
+
+		return $hasil; # pulangkan pemboleubah
+	}
+#-------------------------------------------------------------------------------------------------#
 	public function medanUbah2($cariID)
 	{
 		$senaraiMedan = 'no,Nama_Penuh nama,email,nohp';
