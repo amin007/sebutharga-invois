@@ -18,7 +18,7 @@ date_default_timezone_set('Asia/Kuala_Lumpur');
 # rujuk fail i-tatarajah.php untuk 
 # define nilai konstan yang perlu dalam framework ini
 # i-tatarajah.php boleh ditukar kepada tatarajah.php
-require 'i-tatarajah.php'; 
+require 'tatarajah.php';
 
 /* 4. masukkan semua fail class dari folder PUSTAKA
 ** URL : http://www.php-fig.org/psr/psr-4/examples/
