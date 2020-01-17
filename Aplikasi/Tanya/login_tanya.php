@@ -37,7 +37,7 @@ class Login_Tanya extends \Aplikasi\Kitab\Tanya
 
 	function semakid($medan = 'namaPenuh,namaPendek,email,kataLaluan,level', $jadual = 'nama_pengguna')
 	{
-		/*$semakLogin = $this->db->prepare("
+		$semakLogin = $this->db->prepare("
 			SELECT  $medan FROM  $jadual WHERE 
 			email = :username AND kataLaluan = :password");
 
@@ -51,8 +51,8 @@ class Login_Tanya extends \Aplikasi\Kitab\Tanya
 		$data = $semakLogin->fetch(); # dapatkan medan terlibat
 		$kira = $semakLogin->rowCount(); # kira jumlah data
 		//*/
-		$data = $this->data_contoh(0); # data olok-olok | dapatkan medan terlibat
-		$kira = $this->data_contoh(1); # data olok-olok | kira jumlah data	
+		//$data = $this->data_contoh(0); # data olok-olok | dapatkan medan terlibat
+		//$kira = $this->data_contoh(1); # data olok-olok | kira jumlah data
 		//echo ' |<pre>$data='; print_r($data); echo '</pre> | $kira=' . $kira;
 
 		$this->kunciPintu($kira, $data); # pilih pintu masuk
