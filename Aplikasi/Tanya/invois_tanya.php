@@ -46,13 +46,14 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 		$hasil = array ( '0' => array (
 				'id' => '1',
 				'Nama' => 'Fulan Bin Fulan',
+				'Alamat' => 'No 1, Jalan 2, Taman 3, 40000 KL',
 				'Tajuk' => 'Test 123',
-				'Mesej' => 'Test 123 daaa',
+				'Mesej' => '12/12/2019 Test 123',
 				'Email' => 'fulan@mail.com',
 				'Bayaran' => 'Belum Daa',
 				'Status' => 'Fulan2 Bin Fulan2',
 				'Temujanji' => 'Fulan2 Bin Fulan2',
-				'Tarikh' => 'Fulan2 Bin Fulan2',
+				'Tarikh' => '18 Januari 2020',
 				));
 
 		$hasil2 = array(); # tiada nilai
