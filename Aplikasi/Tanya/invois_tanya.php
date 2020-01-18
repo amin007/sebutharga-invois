@@ -61,6 +61,29 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 		return $hasil; # pulangkan pemboleubah
 	}
 #-------------------------------------------------------------------------------------------------#
+	public function contohSebutHarga002()
+	{
+		# ada nilai
+		$hasil = array ( '0' => array (
+				'id' => '1',
+				'Nama' => NAMA_ORGANISASI,
+				'Alamat' => ALAMAT_ORGANISASI,
+				'UP' => huruf('Besar_Depan', NAMA_RUJUKAN),
+				'Tajuk' => 'Test 123',
+				'Mesej' => '12/12/2019 Test 123',
+				'Email' => EMAIL_ORGANISASI,
+				'Bayaran' => 'Belum Daa',
+				'Status' => 'Fulan2 Bin Fulan2',
+				'Temujanji' => 'Fulan2 Bin Fulan2',
+				'Tarikh' => '18 Januari 2020',
+				'webapa' => WEB_APA,
+				));
+
+		$hasil2 = array(); # tiada nilai
+
+		return $hasil; # pulangkan pemboleubah
+	}
+#-------------------------------------------------------------------------------------------------#
 	public function medanUbah2($cariID)
 	{
 		$senaraiMedan = 'no,Nama_Penuh nama,email,nohp';
