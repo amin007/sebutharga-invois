@@ -5,7 +5,7 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 #==========================================================================================
 	public function __construct() { parent::__construct(); }
 #-------------------------------------------------------------------------------------------------#
-	public function contohInvois001($jadual, $medan, $cari, $susun)
+	public function contohSebutHarga001()
 	{
 		# ada nilai
 		$hasil = array ( '0' => array (
