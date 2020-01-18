@@ -41,19 +41,13 @@ elseif(!isset($this->akaun['kes'][0]['id']))
 	echo 'data kosong juga<br>';
 else # $this->carian=='ada' - mula
 {
-	/*$namaOrang = '';
-	$namaSyarikat = '';
-	$alamat = '';
-	$notel = '';
-	$namaBank = '';
-	$namaAkaunBank = '';//*/
+	$namaOrang = $this->syarikat[0]['namaOrang'];
+	$namaSyarikat = $this->syarikat[0]['namaSyarikat'];
+	$alamat = $this->syarikat[0]['alamat'];
+	$notel = $this->syarikat[0]['notel'];
+	$namaBank = $this->syarikat[0]['namaBank'];
+	$namaAkaunBank = $this->syarikat[0]['namaAkaunBank'];//*/
 
-	$namaOrang = 'Khairil Iszuddin Ismail'; # contoh sahaja
-	$namaSyarikat = 'My Awesome Company Name';
-	$alamat = '200 Jalan Lurus,<br> Taman Bunga Orchid,<br> 53300 Kuala Lumpur';
-	$notel = '012-222 4455';
-	$namaBank = 'CIMB BANK';
-	$namaAkaunBank = '8000522622';//*/
 
 	$kiraPesanan = count($this->akaun['kes']);
 	for($i = 0; $i < $kiraPesanan; $i++):
