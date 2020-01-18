@@ -1,4 +1,14 @@
 <?php
+function semakPembolehubah($senarai,$jadual,$p='0')
+{
+		echo '<pre>$' . $jadual . '=><br>';
+		if($p == '0') print_r($senarai);
+		if($p == '1') var_export($senarai);
+		echo '</pre>';//*/
+		//$this->semakPembolehubah($ujian,'ujian',0);
+		#http://php.net/manual/en/function.var-export.php
+		#http://php.net/manual/en/function.print-r.php
+}
 function tukartarikh($lama)
 {
 	$baru1 = @date_format($lama, 'j F, Y, g:i a');
@@ -26,6 +36,7 @@ elseif(!isset($this->akaun['kes'][0]['id']))
 	echo 'data kosong juga<br>';
 else # $this->carian=='ada' - mula
 {
+	//semakPembolehubah($this->akaun,'akaun');
 	$namaOrang = $this->syarikat[0]['namaOrang'];
 	$namaSyarikat = $this->syarikat[0]['namaSyarikat'];
 	$noSSM = $this->syarikat[0]['noSSM'];
@@ -40,10 +51,13 @@ else # $this->carian=='ada' - mula
 		# untuk semakan ID
 		$bilRujukan =  \Aplikasi\Kitab\RahsiaHash::rahsia('md5', $dataMesej);
 		$id = $this->akaun['kes'][0]['id'];
-		$bilRujukan = $bilRujukan . '@'. $i . '@' . $id . '/' . $kiraPesanan;
+		//$bilRujukan = $bilRujukan . '@'. $i . '@' . $id . '/' . $kiraPesanan;
+		$bilRujukan = 'YBK@' . $bilRujukan . '@' . $id . '/' . $kiraPesanan;
 		# untuk semakan email
 		$email = ($this->akaun['kes'][$i]['Email']);
 		$email = (isset($email)) ? $email : '';
+		# semak tarikh
+		$tarikh = ($this->akaun['kes'][$i]['Tarikh']);
 		/*echo '<pre>jumlah data = ' . $kiraPesanan . '</pre>'; # debug data
 		echo '<pre>$tarikh '; print_r($tarikh); echo '</pre>';
 		echo '<pre>$dataMesej:'; print_r($dataMesej); echo '</pre>';//*/
@@ -55,47 +69,58 @@ else # $this->carian=='ada' - mula
 	<div class="row">
 		<div class="col-md-9">
 			<h4><?php echo $namaSyarikat . $noSSM ?></h4>
-			<h4><?php echo $alamat . ' - Tel: ' . $notel ?></h4>
+			<small><?php echo $alamat . ' - Tel: ' . $notel ?></small>
 		</div>
 		<div class="col-md-3">
-			<div class="teksBesar">QUOTE</div>
+			<div class="teksBesar">SEBUTHARGA</div>
 		</div>
 	</div>
+
+	<hr><h3>Kepada:</h3>
 	<ul>
-	<li><?php echo $this->akaun['kes'][$i]['Nama'] ?></li>
-	<li><?php echo $this->akaun['kes'][$i]['Email'] ?></li>
-	<li>Note : <?php echo $this->akaun['kes'][$i]['Temujanji'] ?></li>
-	<li>Bil Rujukan : <?php echo $bilRujukan ?>/PAID</li>
 	<!-- li>100-10 Bangunan Terkemuka,</li -->
 	<!-- li>54321 Kuala Lumpur, Malaysia</li -->
 	<!-- li>Attn: Ahmad Kasan</li -->
 	<!-- li>Ref:	RUJUKAN-2014-01(1/3)</li -->
 	<!-- li>Date:	March 10, 2014</li -->
-	<li>Date Email <?php echo nl2br($tarikh) ?></li>
+	<li><?php echo $this->akaun['kes'][$i]['Nama'] ?></li>
+	<li><?php echo $this->akaun['kes'][$i]['Alamat'] ?></li>
+	<li><?php echo $this->akaun['kes'][$i]['Email'] ?></li>
+	<li>Bil Rujukan : <?php echo $bilRujukan ?>/UNPAID</li>
+	<li>Tarikh: <?php echo nl2br($tarikh) ?></li>
 	</ul>
 
-	<h2>Tuan Yang Terutama,</h2>
+	<h5>Tuan Yang Terutama,</h5>
 
-	<P>Sila cari petikan kami untuk produk dan perkhidmatan yang diminta di bawah:</p>
+	<P>Sila lihat sebutharga kami untuk produk dan perkhidmatan yang diminta di bawah:</p>
 
-	<table class="table table-condensed">
+	<table border="1" class="table table-sm table-bordered">
 	<!-- table class="excel" -->
-	<tr><th>Item | Harga (RM) | Qty | Jumlah (RM) </th></tr>
-	<tr><td>Pengembangan Plugin Custom Wordpress</td></tr>
-	<tr><td>Untuk membuat plugin wordpress yang hebat</td></tr>
-	<tr><td>untuk melakukan perkara yang mengagumkan di laman web anda | XXXXXX | 1 | XXXXXX |</td></tr>
-	<tr><td>TOTAL | XXXXXX |</td></tr>
+	<thead class="thead-dark">
+	<tr><th>Item</th><th>Harga (RM)</th><th>Kuantiti</th><th>Jumlah (RM)</th></tr>
+	</thead>
+	<tbody>
+	<tr><td>
+		1. Tambah butang derma kepada billplz<br>
+		2. Senarai kempen yang akan dilaksanakan</td>
+		<td align="center"><?php echo $this->hargaProjek[0] ?></td>
+		<td align="center">1</td>
+		<td align="center"><?php echo $this->hargaProjek[0] ?></td></tr>
+	<tr><td colspan="3" align="right">JUMLAH</td>
+		<td align="center"><?php echo $this->hargaProjek[0] ?></td></tr>
+	</tbody>
 	</table>
 
 	<strong>Skop projek</strong>
-	<p>Untuk membuat yang hebat untuk melakukan perkara-perkara yang mengagumkan di laman web anda</p>
+	<p>Untuk membuat website yang menggunakan gateway epayment</p>
 
 	<strong>Ciri-ciri Termasuk</strong>
 	<ul>
-	<li>Plugin Wordpress mampu mengeluarkan gula-gula dari udara yang nipis</li>
-	<li>Panel pilihan untuk membolehkan pentadbir memilih saiz gula, rasa dan warna gula-gula</li>
+	<li>Ada butang derma kepada billplz</li>
+	<li>Senarai kempen yang akan dilaksanakan</li>
+	<!-- li></li>
 	<li>Panel pilihan untuk menjadualkan pembuatan gula-gula</li>
-	<li>Pilihan untuk menyimpan konfigurasi penciptaan permen</li>
+	<li>Pilihan untuk menyimpan konfigurasi penciptaan permen</li -->
 	</ul>
 
 	<strong>Terma pembayaran:</strong>
@@ -130,7 +155,7 @@ else # $this->carian=='ada' - mula
 	<strong>Terma lain</strong>
 	<p>Petikan ini tidak termasuk caj seperti memperoleh foto stok, memperoleh fon, fotografi profesional, pengeluaran sebelum dan selepas video, bakat dan lain-lain. Caj lain, seperti yang akan disebutkan secara berasingan atas permintaan. Harga yang disebutkan adalah tertakluk kepada perubahan berdasarkan permintaan pelanggan terhadap perkhidmatan lain dan ciri tambahan.</p>
 
-	<p>Kami percaya bahawa anda akan dapati quote di atas memuaskan. Kami berharap dapat bekerja dengan anda. Sila hubungi kami sepatutnya mempunyai sebarang soalan sama sekali.</p>
+	<p>Kami percaya bahawa anda akan dapati sebutharga di atas memuaskan. Kami berharap dapat bekerja dengan anda. Sila hubungi kami sepatutnya mempunyai sebarang soalan sama sekali.</p>
 
 	<p>Sebarang pertanyaan atau pertanyaan boleh diarahkan kepada <?php echo $namaOrang ?> di nombor <?php
 	echo $notel ?></p>
