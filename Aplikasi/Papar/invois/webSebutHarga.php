@@ -52,19 +52,22 @@ else # $this->carian=='ada' - mula
 		$bilRujukan =  \Aplikasi\Kitab\RahsiaHash::rahsia('md5', $dataMesej);
 		$id = $this->akaun['kes'][0]['id'];
 		//$bilRujukan = $bilRujukan . '@'. $i . '@' . $id . '/' . $kiraPesanan;
-		$bilRujukan = 'YBK@' . $bilRujukan . '@' . $id . '/' . $kiraPesanan;
+		$bilRujukan = 'YBK@00' . $id . '/' . $kiraPesanan;
 		# untuk semakan email
 		$email = ($this->akaun['kes'][$i]['Email']);
 		$email = (isset($email)) ? $email : '';
 		# semak tarikh
 		$tarikh = ($this->akaun['kes'][$i]['Tarikh']);
+		$webapa = ($this->akaun['kes'][$i]['webapa']);
 		/*echo '<pre>jumlah data = ' . $kiraPesanan . '</pre>'; # debug data
 		echo '<pre>$tarikh '; print_r($tarikh); echo '</pre>';
 		echo '<pre>$dataMesej:'; print_r($dataMesej); echo '</pre>';//*/
 ?>
-<br>
-<div class="container" style="page-break-before:always">
-<div class="jumbotron">
+<div class="container">
+<div style="padding: 1rem 1rem;
+margin-bottom: 2rem;
+background-color: #e9ecef;
+border-radius: 0.3rem;">
 
 	<div class="row">
 		<div class="col-md-9">
@@ -85,7 +88,7 @@ else # $this->carian=='ada' - mula
 	<!-- li>Date:	March 10, 2014</li -->
 	<li><?php echo $this->akaun['kes'][$i]['Nama'] ?></li>
 	<li><?php echo $this->akaun['kes'][$i]['Alamat'] ?></li>
-	<li><?php echo $this->akaun['kes'][$i]['Email'] ?></li>
+	<li>Untuk Perhatian: <?php echo $this->akaun['kes'][$i]['UP'] ?></li>
 	<li>Bil Rujukan : <?php echo $bilRujukan ?>/UNPAID</li>
 	<li>Tarikh: <?php echo nl2br($tarikh) ?></li>
 	</ul>
@@ -97,12 +100,11 @@ else # $this->carian=='ada' - mula
 	<table border="1" class="table table-sm table-bordered">
 	<!-- table class="excel" -->
 	<thead class="thead-dark">
-	<tr><th>Item</th><th>Harga (RM)</th><th>Kuantiti</th><th>Jumlah (RM)</th></tr>
+	<tr><th>Skop projek</th><th>Harga (RM)</th><th>Kuantiti</th><th>Jumlah (RM)</th></tr>
 	</thead>
 	<tbody>
 	<tr><td>
-		1. Tambah butang derma kepada billplz<br>
-		2. Senarai kempen yang akan dilaksanakan</td>
+		Untuk membuat website <?php echo $webapa ?> yang menggunakan gateway epayment billplz</td>
 		<td align="center"><?php echo $this->hargaProjek[0] ?></td>
 		<td align="center">1</td>
 		<td align="center"><?php echo $this->hargaProjek[0] ?></td></tr>
@@ -110,18 +112,6 @@ else # $this->carian=='ada' - mula
 		<td align="center"><?php echo $this->hargaProjek[0] ?></td></tr>
 	</tbody>
 	</table>
-
-	<strong>Skop projek</strong>
-	<p>Untuk membuat website yang menggunakan gateway epayment</p>
-
-	<strong>Ciri-ciri Termasuk</strong>
-	<ul>
-	<li>Ada butang derma kepada billplz</li>
-	<li>Senarai kempen yang akan dilaksanakan</li>
-	<!-- li></li>
-	<li>Panel pilihan untuk menjadualkan pembuatan gula-gula</li>
-	<li>Pilihan untuk menyimpan konfigurasi penciptaan permen</li -->
-	</ul>
 
 	<strong>Terma pembayaran:</strong>
 	<ul>
@@ -138,7 +128,7 @@ else # $this->carian=='ada' - mula
 		<ul>
 		<li> <?php echo $namaSyarikat ?> </li>
 		<li> <?php echo $namaBank ?> </li>
-		<li> A/C NO.: <?php echo $namaAkaunBank ?> </li>
+		<li> No. Akaun Bank: <?php echo $namaAkaunBank ?> </li>
 		</ul>
 	</li>
 	</ul>
@@ -147,7 +137,7 @@ else # $this->carian=='ada' - mula
 	<p>Kutipan ini sah selama 14 hari dari tarikh dokumen ini.</p>
 
 	<strong>Waranti</strong>
-	<p>Waranti 30 hari disediakan untuk memastikan laman web berfungsi dengan baik dan bebas daripada bug. Apa-apa permintaan menetapkan pepijat yang dilaporkan selepas tempoh 30 hari dikenakan. Ini tidak termasuk pembangunan ciri-ciri baru dan peningkatan.</p>
+	<p>Waranti 30 hari disediakan untuk memastikan laman web berfungsi dengan baik dan bebas daripada pepijat. Apa-apa permintaan menetapkan pepijat yang dilaporkan selepas tempoh 30 hari dikenakan. Ini tidak termasuk pembangunan ciri-ciri baru dan peningkatan.</p>
 
 	<strong>Pemilikan</strong>
 	<p>Semua karya akan menjadi pemilikan klien kecuali untuk karya pihak ketiga yang digunakan dalam projek seperti dan tidak terhad kepada perpustakaan sumber terbuka, karya seni, perpustakaan komersial yang datang dengan perjanjian lesen mereka sendiri. Pelanggan adalah mematuhi terma lesen dan bertanggungjawab sepenuhnya untuk menggunakannya.</p>
@@ -155,10 +145,11 @@ else # $this->carian=='ada' - mula
 	<strong>Terma lain</strong>
 	<p>Petikan ini tidak termasuk caj seperti memperoleh foto stok, memperoleh fon, fotografi profesional, pengeluaran sebelum dan selepas video, bakat dan lain-lain. Caj lain, seperti yang akan disebutkan secara berasingan atas permintaan. Harga yang disebutkan adalah tertakluk kepada perubahan berdasarkan permintaan pelanggan terhadap perkhidmatan lain dan ciri tambahan.</p>
 
-	<p>Kami percaya bahawa anda akan dapati sebutharga di atas memuaskan. Kami berharap dapat bekerja dengan anda. Sila hubungi kami sepatutnya mempunyai sebarang soalan sama sekali.</p>
+	<p>Kami percaya bahawa anda akan dapati sebutharga di atas memuaskan.
+	Kami berharap dapat bekerja dengan anda.</p>
 
-	<p>Sebarang pertanyaan atau pertanyaan boleh diarahkan kepada <?php echo $namaOrang ?> di nombor <?php
-	echo $notel ?></p>
+	<p>Sebarang pertanyaan atau pertanyaan boleh diarahkan kepada <?php echo $namaOrang
+	?> di nombor <?php echo $notel ?></p>
 
 	<p>Sekian kami suka,</p>
 
