@@ -14,6 +14,42 @@ class Invois extends \Aplikasi\Kitab\Kawal
 	public function index() { echo '<br>class Akaun::index() extend Kawal<br>'; }
 #==================================================================================================
 #--------------------------------------------------------------------------------------------------
+	public function semakPembolehubah($senarai,$jadual,$p='0')
+	{
+		echo '<pre>$' . $jadual . '=><br>';
+		if($p == '0') print_r($senarai);
+		if($p == '1') var_export($senarai);
+		echo '</pre>';//*/
+		//$this->semakPembolehubah($ujian,'ujian',0);
+		#http://php.net/manual/en/function.var-export.php
+		#http://php.net/manual/en/function.print-r.php
+	}
+#--------------------------------------------------------------------------------------------------
+	function debugDaa()
+	{
+		$this->semakPembolehubah($this->papar->Tajuk_Muka_Surat,'Tajuk_Muka_Surat');
+		$this->semakPembolehubah($this->papar->carian,'carian');
+		$this->semakPembolehubah($this->papar->syarikat,'syarikat');
+		$this->semakPembolehubah($this->papar->akaun,'akaun');
+	}
+#--------------------------------------------------------------------------------------------------
+	public function cthSebutHarga()
+	{
+		# isytihar pemboleubah
+		$this->papar->Tajuk_Muka_Surat = 'SebutHarga';
+		$this->papar->carian = 'id';
+		$this->papar->syarikat = $this->tanya->contohDataSyarikat001();
+		$this->papar->akaun['kes'] = $this->tanya->contohSebutHarga001();
+		//$this->debugDaa(); # semak data
+
+		# pergi papar kandungan
+		$jenis = $this->papar->pilihTemplate($template=0);
+		$this->papar->bacaTemplate
+		//$this->papar->paparTemplate
+			($this->_folder . '/cetakSebutHarga',$jenis,1); # $noInclude=0
+		//*/
+	}
+#--------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------
 #==================================================================================================
 #--------------------------------------------------------------------------------------------------
