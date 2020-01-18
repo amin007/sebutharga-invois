@@ -38,15 +38,16 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		# isytihar pemboleubah
 		$this->papar->Tajuk_Muka_Surat = 'SebutHarga';
 		$this->papar->carian = 'id';
-		$this->papar->syarikat = $this->tanya->contohDataSyarikat001();
+		$this->papar->syarikat = $this->tanya->contohDataSyarikat002();
 		$this->papar->akaun['kes'] = $this->tanya->contohSebutHarga001();
 		//$this->debugDaa(); # semak data
 
 		# pergi papar kandungan
+		$f = array('cetakSebutHarga','webSebutHarga');
 		$jenis = $this->papar->pilihTemplate($template=0);
 		$this->papar->bacaTemplate
 		//$this->papar->paparTemplate
-			($this->_folder . '/cetakSebutHarga',$jenis,1); # $noInclude=0
+			($this->_folder . '/' . $f[1],$jenis,1); # $noInclude=0
 		//*/
 	}
 #--------------------------------------------------------------------------------------------------
