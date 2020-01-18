@@ -22,6 +22,24 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 		return $hasil; # pulangkan pemboleubah
 	}
 #-------------------------------------------------------------------------------------------------#
+	public function contohDataSyarikat002()
+	{
+		# ada nilai
+		$hasil = array ( '0' => array (
+			'namaOrang' => huruf('Besar_Depan', NAMAORANG),
+			'namaSyarikat' => huruf('Besar_Depan', NAMASYARIKAT),
+			'noSSM' => SSMSYARIKAT,
+			'alamat' => ALAMATSYARIKAT,
+			'notel' => NOTELSYARIKAT,
+			'namaBank' => NAMABANK,
+			'namaAkaunBank' => NAMAAKAUNBANK
+		));
+
+		$hasil2 = array(); # tiada nilai
+
+		return $hasil; # pulangkan pemboleubah
+	}
+#-------------------------------------------------------------------------------------------------#
 	public function contohSebutHarga001()
 	{
 		# ada nilai
