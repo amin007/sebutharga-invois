@@ -35,7 +35,7 @@ table.excel tbody td
 .teksBesar
 {
 	text-align:right;
-	font-size: 225%;
+	font-size: 250%;
 }
 </style>
 </head>
