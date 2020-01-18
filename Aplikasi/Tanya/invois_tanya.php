@@ -5,6 +5,23 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 #==========================================================================================
 	public function __construct() { parent::__construct(); }
 #-------------------------------------------------------------------------------------------------#
+	public function contohDataSyarikat001()
+	{
+		# ada nilai
+		$hasil = array ( '0' => array (
+			'namaOrang' => 'Khairil Iszuddin Ismail',
+			'namaSyarikat' => 'My Awesome Company Name',
+			'alamat' => '200 Jalan Lurus,<br> Taman Bunga Orchid,<br> 53300 Kuala Lumpur',
+			'notel' => '012-222 4455',
+			'namaBank' => 'CIMB BANK',
+			'namaAkaunBank' => '8000522622'
+		));
+
+		$hasil2 = array(); # tiada nilai
+
+		return $hasil; # pulangkan pemboleubah
+	}
+#-------------------------------------------------------------------------------------------------#
 	public function contohSebutHarga001()
 	{
 		# ada nilai
