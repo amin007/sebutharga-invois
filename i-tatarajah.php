@@ -67,6 +67,15 @@ else
 }
 //echo DB_HOST . "," . DB_USER . "," . DB_PASS . ",," . DB_NAME . "<br>";
 ############################################################################################
+# set biodata syarikat
+define('NAMAORANG', 'Khairil Iszuddin Ismail');
+define('NAMASYARIKAT', 'My Awesome Company Name');
+define('SSMSYARIKAT', 'ABC123456-A');
+define('ALAMATSYARIKAT', '200 Jalan Lurus,<br> Taman Bunga Orchid,<br> 53300 Kuala Lumpur');
+define('NOTELSYARIKAT', '012-222 4455');
+define('NAMABANK', 'CIMB BANK');
+define('NAMAAKAUNBANK', '8000522622');
+############################################################################################
 # buat tatasusunan ikut serialize
 define('KAKITANGAN', serialize( 
 	array ('abu','bakar','umar','osman','ali','hasan')
