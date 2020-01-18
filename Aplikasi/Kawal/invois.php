@@ -33,9 +33,10 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		$this->semakPembolehubah($this->papar->akaun,'akaun');
 	}
 #--------------------------------------------------------------------------------------------------
-	public function cthSebutHarga()
+	public function cthSebutHarga($a = 3500)
 	{
 		# isytihar pemboleubah
+		$this->papar->hargaProjek[] = $a;
 		$this->papar->Tajuk_Muka_Surat = 'SebutHarga';
 		$this->papar->carian = 'id';
 		$this->papar->syarikat = $this->tanya->contohDataSyarikat002();
