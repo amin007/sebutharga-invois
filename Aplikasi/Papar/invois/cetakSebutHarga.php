@@ -1,4 +1,4 @@
-<?php 
+<?php
 function tukartarikh($lama)
 {
 	$baru1 = @date_format($lama, 'j F, Y, g:i a');
