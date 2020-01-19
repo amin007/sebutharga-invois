@@ -75,6 +75,15 @@ define('ALAMATSYARIKAT', '200 Jalan Lurus,<br> Taman Bunga Orchid,<br> 53300 Kua
 define('NOTELSYARIKAT', '012-222 4455');
 define('NAMABANK', 'CIMB BANK');
 define('NAMAAKAUNBANK', '8000522622');
+# set data pelanggan
+define('NAMA_RUJUKAN', 'Boboiboy');
+define('NAMA_ORGANISASI', 'Kapal Angkasa Raya');
+define('ALAMAT_ORGANISASI', 'No. 1, Jalan 2,'
+	. 'Taman 3,40000 Kuala Lumpur.');
+define('NOTEL_ORGANISASI', '03 1234 5678');
+define('NOFAX_ORGANISASI', '03 1234 5679');
+define('EMAIL_ORGANISASI', 'duduk@kapalangkasa.com');
+define('WEB_APA', 'www.kapalangkasa.com');
 ############################################################################################
 # buat tatasusunan ikut serialize
 define('KAKITANGAN', serialize( 
