@@ -24,6 +24,21 @@ function setDataAwal($syarikat)
 	return array($namaOrang,$namaSyarikat,$noSSM,$alamat,$notel,$namaBank,$namaAkaunBank);
 }
 #--------------------------------------------------------------------------------------------------
+function setDataAkaun($i, $akaun, $kiraPesanan)
+{
+	# untuk semakan ID
+	$id = $akaun['kes'][0]['id'];
+	$bilRujukan = 'YBK@00' . $id . '/' . $kiraPesanan;
+	# semak tarikh
+	$tarikh = ($akaun['kes'][$i]['Tarikh']);
+	$webapa = ($akaun['kes'][$i]['webapa']);
+	//semakPembolehubah($kiraPesanan,'kiraPesanan');
+	//semakPembolehubah($tarikh,'tarikh');
+	//semakPembolehubah($webapa,'webapa');
+
+	return array($bilRujukan,$tarikh,$webapa);
+}
+#--------------------------------------------------------------------------------------------------
 ?><?php
 # mula koding daa
 include 'diatas001.php';
@@ -40,19 +55,7 @@ else # $this->carian=='ada' - mula
 	$bilRujukan = $tarikh = $webapa = null;
 	$kiraPesanan = count($this->akaun['kes']);
 	for($i = 0; $i < $kiraPesanan; $i++):
-		list($tarikh,$dataMesej) = pecahTarikhMesej($this->akaun['kes'][$i]['Mesej']);
-		# untuk semakan ID
-		$id = $this->akaun['kes'][0]['id'];
-		$bilRujukan = 'YBK@00' . $id . '/' . $kiraPesanan;
-		# untuk semakan email
-		$email = ($this->akaun['kes'][$i]['Email']);
-		$email = (isset($email)) ? $email : '';
-		# semak tarikh
-		$tarikh = ($this->akaun['kes'][$i]['Tarikh']);
-		$webapa = ($this->akaun['kes'][$i]['webapa']);
-		/*echo '<pre>jumlah data = ' . $kiraPesanan . '</pre>'; # debug data
-		echo '<pre>$tarikh '; print_r($tarikh); echo '</pre>';
-		echo '<pre>$dataMesej:'; print_r($dataMesej); echo '</pre>';//*/
+		list($bilRujukan,$tarikh,$webapa) = setDataAkaun($i, $this->akaun, $kiraPesanan);
 ?>
 <div class="container">
 <div style="padding: 1rem 1rem;
