@@ -46,13 +46,15 @@ function setDataAkaun($i, $akaun, $kiraPesanan)
 			if ( count($row)==0 ) echo '';
 			else
 			{
-				echo "\n<!-- Jadual $myTable ########################################### -->";
+				echo "<!-- Jadual $myTable ###########################################"
+				. " -->";
 
 				if($pilih=='nombor') bentukJadualNombor($myTable,$row);
 				else bentukJadualBiasa($myTable,$row);
 
-				echo "\n<!-- Jadual $myTable ########################################### -->";
-			} // if ( count($row)==0 )
+				echo "\n<!-- Jadual $myTable ###########################################"
+				. " -->\n\n";
+			}// if ( count($row)==0 )
 		}
 		#
 	}
@@ -60,7 +62,7 @@ function setDataAkaun($i, $akaun, $kiraPesanan)
 	function bentukJadualBiasa($myTable,$row)
 	{
 		//echo "\n" . '<table border="1" class="excel" id="example">';
-		echo "\n" . '<table border="1" class="table table-sm table-bordered">';
+		echo "\n\t" . '<table border="1" class="table table-sm table-bordered">';
 		//echo "\n" . '<h3>'. $myTable . '</h3>';
 		$printed_headers = false; # mula bina jadual
 		#-----------------------------------------------------------------
@@ -68,29 +70,29 @@ function setDataAkaun($i, $akaun, $kiraPesanan)
 		{
 			if ( !$printed_headers ) # papar tajuk medan sekali sahaja:
 			{
-				echo "\n" . '<thead class="thead-dark"><tr>';
+				echo "\n\t" . '<thead class="thead-dark"><tr>';
 				foreach ( array_keys($row[$kira]) as $tajuk )
 				{
-					echo "\n<th>$tajuk</th>";
+					echo "\n\t<th>$tajuk</th>";
 				}
-				echo "\n</tr></thead>\n<tbody>";
+				echo "\n\t</tr></thead>\n\t<tbody>";
 				$printed_headers = true;
 			}
 		# papar data $row ------------------------------------------------
-		echo "\n" . '<tr>';
+		echo "\n\t" . '<tr>';
 			foreach ( $row[$kira] as $key=>$data )
 			{
-				echo "\n<td>$data</td>";
+				echo "\n\t<td>$data</td>";
 			}
-			echo "\n" . '</tr>';
+			echo "\n\t" . '</tr>';
 		}#-----------------------------------------------------------------
-		echo "\n" . '</tbody></table>';
+		echo "\n\t" . '</tbody></table>';
 	}
 #--------------------------------------------------------------------------------------------------
 	function bentukJadualNombor($myTable,$row)
 	{
 		//echo "\n" . '<table border="1" class="excel" id="example">';
-		echo "\n" . '<table border="1" class="table table-sm table-bordered">';
+		echo "\n\t" . '<table border="1" class="table table-sm table-bordered">';
 		//echo "\n" . '<h3>'. $myTable . '</h3>';
 		$printed_headers = false; # mula bina jadual
 		#-----------------------------------------------------------------
@@ -98,23 +100,23 @@ function setDataAkaun($i, $akaun, $kiraPesanan)
 		{
 			if ( !$printed_headers ) # papar tajuk medan sekali sahaja:
 			{
-				echo "\n" . '<thead class="thead-dark"><tr><th>#</th>';
+				echo "\n\t" . '<thead class="thead-dark"><tr><th>#</th>';
 				foreach ( array_keys($row[$kira]) as $tajuk )
 				{
-					echo "\n<th>$tajuk</th>";
+					echo "\n\t<th>$tajuk</th>";
 				}
-				echo "\n</tr></thead>\n<tbody>";
+				echo "\n\t</tr></thead>\n\t<tbody>";
 				$printed_headers = true;
 			}
 		# papar data $row ------------------------------------------------
-		echo "\n" . '<tr><td align="center">' . ($kira+1) . '</td>';
+		echo "\n\t" . '<tr><td align="center">' . ($kira+1) . '</td>';
 			foreach ( $row[$kira] as $key=>$data )
 			{
 				echo "\n<td>$data</td>";
 			}
-			echo "\n" . '</tr>';
+			echo "\n\t" . '</tr>';
 		}#-----------------------------------------------------------------
-		echo "\n" . '</tbody></table>';
+		echo "\n\t" . '</tbody></table>';
 	}
 #--------------------------------------------------------------------------------------------------
 ?><?php
@@ -164,41 +166,11 @@ border-radius: 0.3rem;">
 
 	<P>Sila lihat invois kami untuk produk dan perkhidmatan yang diminta di bawah:</p>
 
-	<table border="1" class="table table-sm table-bordered">
-	<!-- table class="excel" -->
-	<thead class="thead-dark">
-	<tr><th>Skop projek</th><th>Peratus</th><th>Kuantiti</th><th>Jumlah (RM)</th></tr>
-	</thead>
-	<tbody>
-	<tr><td>
-		Untuk membuat website <?php echo $webapa ?> yang menggunakan gateway epayment billplz
-		</td>
-		<td align="center">100%</td>
-		<td align="center">1</td>
-		<td align="center"><?php echo $this->hargaProjek[0] ?></td></tr>
-	<tr><td>
-		Pembayaran pertama sebanyak 20% - projek bermula
-		</td>
-		<td align="center">20%</td>
-		<td align="center">1</td>
-		<td align="center"><?php echo (0.2 * $this->hargaProjek[0]) ?></td></tr>
-	<tr><td>
-		Pembayaran kedua sebanyak 30% - selepas demo projek pertama
-		</td>
-		<td align="center">30%</td>
-		<td align="center">1</td>
-		<td align="center"><?php echo (0.3 * $this->hargaProjek[0]) ?></td></tr>
-	<tr><td>
-		Pembayaran ketiga sebanyak 50% - Baki yang perlu dibayar
-		</td>
-		<td align="center">50%</td>
-		<td align="center">1</td>
-		<td align="center"><?php echo (0.5 * $this->hargaProjek[0]) ?></td></tr>
-	<tr><td colspan="3" align="right">JUMLAH</td>
-		<td align="center"><?php echo $this->hargaProjek[0] ?></td></tr>
-	</tbody>
-	</table>
-
+	<?php
+	//semakPembolehubah($this->skop,'skop');
+	//semakPembolehubah($this->jadual,'jadual');
+	if(isset($this->skop)) ulangJadual($this->skop,'skop');
+	if(isset($this->jadual)) ulangJadual($this->jadual,'nombor'); ?>
 	<strong>Kaedah Pembayaran</strong>
 	<ul>
 	<li> Cek atau deposit bank langsung. </li>
