@@ -119,6 +119,24 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 		return $hasil; # pulangkan pemboleubah
 	}
 #-------------------------------------------------------------------------------------------------#
+	function kiraJumlahBesar($hasil)
+	{
+		$kiraJum = array();
+		foreach ($hasil as $k=>$subArray) {
+			foreach ($subArray as $id=>$value) {
+				//echo $k. '|$id = ' . $id . '<br>';
+				//if($id == 'Kos (RM)')
+					@$kiraJum[$id]+=$value;
+			}
+		}
+		$jum = array(array (
+			'Aktiviti' => '','Masa' => 'Jumlah',
+			'Kos (RM)' => $kiraJum['Kos (RM)'],'Alasan' => '',
+			));
+		#
+		return $jum;
+	}
+#-------------------------------------------------------------------------------------------------#
 	public function contohJadual001($a)
 	{
 		# ada nilai
