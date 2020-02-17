@@ -11,27 +11,6 @@ function semakPembolehubah($senarai,$jadual,$p='0')
 		#http://php.net/manual/en/function.print-r.php
 }
 #--------------------------------------------------------------------------------------------------
-function tukartarikh($lama)
-{
-	$baru1 = @date_format($lama, 'j F, Y, g:i a');
-	$baru2 = date("j F, Y, g:i a");
-	$baru = ($lama == '0000-00-00 00:00:00') ? $baru2 : $baru1;
-
-	return $baru;
-}
-#--------------------------------------------------------------------------------------------------
-function pecahTarikhMesej($mesej)
-{
-	@list($dataAsal, $data) = explode('Tarikh',$mesej);
-	//@list($tarikh, $data2) = explode('Masa',$data);
-	@list($tarikh, $data2) = explode('Takwim',$data);
-	@list($dataPC, $data3) = explode('Mesej',$data2);
-	$data4 = (isset($data3)) ? $data3 : '';
-	@list($dataMesej, $dataAkhir) = explode('-',$data4);
-	$dataMesej = (isset($dataMesej)) ? $dataMesej : '';
-
-	return array($tarikh, $dataMesej);
-}
 #--------------------------------------------------------------------------------------------------
 ?><?php
 # mula koding daa
@@ -55,9 +34,7 @@ else # $this->carian=='ada' - mula
 	for($i = 0; $i < $kiraPesanan; $i++):
 		list($tarikh,$dataMesej) = pecahTarikhMesej($this->akaun['kes'][$i]['Mesej']);
 		# untuk semakan ID
-		$bilRujukan =  \Aplikasi\Kitab\RahsiaHash::rahsia('md5', $dataMesej);
 		$id = $this->akaun['kes'][0]['id'];
-		//$bilRujukan = $bilRujukan . '@'. $i . '@' . $id . '/' . $kiraPesanan;
 		$bilRujukan = 'YBK@00' . $id . '/' . $kiraPesanan;
 		# untuk semakan email
 		$email = ($this->akaun['kes'][$i]['Email']);
