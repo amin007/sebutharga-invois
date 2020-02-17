@@ -169,27 +169,11 @@ border-radius: 0.3rem;">
 
 	<P>Sila lihat sebutharga kami untuk produk dan perkhidmatan yang diminta di bawah:</p>
 
-	<table border="1" class="table table-sm table-bordered">
-	<!-- table class="excel" -->
-	<thead class="thead-dark">
-	<tr><th>Skop projek</th><th>Harga (RM)</th><th>Kuantiti</th><th>Jumlah (RM)</th></tr>
-	</thead>
-	<tbody>
-	<tr><td>
-		Untuk membuat website <?php echo $webapa ?> yang menggunakan gateway epayment billplz</td>
-		<td align="center"><?php echo $this->hargaProjek[0] ?></td>
-		<td align="center">1</td>
-		<td align="center"><?php echo $this->hargaProjek[0] ?></td></tr>
-	<tr><td colspan="3" align="right">JUMLAH</td>
-		<td align="center"><?php echo $this->hargaProjek[0] ?></td></tr>
-	</tbody>
-	</table>
-
 	<?php
 	//semakPembolehubah($this->skop,'skop');
 	//semakPembolehubah($this->jadual,'jadual');
-	ulangJadual($this->skop,'skop');
-	ulangJadual($this->jadual,'nombor'); ?>
+	if(isset($this->skop)) ulangJadual($this->skop,'skop');
+	if(isset($this->jadual)) ulangJadual($this->jadual,'nombor'); ?>
 
 	<strong>Terma pembayaran:</strong>
 	<ul>
