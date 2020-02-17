@@ -31,6 +31,8 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		$this->semakPembolehubah($this->papar->carian,'carian');
 		$this->semakPembolehubah($this->papar->syarikat,'syarikat');
 		$this->semakPembolehubah($this->papar->akaun,'akaun');
+		$this->semakPembolehubah($this->papar->jadual001,'jadual001');
+		$this->semakPembolehubah($this->papar->jadual002,'jadual002');
 	}
 #--------------------------------------------------------------------------------------------------
 	public function cthSebutHarga($a = 3500)
@@ -41,10 +43,12 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		$this->papar->carian = 'id';
 		$this->papar->syarikat = $this->tanya->contohDataSyarikat002();
 		$this->papar->akaun['kes'] = $this->tanya->contohSebutHarga002();
-		//$this->debugDaa(); # semak data
+		$this->papar->jadual001 = $this->tanya->contohJadual001();
+		$this->papar->jadual002 = $this->tanya->contohJadual002();
+		$this->debugDaa(); # semak data
 
 		# pergi papar kandungan
-		$f = array('cetakSebutHarga','webSebutHarga');
+		/*$f = array('cetakSebutHarga','webSebutHarga');
 		$jenis = $this->papar->pilihTemplate($template=0);
 		$this->papar->bacaTemplate
 		//$this->papar->paparTemplate
@@ -295,5 +299,6 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		$this->papar->baca('akaun/buang', 1);
 
 	}
+#--------------------------------------------------------------------------------------------------
 #==================================================================================================
 }
