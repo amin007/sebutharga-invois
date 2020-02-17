@@ -47,10 +47,10 @@ class Invois extends \Aplikasi\Kitab\Kawal
 #--------------------------------------------------------------------------------------------------
 	function debugDaa()
 	{
-		/*$this->semakPembolehubah($this->papar->Tajuk_Muka_Surat,'Tajuk_Muka_Surat');
+		$this->semakPembolehubah($this->papar->Tajuk_Muka_Surat,'Tajuk_Muka_Surat');
 		$this->semakPembolehubah($this->papar->carian,'carian');
 		$this->semakPembolehubah($this->papar->syarikat,'syarikat');
-		$this->semakPembolehubah($this->papar->akaun,'akaun');*/
+		$this->semakPembolehubah($this->papar->akaun,'akaun');
 		$senarai = array('jadual001'=>$this->papar->jadual001,
 			'jadual002'=>$this->papar->jadual002);
 		$this->semakPembolehubah($senarai,'senarai');
