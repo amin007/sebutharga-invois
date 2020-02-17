@@ -1,5 +1,6 @@
 <?php
-//namespace Aplikasi\Kitab; //echo __NAMESPACE__; 
+//namespace Aplikasi\Kitab; //echo __NAMESPACE__;
+#--------------------------------------------------------------------------------------------------
 function dpt_url()
 {
 	$url = isset($_GET['url']) ? $_GET['url'] : null;
@@ -9,7 +10,7 @@ function dpt_url()
 
 	return $url;
 }
-
+#--------------------------------------------------------------------------------------------------
 function dpt_url_xfilter()
 {
 	$url = isset($_GET['url']) ? $_GET['url'] : null;
@@ -19,7 +20,7 @@ function dpt_url_xfilter()
 
 	return $url;
 }
-
+#--------------------------------------------------------------------------------------------------
 function pecah_url($ulang)
 {
 	$pecah  = explode("/", $_SERVER['REQUEST_URI']);
@@ -36,7 +37,7 @@ function pecah_url($ulang)
 
 	return $papar;
 }
-
+#--------------------------------------------------------------------------------------------------
 function dpt_ip()
 {
 	# define('ALAMAT_IP', serialize (array()) );
@@ -44,7 +45,7 @@ function dpt_ip()
 
 	return $IP;
 }
-
+#--------------------------------------------------------------------------------------------------
 function senarai_kakitangan($pilih = 0)
 {
 	# define('PEGAWAI', serialize (array()) );
@@ -53,7 +54,7 @@ function senarai_kakitangan($pilih = 0)
 
     return $pegawai;
 }
-
+#--------------------------------------------------------------------------------------------------
 function dpt_senarai($pilih)
 {
 	# define('MSICBARU', serialize (array()) );
@@ -68,7 +69,7 @@ function dpt_senarai($pilih)
 
 	return $jadual;
 }
-
+#--------------------------------------------------------------------------------------------------
 # semak data
 function semakDataPOST($semua)
 {
@@ -98,7 +99,7 @@ function semakDataPOST($semua)
 
 	return $posmen;
 }
-
+#--------------------------------------------------------------------------------------------------
 # sql limit
 function pencamSqlLimit($bilSemua, $item, $ms)
 {
@@ -118,7 +119,7 @@ function pencamSqlLimit($bilSemua, $item, $ms)
 
     return $jum;
 }
-
+#--------------------------------------------------------------------------------------------------
 /**
  * Returns the type of the var passed.
  *
@@ -138,31 +139,32 @@ function myGetType($var)
 		if (is_string($var)) return "string";
 		return "unknown type";
 }
+#--------------------------------------------------------------------------------------------------
 # format perpuluhan
 function kiraPerpuluhan($kiraan, $perpuluhan = 1)
 {
 	# pecahan kepada ratus
 	return number_format($kiraan,$perpuluhan,'.',',');
 }
-
+#--------------------------------------------------------------------------------------------------
 function kira($kiraan)
 {
 	# pecahan kepada ratus
 	return number_format($kiraan,0,'.',',');
 }
-
+#--------------------------------------------------------------------------------------------------
 function kira2($dulu,$kini)
 {
 	# buat bandingan dan pecahan kepada ratus
 	return @number_format((($kini-$dulu)/$dulu)*100,0,'.',',');
 	//@$kiraan=(($kini-$dulu)/$dulu)*100;
 }
-
+#--------------------------------------------------------------------------------------------------
 function kira3($kira,$n)
 {
 	return str_pad($kira,$n,"0",STR_PAD_LEFT);
 }
-
+#--------------------------------------------------------------------------------------------------
 function pilihKeyData($key,$keyData,$data)
 {
 	//echo '$key:' . $key; 
@@ -170,7 +172,7 @@ function pilihKeyData($key,$keyData,$data)
 	//echo '$data:[' . $data[$keyData[$key]]  . ']';
 	return $keyData[$key];
 }
-
+#--------------------------------------------------------------------------------------------------
 function pilihValueData($key,$keyData,$data)
 {
 	//echo '$key:' . $key; 
@@ -178,7 +180,7 @@ function pilihValueData($key,$keyData,$data)
 	//echo '$data:[' . $data[$keyData[$key]]  . ']';
 	return $data[$keyData[$key]];
 }
-
+#--------------------------------------------------------------------------------------------------
 function huruf($jenis , $papar) 
 {
 	/*
@@ -206,7 +208,7 @@ function huruf($jenis , $papar)
 
 	return $papar;
 }
-
+#--------------------------------------------------------------------------------------------------
 function bersih($papar) 
 {
 	# lepas lari aksara khas dalam SQL
@@ -216,7 +218,7 @@ function bersih($papar)
 
 	return $papar;
 }
-
+#--------------------------------------------------------------------------------------------------
 function bersihGET($papar) 
 {
 	# bersih untuk $_GET sahaja
@@ -230,7 +232,7 @@ function bersihGET($papar)
     //return $papar;
     return $paparHTML;
 }
-
+#--------------------------------------------------------------------------------------------------
 function bersihGET_nama($papar) 
 {
 	# bersih untuk $_GET sahaja
@@ -241,7 +243,7 @@ function bersihGET_nama($papar)
     //return $papar;
     return $paparHTML;
 }
-
+#--------------------------------------------------------------------------------------------------
 function tukarHuruf($asal)
 {
 	$asal = str_replace('_','&nbsp;', $asal);
@@ -250,7 +252,7 @@ function tukarHuruf($asal)
 
 	return $asal;
 }
-
+#--------------------------------------------------------------------------------------------------
 function gambar_latarbelakang($lokasi)
 {
 	// '$lokasi=' . $lokasi;
@@ -292,7 +294,7 @@ function gambar_latarbelakang($lokasi)
     $today = rand(0, count($papar)-1); 
     return $papar[$today];
 }
-
+#--------------------------------------------------------------------------------------------------
 # lisfile2 - mula
 function GetMatchingFiles($files, $search) 
 {
@@ -347,7 +349,7 @@ function GetMatchingFiles($files, $search)
 		return $matches;
 	endif;
 }
-
+#--------------------------------------------------------------------------------------------------
 # Returns all Files contained in given dir, including subdirs
 function GetContents($dir,$files=array()) 
 {
@@ -365,3 +367,4 @@ function GetContents($dir,$files=array())
 	endif;
 }
 # listfile2 - tamat
+#--------------------------------------------------------------------------------------------------
