@@ -11,6 +11,18 @@ function semakPembolehubah($senarai,$jadual,$p='0')
 		#http://php.net/manual/en/function.print-r.php
 }
 #--------------------------------------------------------------------------------------------------
+function setDataAwal($syarikat)
+{
+	$namaOrang = $syarikat[0]['namaOrang'];
+	$namaSyarikat = $syarikat[0]['namaSyarikat'];
+	$noSSM = ' (' . $syarikat[0]['noSSM'] . ')';
+	$alamat = $syarikat[0]['alamat'];
+	$notel = $syarikat[0]['notel'];
+	$namaBank = $syarikat[0]['namaBank'];
+	$namaAkaunBank = $syarikat[0]['namaAkaunBank'];//*/
+
+	return array($namaOrang,$namaSyarikat,$noSSM,$alamat,$notel,$namaBank,$namaAkaunBank);
+}
 #--------------------------------------------------------------------------------------------------
 ?><?php
 # mula koding daa
@@ -22,13 +34,8 @@ elseif(!isset($this->akaun['kes'][0]['id']))
 else # $this->carian=='ada' - mula
 {
 	//semakPembolehubah($this->akaun,'akaun');
-	$namaOrang = $this->syarikat[0]['namaOrang'];
-	$namaSyarikat = $this->syarikat[0]['namaSyarikat'];
-	$noSSM = ' (' . $this->syarikat[0]['noSSM'] . ')';
-	$alamat = $this->syarikat[0]['alamat'];
-	$notel = $this->syarikat[0]['notel'];
-	$namaBank = $this->syarikat[0]['namaBank'];
-	$namaAkaunBank = $this->syarikat[0]['namaAkaunBank'];//*/
+	list($namaOrang,$namaSyarikat,$noSSM,$alamat,$notel,$namaBank,$namaAkaunBank)
+		= setDataAwal($this->syarikat);
 
 	$kiraPesanan = count($this->akaun['kes']);
 	for($i = 0; $i < $kiraPesanan; $i++):
