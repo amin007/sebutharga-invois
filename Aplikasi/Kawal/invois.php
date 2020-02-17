@@ -320,10 +320,10 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		#
 	}
 #--------------------------------------------------------------------------------------------------
-	function buatJadual($myTable,$row)
+	function bentukJadual($myTable,$row)
 	{
 		echo "\n" . '<table border="1" class="excel" id="example">';
-		echo "\n" . '<h3>'. $tajukjadual . '</h3>';
+		echo "\n" . '<h3>'. $myTable . '</h3>';
 		$printed_headers = false; # mula bina jadual
 		#-----------------------------------------------------------------
 		for ($kira=0; $kira < count($row); $kira++)
@@ -342,7 +342,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		echo "\n" . '<tr><td align="center">' . ($kira+1) . '</td>';
 			foreach ( $row[$kira] as $key=>$data )
 			{
-				echo "\n<td>$tajuk</td>";
+				echo "\n<td>$data</td>";
 			}
 			echo "\n" . '</tr>';
 		}#-----------------------------------------------------------------
