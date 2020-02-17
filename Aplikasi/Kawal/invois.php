@@ -45,12 +45,12 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		$this->papar->carian = 'id';
 		$this->papar->syarikat = $this->tanya->contohDataSyarikat002();
 		$this->papar->akaun['kes'] = $this->tanya->contohSebutHarga002();
-		$this->papar->jadual001 = $this->tanya->contohJadual001();
-		$this->papar->jadual002 = $this->tanya->contohJadual002();
-		$this->debugDaa(); # semak data
+		$this->papar->jadual['j001'] = $this->tanya->contohJadual001();
+		$this->papar->jadual['j002'] = $this->tanya->contohJadual002();
+		//$this->debugDaa(); # semak data
 
 		# pergi papar kandungan
-		/*$f = array('cetakSebutHarga','webSebutHarga');
+		$f = array('cetakSebutHarga','webSebutHarga');
 		$jenis = $this->papar->pilihTemplate($template=0);
 		$this->papar->bacaTemplate
 		//$this->papar->paparTemplate
