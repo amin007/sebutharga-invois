@@ -159,6 +159,20 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 		return $hasil; # pulangkan pemboleubah
 	}
 #-------------------------------------------------------------------------------------------------#
+	function notaTambahan()
+	{
+		# ada nilai
+		$hasil = 'Catatan: Bayaran melalui maybank2u untuk deposit sebanyak 50% dari'
+		. 'jumlah besar iaitu sebanyak RM2000<br>'
+		. 'Sah sehingga tempoh 3 bulan dari tarikh sebutharga dikeluarkan<br>'
+		. 'Kami percaya anda mencari sebutharga yang memuaskan dan memandang ke hadapan'
+		. 'untuk masa depan anda. Sila hubungi kami untuk apa-apa soalan.';
+
+		$hasil2 = array();# tiada nilai
+
+		return $hasil;# pulangkan pemboleubah
+	}
+#-------------------------------------------------------------------------------------------------#
 	function kiraJumlahBesar($hasil)
 	{
 		$kiraJum = array();
