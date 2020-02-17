@@ -176,15 +176,6 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		$this->paparTemplate($f[0]);
 	}
 #--------------------------------------------------------------------------------------------------
-	private function debug($paparAkaun = null, $paparCarian = null) 
-	{
-		// $this->debug($this->papar->akaun, $this->papar->carian) # semak data
-		echo '<pre>'; 
-		echo '$this->papar->akaun:<br>'; print_r($paparAkaun);
-		echo '<br>$this->papar->carian:'; print_r($paparCarian);
-		echo '</pre>';
-	}
-#--------------------------------------------------------------------------------------------------
 	public function ubah($jadual = null, $cariID = null) 
 	{//echo '<br>Anda berada di class ... extends Kawal:ubah($cari)<br>';
 
