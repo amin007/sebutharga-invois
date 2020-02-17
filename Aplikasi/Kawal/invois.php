@@ -46,7 +46,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 ##-------------------------------------------------------------------------------------------------
 #==================================================================================================
 #--------------------------------------------------------------------------------------------------
-	function debugDaa()
+	private function debugDaa()
 	{
 		$this->semakPembolehubah($this->papar->Tajuk_Muka_Surat,'Tajuk_Muka_Surat');
 		$this->semakPembolehubah($this->papar->carian,'carian');
@@ -136,7 +136,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 
 		# isytihar pembolehubah
 		$this->papar->Tajuk_Muka_Surat = 'SebutHarga';
-		//$this->debug($this->papar->akaun, $this->papar->carian); # semak data
+		//$this->debugDaa(); # semak data
 
 		# pergi papar kandungan
 		$f = array('cetakSebutHarga','webSebutHarga');
@@ -169,7 +169,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 
 		# isytihar pembolehubah
 		$this->papar->Tajuk_Muka_Surat = 'Invois';
-		// $this->debug($this->papar->akaun, $this->papar->carian); # semak data
+		//$this->debugDaa(); # semak data
 
 		# pergi papar kandungan
 		$f = array('cetakInvois','webInvois');
