@@ -28,8 +28,9 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		//echo '<br>class Akaun::index() extend Kawal<br>';
 		# isytihar pembolehubah
 		$this->papar->Tajuk_Muka_Surat = $this->_folder;
-		$f = array('index','index1');
+
 		# pergi papar kandungan
+		$f = array('index','index1');
 		$this->paparTemplate($f[0]);
 	}
 ##-------------------------------------------------------------------------------------------------
