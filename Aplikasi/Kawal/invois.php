@@ -12,6 +12,17 @@ class Invois extends \Aplikasi\Kitab\Kawal
 	}
 
 	public function index() { echo '<br>class Akaun::index() extend Kawal<br>'; }
+##-------------------------------------------------------------------------------------------------
+	public function paparTemplate($f)
+	{
+		# pergi papar kandungan
+		$jenis = $this->papar->pilihTemplate($template=0);
+		$this->papar->bacaTemplate
+		//$this->papar->paparTemplate
+			($this->_folder . '/' . $f,$jenis,1); # $noInclude=0
+		//*/
+	}
+##-------------------------------------------------------------------------------------------------
 #==================================================================================================
 #--------------------------------------------------------------------------------------------------
 	public function semakPembolehubah($senarai,$jadual,$p='0')
