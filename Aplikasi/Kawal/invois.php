@@ -26,7 +26,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 	public function index()
 	{
 		//echo '<br>class Akaun::index() extend Kawal<br>';
-		# isytihar pemboleubah
+		# isytihar pembolehubah
 		$this->papar->Tajuk_Muka_Surat = $this->_folder;
 		$f = array('index','index1');
 		# pergi papar kandungan
@@ -74,7 +74,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 #--------------------------------------------------------------------------------------------------
 	public function cthSebutHarga($a = 3500, $b = 100)
 	{
-		# isytihar pemboleubah
+		# isytihar pembolehubah
 		$this->papar->hargaProjek[] = $a;
 		$this->papar->Tajuk_Muka_Surat = 'SebutHarga';
 		$this->papar->carian = 'id';
@@ -97,7 +97,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 #--------------------------------------------------------------------------------------------------
 	public function cthInvois($a = 3500)
 	{
-		# isytihar pemboleubah
+		# isytihar pembolehubah
 		$this->papar->hargaProjek[] = $a;
 		$this->papar->Tajuk_Muka_Surat = 'SebutHarga';
 		$this->papar->carian = 'id';
@@ -141,7 +141,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 			$this->papar->_jadual = $jadual;
 		}
 
-		# isytihar pemboleubah
+		# isytihar pembolehubah
 		$this->papar->Tajuk_Muka_Surat = 'SebutHarga';
 		//$this->debug($this->papar->akaun, $this->papar->carian); # semak data
 
@@ -177,7 +177,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 			$this->papar->_jadual = $jadual;
 		}
 
-		# isytihar pemboleubah
+		# isytihar pembolehubah
 		$this->papar->Tajuk_Muka_Surat = 'Invois';
 		// $this->debug($this->papar->akaun, $this->papar->carian); # semak data
 
@@ -220,7 +220,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 			$this->papar->_jadual = 'be16_kawal';
 		}
 
-		# isytihar pemboleubah
+		# isytihar pembolehubah
 		$this->papar->lokasi = 'Akaun - Ubah';
 		$this->papar->cariID = $cariID;
 		// $this->debug($this->papar->akaun, $this->papar->carian); # semak data
@@ -240,7 +240,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		$input = bersih($_GET['cari']);
 		$dataID = str_pad($input, 12, "0", STR_PAD_LEFT);
 
-		# Set pemboleubah utama
+		# Set pembolehubah utama
 		$this->papar->pegawai = senarai_kakitangan();
 		$this->papar->lokasi = Tajuk_Muka_Surat . ' - Ubah';
 
