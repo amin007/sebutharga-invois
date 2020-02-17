@@ -2,7 +2,7 @@
 namespace Aplikasi\Tanya; //echo __NAMESPACE__; 
 class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 {
-#==========================================================================================
+#==================================================================================================
 	public function __construct() { parent::__construct(); }
 #-------------------------------------------------------------------------------------------------#
 	public function semakPembolehubah($senarai,$jadual,$p='0')
@@ -122,11 +122,13 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 	function kiraJumlahBesar($hasil)
 	{
 		$kiraJum = array();
+		$kiraJum['Kos (RM)'] = 0;
+		$abaikan = array('Aktiviti','Masa','Alasan');
 		foreach ($hasil as $k=>$subArray) {
 			foreach ($subArray as $id=>$value) {
 				//echo $k. '|$id = ' . $id . '<br>';
-				//if($id == 'Kos (RM)')
-					@$kiraJum[$id]+=$value;
+				if(!in_array($id,$abaikan))
+					$kiraJum[$id]+=$value;
 			}
 		}
 		$jum = array(array (
@@ -135,6 +137,19 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 			));
 		#
 		return $jum;
+	}
+#-------------------------------------------------------------------------------------------------#
+	public function contohJadual000($a)
+	{
+		# ada nilai
+		$hasil = array(
+			array (
+			'Kadar Sejam' => $a
+			));
+		//$hasil = array_merge($hasil, $jum);
+		$hasil2 = array(); # tiada nilai
+
+		return $hasil; # pulangkan pemboleubah
 	}
 #-------------------------------------------------------------------------------------------------#
 	public function contohJadual001($a)
@@ -498,5 +513,5 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 		# pulangkan pemboleubah
 		return $posmen;
 	}
-#==========================================================================================
+#==================================================================================================
 }
