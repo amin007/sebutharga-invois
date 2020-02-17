@@ -126,27 +126,14 @@ elseif(!isset($this->akaun['kes'][0]['id']))
 	echo 'data kosong juga<br>';
 else # $this->carian=='ada' - mula
 {
+	//semakPembolehubah($this->syarikat,'syarikat');
+	list($namaOrang,$namaSyarikat,$noSSM,$alamat,$notel,$namaBank,$namaAkaunBank)
+		= setDataAwal($this->syarikat);
 	//semakPembolehubah($this->akaun,'akaun');
-	$namaOrang = $this->syarikat[0]['namaOrang'];
-	$namaSyarikat = $this->syarikat[0]['namaSyarikat'];
-	$noSSM = $this->syarikat[0]['noSSM'];
-	$alamat = $this->syarikat[0]['alamat'];
-	$notel = $this->syarikat[0]['notel'];
-	$namaBank = $this->syarikat[0]['namaBank'];
-	$namaAkaunBank = $this->syarikat[0]['namaAkaunBank'];//*/
-
+	$bilRujukan = $tarikh = $webapa = null;
 	$kiraPesanan = count($this->akaun['kes']);
 	for($i = 0; $i < $kiraPesanan; $i++):
-		# untuk semakan ID
-		$id = $this->akaun['kes'][0]['id'];
-		//$bilRujukan = $bilRujukan . '@'. $i . '@' . $id . '/' . $kiraPesanan;
-		$bilRujukan = 'YBK@00' . $id . '/' . $kiraPesanan;
-		# untuk semakan email
-		$email = ($this->akaun['kes'][$i]['Email']);
-		$email = (isset($email)) ? $email : '';
-		# semak tarikh
-		$tarikh = ($this->akaun['kes'][$i]['Tarikh']);
-		$webapa = ($this->akaun['kes'][$i]['webapa']);
+		list($bilRujukan,$tarikh,$webapa) = setDataAkaun($i, $this->akaun, $kiraPesanan);
 ?>
 <div class="container">
 <div style="padding: 1rem 1rem;
