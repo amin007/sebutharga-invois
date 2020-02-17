@@ -178,7 +178,7 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 		$kiraJum = array();
 		$kiraJum['Kos (RM)'] = 0;
 		$kiraJum['Masa'] = 0;
-		$abaikan = array('Aktiviti','Masa','Alasan');
+		$abaikan = array('Aktiviti','Alasan');
 		foreach ($hasil as $k=>$subArray) {
 			foreach ($subArray as $id=>$value) {
 				//echo $k. '|$id = ' . $id . '<br>';
