@@ -1,4 +1,5 @@
 <?php
+#--------------------------------------------------------------------------------------------------
 function semakPembolehubah($senarai,$jadual,$p='0')
 {
 		echo '<pre>$' . $jadual . '=><br>';
@@ -9,6 +10,7 @@ function semakPembolehubah($senarai,$jadual,$p='0')
 		#http://php.net/manual/en/function.var-export.php
 		#http://php.net/manual/en/function.print-r.php
 }
+#--------------------------------------------------------------------------------------------------
 function tukartarikh($lama)
 {
 	$baru1 = @date_format($lama, 'j F, Y, g:i a');
@@ -17,6 +19,7 @@ function tukartarikh($lama)
 
 	return $baru;
 }
+#--------------------------------------------------------------------------------------------------
 function pecahTarikhMesej($mesej)
 {
 	@list($dataAsal, $data) = explode('Tarikh',$mesej);
@@ -29,6 +32,9 @@ function pecahTarikhMesej($mesej)
 
 	return array($tarikh, $dataMesej);
 }
+#--------------------------------------------------------------------------------------------------
+?><?php
+# mula koding daa
 include 'diatas001.php';
 if ($this->carian=='[tiada id diisi]')
     echo 'data kosong<br>';
@@ -39,7 +45,7 @@ else # $this->carian=='ada' - mula
 	//semakPembolehubah($this->akaun,'akaun');
 	$namaOrang = $this->syarikat[0]['namaOrang'];
 	$namaSyarikat = $this->syarikat[0]['namaSyarikat'];
-	$noSSM = $this->syarikat[0]['noSSM'];
+	$noSSM = ' (' . $this->syarikat[0]['noSSM'] . ')';
 	$alamat = $this->syarikat[0]['alamat'];
 	$notel = $this->syarikat[0]['notel'];
 	$namaBank = $this->syarikat[0]['namaBank'];
