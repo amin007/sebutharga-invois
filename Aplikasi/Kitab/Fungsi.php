@@ -38,23 +38,6 @@ function pecah_url($ulang)
 	return $papar;
 }
 #--------------------------------------------------------------------------------------------------
-function dpt_ip()
-{
-	# define('ALAMAT_IP', serialize (array()) );
-	$IP = unserialize(ALAMAT_IP);
-
-	return $IP;
-}
-#--------------------------------------------------------------------------------------------------
-function senarai_kakitangan($pilih = 0)
-{
-	# define('PEGAWAI', serialize (array()) );
-	$pegawai = ($pilih==2) ? 
-		unserialize(PROSESAN) : unserialize(PEGAWAI);
-
-    return $pegawai;
-}
-#--------------------------------------------------------------------------------------------------
 function dpt_senarai($pilih)
 {
 	# define('MSICBARU', serialize (array()) );
@@ -255,10 +238,7 @@ function tukarHuruf($asal)
 #--------------------------------------------------------------------------------------------------
 function gambar_latarbelakang($lokasi)
 {
-	// '$lokasi=' . $lokasi;
-    //$tmpt1 = '../private_html/bg/bg'; // utk localhost
 	$tmpt1 = '../../../../private_html/bg/bg'; // utk localhost
-    //$tmpt2 = '../../../../bssu/bg/bg'; // utk website amin007
 	//$tmpt = ($lokasi=='localhost') ? $tmpt1 : $tmpt2;
     $dh = opendir($tmpt1);
     $i=1;
