@@ -299,6 +299,53 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		$this->papar->baca('akaun/buang', 1);
 
 	}
+#==================================================================================================
+#--------------------------------------------------------------------------------------------------
+	function ulangJadual($senarai)
+	{
+		foreach ($senarai as $myTable => $row)
+		{
+			if ( count($row)==0 ) echo '';
+			else
+			{
+				echo "\n<!-- Jadual $myTable "
+				. '########################################### -->';
+				$this->bentukJadual($myTable,$row);
+				echo "\n<!-- Jadual $myTable "
+				. '########################################### -->';
+			} // if ( count($row)==0 )
+		}
+		#
+	}
+#--------------------------------------------------------------------------------------------------
+	function buatJadual($myTable,$row)
+	{
+		echo "\n" . '<table border="1" class="excel" id="example">';
+		echo "\n" . '<h3>'. $tajukjadual . '</h3>';
+		$printed_headers = false; # mula bina jadual
+		#-----------------------------------------------------------------
+		for ($kira=0; $kira < count($row); $kira++)
+		{
+			if ( !$printed_headers ) # papar tajuk medan sekali sahaja:
+			{
+				echo "\n" . '<thead><tr><th>#</th>';
+				foreach ( array_keys($row[$kira]) as $tajuk )
+				{
+					echo "\n<th>$tajuk</th>";
+				}
+				echo "\n" . '</tr></thead>';
+				$printed_headers = true;
+			}
+		# papar data $row ------------------------------------------------
+		echo "\n" . '<tr><td align="center">' . ($kira+1) . '</td>';
+			foreach ( $row[$kira] as $key=>$data )
+			{
+				echo "\n<td>$tajuk</td>";
+			}
+			echo "\n" . '</tr>';
+		}#-----------------------------------------------------------------
+		echo "\n" . '</table>';
+	}
 #--------------------------------------------------------------------------------------------------
 #==================================================================================================
 }
