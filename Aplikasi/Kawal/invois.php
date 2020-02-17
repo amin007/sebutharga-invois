@@ -3,12 +3,24 @@ namespace Aplikasi\Kawal; //echo __NAMESPACE__;
 class Invois extends \Aplikasi\Kitab\Kawal
 {
 #==================================================================================================
+##-------------------------------------------------------------------------------------------------
 	public function __construct()
 	{
 		parent::__construct();
 		//\Aplikasi\Kitab\Kebenaran::kawalMasuk();
 		//\Aplikasi\Kitab\Kebenaran::kawalKeluar();
 		$this->_folder = 'invois';
+	}
+##-------------------------------------------------------------------------------------------------
+	public function semakPembolehubah($senarai,$jadual,$p='0')
+	{
+		echo '<pre>$' . $jadual . '=><br>';
+		if($p == '0') print_r($senarai);
+		if($p == '1') var_export($senarai);
+		echo '</pre>';//*/
+		//$this->semakPembolehubah($ujian,'ujian',0);
+		#http://php.net/manual/en/function.var-export.php
+		#http://php.net/manual/en/function.print-r.php
 	}
 ##-------------------------------------------------------------------------------------------------
 	public function index()
@@ -32,17 +44,6 @@ class Invois extends \Aplikasi\Kitab\Kawal
 	}
 ##-------------------------------------------------------------------------------------------------
 #==================================================================================================
-#--------------------------------------------------------------------------------------------------
-	public function semakPembolehubah($senarai,$jadual,$p='0')
-	{
-		echo '<pre>$' . $jadual . '=><br>';
-		if($p == '0') print_r($senarai);
-		if($p == '1') var_export($senarai);
-		echo '</pre>';//*/
-		//$this->semakPembolehubah($ujian,'ujian',0);
-		#http://php.net/manual/en/function.var-export.php
-		#http://php.net/manual/en/function.print-r.php
-	}
 #--------------------------------------------------------------------------------------------------
 	function debugDaa()
 	{
