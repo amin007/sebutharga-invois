@@ -89,11 +89,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 
 		# pergi papar kandungan
 		$f = array('cetakSebutHarga','webSebutHarga');
-		$jenis = $this->papar->pilihTemplate($template=0);
-		$this->papar->bacaTemplate
-		//$this->papar->paparTemplate
-			($this->_folder . '/' . $f[1],$jenis,1); # $noInclude=0
-		//*/
+		$this->paparTemplate($f[1]);
 	}
 #--------------------------------------------------------------------------------------------------
 	public function cthInvois($a = 3500)
@@ -109,11 +105,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 
 		# pergi papar kandungan
 		$f = array('cetakInvois','webInvois');
-		$jenis = $this->papar->pilihTemplate($template=0);
-		$this->papar->bacaTemplate
-		//$this->papar->paparTemplate
-			($this->_folder . '/' . $f[1],$jenis,1); # $noInclude=0
-		//*/
+		$this->paparTemplate($f[1]);
 	}
 #--------------------------------------------------------------------------------------------------
 #==================================================================================================
@@ -147,11 +139,8 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		//$this->debug($this->papar->akaun, $this->papar->carian); # semak data
 
 		# pergi papar kandungan
-		$jenis = $this->papar->pilihTemplate($template=0);
-		$this->papar->bacaTemplate
-		//$this->papar->paparTemplate
-			($this->_folder . '/cetakSebutHarga',$jenis,1); # $noInclude=0
-		//*/
+		$f = array('cetakSebutHarga','webSebutHarga');
+		$this->paparTemplate($f[0]);
 	}
 #--------------------------------------------------------------------------------------------------
 	public function cetakInvois($jadual = null, $cariID = null) 
@@ -183,11 +172,8 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		// $this->debug($this->papar->akaun, $this->papar->carian); # semak data
 
 		# pergi papar kandungan
-		$jenis = $this->papar->pilihTemplate($template=0);
-		$this->papar->bacaTemplate
-		//$this->papar->paparTemplate
-			($this->_folder . '/cetakInvois',$jenis,1); # $noInclude=0
-		//*/
+		$f = array('cetakInvois','webInvois');
+		$this->paparTemplate($f[0]);
 	}
 #--------------------------------------------------------------------------------------------------
 	private function debug($paparAkaun = null, $paparCarian = null) 
@@ -227,11 +213,8 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		// $this->debug($this->papar->akaun, $this->papar->carian); # semak data
 
 		# pergi papar kandungan
-		$jenis = $this->papar->pilihTemplate($template=0);
-		$this->papar->bacaTemplate
-		//$this->papar->paparTemplate
-			($this->_folder . '/ubah',$jenis,0); # $noInclude=0
-		//*/
+		$f = array('ubah','buang');
+		$this->paparTemplate($f[0]);
 	}
 #--------------------------------------------------------------------------------------------------
 	public function ubahCari()
@@ -337,8 +320,8 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		}
 
 		# pergi papar kandungan
-		$this->papar->baca('akaun/buang', 1);
-
+		$f = array('ubah','buang');
+		$this->paparTemplate($f[1]);
 	}
 #==================================================================================================
 #--------------------------------------------------------------------------------------------------
