@@ -57,6 +57,20 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		$this->ulangJadual($senarai);
 	}
 #--------------------------------------------------------------------------------------------------
+	public function pilihTugas()
+	{
+		# bersihkan data $_POST
+		//$this->semakPembolehubah($_POST,'_POST');
+
+		# set pembolehubah
+		$harga = bersih($_POST['harga']);
+		$kadar = bersih($_POST['kadar']);
+
+		# pergi papar kandungan
+		//echo '<br>location: ' . URL . "$this->_folder/$harga/$kadar";
+		header('location: ' . URL . "$this->_folder/$harga/$kadar");
+	}
+#--------------------------------------------------------------------------------------------------
 	public function cthSebutHarga($a = 3500, $b = 100)
 	{
 		# isytihar pemboleubah
