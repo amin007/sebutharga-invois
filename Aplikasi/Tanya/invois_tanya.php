@@ -84,6 +84,30 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 		return $hasil; # pulangkan pemboleubah
 	}
 #-------------------------------------------------------------------------------------------------#
+	public function jadualSkopProjek($webapa)
+	{
+		# ada nilai
+		$hasil = array(
+			array (
+			'Skop projek' => 'Untuk membuat website '
+				. $webapa . ' yang menggunakan gateway epayment billplz',
+			'Harga (RM)' => '3500',
+			'Kuantiti' => '1',
+			'Jumlah (RM)' => '3500',
+			),
+			array (
+			'Skop projek' => '&nbsp;',
+			'Harga (RM)' => '&nbsp;',
+			'Kuantiti' => 'JUMLAH',
+			'Jumlah (RM)' => '3500',
+			),
+		);
+
+		$hasil2 = array(); # tiada nilai
+
+		return $hasil; # pulangkan pemboleubah
+	}
+#-------------------------------------------------------------------------------------------------#
 	public function contohJadual001()
 	{
 		# ada nilai
