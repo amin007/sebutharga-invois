@@ -33,10 +33,11 @@ elseif(!isset($this->akaun['kes'][0]['id']))
 	echo 'data kosong juga<br>';
 else # $this->carian=='ada' - mula
 {
-	//semakPembolehubah($this->akaun,'akaun');
+	//semakPembolehubah($this->syarikat,'syarikat');
 	list($namaOrang,$namaSyarikat,$noSSM,$alamat,$notel,$namaBank,$namaAkaunBank)
 		= setDataAwal($this->syarikat);
-
+	//semakPembolehubah($this->akaun,'akaun');
+	$bilRujukan = $tarikh = $webapa = null;
 	$kiraPesanan = count($this->akaun['kes']);
 	for($i = 0; $i < $kiraPesanan; $i++):
 		list($tarikh,$dataMesej) = pecahTarikhMesej($this->akaun['kes'][$i]['Mesej']);
