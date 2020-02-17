@@ -45,6 +45,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		$this->papar->carian = 'id';
 		$this->papar->syarikat = $this->tanya->contohDataSyarikat002();
 		$this->papar->akaun['kes'] = $this->tanya->contohSebutHarga002();
+		$this->papar->skop['s001'] = $this->tanya->jadualSkopProjek(WEB_APA);
 		$this->papar->jadual['j001'] = $this->tanya->contohJadual001();
 		$this->papar->jadual['j002'] = $this->tanya->contohJadual002();
 		//$this->debugDaa(); # semak data
