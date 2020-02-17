@@ -56,7 +56,7 @@ function setDataAkaun($i, $akaun, $kiraPesanan)
 		#
 	}
 #--------------------------------------------------------------------------------------------------
-	function bentukJadual($myTable,$row)
+	function bentukJadualNombor($myTable,$row)
 	{
 		//echo "\n" . '<table border="1" class="excel" id="example">';
 		echo "\n" . '<table border="1" class="table table-sm table-bordered">';
@@ -156,7 +156,8 @@ border-radius: 0.3rem;">
 
 	<?php
 	//semakPembolehubah($this->jadual,'jadual');
-	ulangJadual($this->jadual); ?>
+	ulangJadual($this->jadual,'skop');
+	ulangJadual($this->jadual,'nombor'); ?>
 
 	<strong>Terma pembayaran:</strong>
 	<ul>
