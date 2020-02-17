@@ -56,6 +56,36 @@ function setDataAkaun($i, $akaun, $kiraPesanan)
 		#
 	}
 #--------------------------------------------------------------------------------------------------
+	function bentukJadualBiasa($myTable,$row)
+	{
+		//echo "\n" . '<table border="1" class="excel" id="example">';
+		echo "\n" . '<table border="1" class="table table-sm table-bordered">';
+		//echo "\n" . '<h3>'. $myTable . '</h3>';
+		$printed_headers = false; # mula bina jadual
+		#-----------------------------------------------------------------
+		for ($kira=0; $kira < count($row); $kira++)
+		{
+			if ( !$printed_headers ) # papar tajuk medan sekali sahaja:
+			{
+				echo "\n" . '<thead class="thead-dark"><tr>';
+				foreach ( array_keys($row[$kira]) as $tajuk )
+				{
+					echo "\n<th>$tajuk</th>";
+				}
+				echo "\n</tr></thead>\n<tbody>";
+				$printed_headers = true;
+			}
+		# papar data $row ------------------------------------------------
+		echo "\n" . '<tr>';
+			foreach ( $row[$kira] as $key=>$data )
+			{
+				echo "\n<td>$data</td>";
+			}
+			echo "\n" . '</tr>';
+		}#-----------------------------------------------------------------
+		echo "\n" . '</tbody></table>';
+	}
+#--------------------------------------------------------------------------------------------------
 	function bentukJadualNombor($myTable,$row)
 	{
 		//echo "\n" . '<table border="1" class="excel" id="example">';
