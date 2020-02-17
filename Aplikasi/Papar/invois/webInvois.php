@@ -1,4 +1,5 @@
 <?php
+#--------------------------------------------------------------------------------------------------
 function semakPembolehubah($senarai,$jadual,$p='0')
 {
 		echo '<pre>$' . $jadual . '=><br>';
@@ -9,6 +10,115 @@ function semakPembolehubah($senarai,$jadual,$p='0')
 		#http://php.net/manual/en/function.var-export.php
 		#http://php.net/manual/en/function.print-r.php
 }
+#--------------------------------------------------------------------------------------------------
+function setDataAwal($syarikat)
+{
+	$namaOrang = $syarikat[0]['namaOrang'];
+	$namaSyarikat = $syarikat[0]['namaSyarikat'];
+	$noSSM = ' (' . $syarikat[0]['noSSM'] . ')';
+	$alamat = $syarikat[0]['alamat'];
+	$notel = $syarikat[0]['notel'];
+	$namaBank = $syarikat[0]['namaBank'];
+	$namaAkaunBank = $syarikat[0]['namaAkaunBank'];//*/
+
+	return array($namaOrang,$namaSyarikat,$noSSM,$alamat,$notel,$namaBank,$namaAkaunBank);
+}
+#--------------------------------------------------------------------------------------------------
+function setDataAkaun($i, $akaun, $kiraPesanan)
+{
+	# untuk semakan ID
+	$id = $akaun['kes'][0]['id'];
+	$bilRujukan = 'YBK@00' . $id . '/' . $kiraPesanan;
+	# semak tarikh
+	$tarikh = ($akaun['kes'][$i]['Tarikh']);
+	$webapa = ($akaun['kes'][$i]['webapa']);
+	//semakPembolehubah($kiraPesanan,'kiraPesanan');
+	//semakPembolehubah($tarikh,'tarikh');
+	//semakPembolehubah($webapa,'webapa');
+
+	return array($bilRujukan,$tarikh,$webapa);
+}
+#--------------------------------------------------------------------------------------------------
+	function ulangJadual($senarai,$pilih)
+	{
+		foreach ($senarai as $myTable => $row)
+		{
+			if ( count($row)==0 ) echo '';
+			else
+			{
+				echo "\n<!-- Jadual $myTable ########################################### -->";
+
+				if($pilih=='nombor') bentukJadualNombor($myTable,$row);
+				else bentukJadualBiasa($myTable,$row);
+
+				echo "\n<!-- Jadual $myTable ########################################### -->";
+			} // if ( count($row)==0 )
+		}
+		#
+	}
+#--------------------------------------------------------------------------------------------------
+	function bentukJadualBiasa($myTable,$row)
+	{
+		//echo "\n" . '<table border="1" class="excel" id="example">';
+		echo "\n" . '<table border="1" class="table table-sm table-bordered">';
+		//echo "\n" . '<h3>'. $myTable . '</h3>';
+		$printed_headers = false; # mula bina jadual
+		#-----------------------------------------------------------------
+		for ($kira=0; $kira < count($row); $kira++)
+		{
+			if ( !$printed_headers ) # papar tajuk medan sekali sahaja:
+			{
+				echo "\n" . '<thead class="thead-dark"><tr>';
+				foreach ( array_keys($row[$kira]) as $tajuk )
+				{
+					echo "\n<th>$tajuk</th>";
+				}
+				echo "\n</tr></thead>\n<tbody>";
+				$printed_headers = true;
+			}
+		# papar data $row ------------------------------------------------
+		echo "\n" . '<tr>';
+			foreach ( $row[$kira] as $key=>$data )
+			{
+				echo "\n<td>$data</td>";
+			}
+			echo "\n" . '</tr>';
+		}#-----------------------------------------------------------------
+		echo "\n" . '</tbody></table>';
+	}
+#--------------------------------------------------------------------------------------------------
+	function bentukJadualNombor($myTable,$row)
+	{
+		//echo "\n" . '<table border="1" class="excel" id="example">';
+		echo "\n" . '<table border="1" class="table table-sm table-bordered">';
+		//echo "\n" . '<h3>'. $myTable . '</h3>';
+		$printed_headers = false; # mula bina jadual
+		#-----------------------------------------------------------------
+		for ($kira=0; $kira < count($row); $kira++)
+		{
+			if ( !$printed_headers ) # papar tajuk medan sekali sahaja:
+			{
+				echo "\n" . '<thead class="thead-dark"><tr><th>#</th>';
+				foreach ( array_keys($row[$kira]) as $tajuk )
+				{
+					echo "\n<th>$tajuk</th>";
+				}
+				echo "\n</tr></thead>\n<tbody>";
+				$printed_headers = true;
+			}
+		# papar data $row ------------------------------------------------
+		echo "\n" . '<tr><td align="center">' . ($kira+1) . '</td>';
+			foreach ( $row[$kira] as $key=>$data )
+			{
+				echo "\n<td>$data</td>";
+			}
+			echo "\n" . '</tr>';
+		}#-----------------------------------------------------------------
+		echo "\n" . '</tbody></table>';
+	}
+#--------------------------------------------------------------------------------------------------
+?><?php
+# mula koding daa
 include 'diatas001.php';
 if ($this->carian=='[tiada id diisi]')
     echo 'data kosong<br>';
