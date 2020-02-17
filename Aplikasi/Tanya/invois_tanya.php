@@ -84,6 +84,136 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 		return $hasil; # pulangkan pemboleubah
 	}
 #-------------------------------------------------------------------------------------------------#
+	public function contohJadual001()
+	{
+		# ada nilai
+		$hasil = array(
+			array (
+			'Aktiviti' => 'Buat DFD',
+			'Masa' => '1',
+			'Kos' => 'RM100',
+			'Alasan' => 'Supaya dapat tentukan saiz aplikasi',
+			),
+			array (
+			'Aktiviti' => 'Buat ERD',
+			'Masa' => '1',
+			'Kos' => 'RM100',
+			'Alasan' => 'Supaya dapat tentukan berapa table/jadual yang perlu dibuat ',
+			),
+			array (
+			'Aktiviti' => 'Buat database/table',
+			'Masa' => '5',
+			'Kos' => 'RM500',
+			'Alasan' => 'Memastikan semua table/jadual sudah dibuat awal-awal',
+			),
+			array (
+			'Aktiviti' => 'Buat fail-fail php',
+			'Masa' => '5',
+			'Kos' => 'RM500',
+			'Alasan' => 'Memastikan semua fail asas dibuat dahulu sebelum koding ditulis ',
+			),
+			array (
+			'Aktiviti' => 'Buat class-class',
+			'Masa' => '5',
+			'Kos' => 'RM500',
+			'Alasan' => 'Menulis rangka class dahulu sebelum fungsi dibuat ',
+			),
+			array (
+			'Aktiviti' => 'Buat fungsi/metod',
+			'Masa' => '5',
+			'Kos' => 'RM500',
+			'Alasan' => 'Menulis fungsi dalam class sebelum pembolehubah ditulis',
+			),
+			array (
+			'Aktiviti' => 'Buat pembolehubah',
+			'Masa' => '5',
+			'Kos' => 'RM500',
+			'Alasan' => 'Memastikan semua pembolehubah diambilkira dalam fungsi',
+			),
+			array (
+			'Aktiviti' => 'Buat borang',
+			'Masa' => '5',
+			'Kos' => 'RM500',
+			'Alasan' => 'Memastikan semua borang dibuat mengunakan bootstrap twitter ',
+			),
+			array (
+			'Aktiviti' => 'Ujian sistem',
+			'Masa' => '8',
+			'Kos' => 'RM800',
+			'Alasan' => 'Memastikan semua aplikasi berjalan lancar',
+			),
+		);
+
+		$hasil2 = array(); # tiada nilai
+
+		return $hasil; # pulangkan pemboleubah
+	}
+#-------------------------------------------------------------------------------------------------#
+	public function contohJadual002()
+	{
+		# ada nilai
+		$hasil = array(
+			array (
+			'Aktiviti' => 'Betulkan DFD',
+			'Masa' => '2',
+			'Kos' => 'RM200',
+			'Alasan' => 'Supaya dapat tentukan saiz aplikasi semula',
+			),
+			array (
+			'Aktiviti' => 'Betulkan ERD',
+			'Masa' => '2',
+			'Kos' => 'RM200',
+			'Alasan' => 'Supaya dapat tentukan berapa table/jadual yang perlu dibetulkan ',
+			),
+			array (
+			'Aktiviti' => 'Betulkan database/table',
+			'Masa' => '6',
+			'Kos' => 'RM600',
+			'Alasan' => 'Memastikan semua table/jadual sudah dibetulkan berdasaran aktiviti no 2',
+			),
+			array (
+			'Aktiviti' => 'Betulkan fail-fail php',
+			'Masa' => '6',
+			'Kos' => 'RM600',
+			'Alasan' => 'Memastikan semua fail asas dibetulkan dahulu sebelum koding ditulis ',
+			),
+			array (
+			'Aktiviti' => 'Betulkan class-class',
+			'Masa' => '6',
+			'Kos' => 'RM600',
+			'Alasan' => 'Menulis semula rangka class sedia ada ',
+			),
+			array (
+			'Aktiviti' => 'Betulkan fungsi/metod',
+			'Masa' => '6',
+			'Kos' => 'RM600',
+			'Alasan' => 'Menulis fungsi dalam class sebelum pembolehubah ditulis ',
+			),
+			array (
+			'Aktiviti' => 'Betulkan pembolehubah',
+			'Masa' => '6',
+			'Kos' => 'RM600',
+			'Alasan' => 'Memastikan semua pembolehubah diambilkira dalam fungsi ',
+			),
+			array (
+			'Aktiviti' => 'Betulkan borang',
+			'Masa' => '6',
+			'Kos' => 'RM600',
+			'Alasan' => 'Memastikan semua borang dibuat mengunakan bootstrap twitter ',
+			),
+			array (
+			'Aktiviti' => 'Ujian sistem',
+			'Masa' => '8',
+			'Kos' => 'RM800',
+			'Alasan' => 'Memastikan semua aplikasi berjalan lancar',
+			),
+		);
+
+		$hasil2 = array(); # tiada nilai
+
+		return $hasil; # pulangkan pemboleubah
+	}
+#-------------------------------------------------------------------------------------------------#
 	public function medanUbah2($cariID)
 	{
 		$senaraiMedan = 'no,Nama_Penuh nama,email,nohp';
