@@ -25,7 +25,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 ##-------------------------------------------------------------------------------------------------
 	public function index()
 	{
-		//echo '<br>class Akaun::index() extend Kawal<br>';
+		//echo '<hr>Anda berada di class :' . __METHOD__ . '<hr>';
 		# isytihar pembolehubah
 		$this->papar->Tajuk_Muka_Surat = $this->_folder;
 
@@ -75,6 +75,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 #--------------------------------------------------------------------------------------------------
 	public function cthSebutHarga($a = 3500, $b = 100)
 	{
+		//echo '<hr>Anda berada di class :' . __METHOD__ . '<hr>';
 		# isytihar pembolehubah
 		$this->papar->hargaProjek[] = $a;
 		$this->papar->Tajuk_Muka_Surat = 'SebutHarga';
@@ -94,6 +95,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 #--------------------------------------------------------------------------------------------------
 	public function cthInvois($a = 3500)
 	{
+		//echo '<hr>Anda berada di class :' . __METHOD__ . '<hr>';
 		# isytihar pembolehubah
 		$this->papar->hargaProjek[] = $a;
 		$this->papar->Tajuk_Muka_Surat = 'SebutHarga';
@@ -112,6 +114,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 #--------------------------------------------------------------------------------------------------
 	public function cetakSebutHarga($jadual = null, $cariID = null) 
 	{
+		//echo '<hr>Anda berada di class :' . __METHOD__ . '<hr>';
 		$jadual = 'kursus_php';
 		$cariID = '3';
 		if (!empty($cariID))
@@ -145,6 +148,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 #--------------------------------------------------------------------------------------------------
 	public function cetakInvois($jadual = null, $cariID = null) 
 	{
+		//echo '<hr>Anda berada di class :' . __METHOD__ . '<hr>';
 		$jadual = 'kursus_php';
 		$cariID = '3';
 		if (!empty($cariID))
@@ -177,8 +181,8 @@ class Invois extends \Aplikasi\Kitab\Kawal
 	}
 #--------------------------------------------------------------------------------------------------
 	public function ubah($jadual = null, $cariID = null) 
-	{//echo '<br>Anda berada di class ... extends Kawal:ubah($cari)<br>';
-
+	{
+		//echo '<hr>Anda berada di class :' . __METHOD__ . '<hr>';
 		if (!empty($cariID)) 
 		{
 			# senaraikan tatasusunan jadual dan setkan pembolehubah
@@ -210,6 +214,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 #--------------------------------------------------------------------------------------------------
 	public function ubahCari()
 	{
+		//echo '<hr>Anda berada di class :' . __METHOD__ . '<hr>';
 		//echo '<pre>$_GET->', print_r($_GET, 1) . '</pre>';
 		# bersihkan data $_POST
 		$input = bersih($_GET['cari']);
@@ -226,6 +231,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 #--------------------------------------------------------------------------------------------------
 	public function ubahSimpan($dataID)
 	{
+		//echo '<hr>Anda berada di class :' . __METHOD__ . '<hr>';
 		$posmen = array();
 		$medanID = 'id';
 		//$senaraiJadual = array('kursus_php');
@@ -295,6 +301,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 
 	function buang($id) 
 	{
+		//echo '<hr>Anda berada di class :' . __METHOD__ . '<hr>';
 		if (!empty($id)) 
 		{
 			#mula cari $cariID dalam $bulanan
