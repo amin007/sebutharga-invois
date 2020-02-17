@@ -119,6 +119,46 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 		return $hasil; # pulangkan pemboleubah
 	}
 #-------------------------------------------------------------------------------------------------#
+	public function jadualPeratusBayar($a = 'www.apa.com',$b = 3500)
+	{
+		# ada nilai
+		$hasil = array(
+			array (
+			'Skop projek' => 'Untuk membuat website '
+				. $a . ' yang menggunakan gateway epayment billplz',
+			'Harga (RM)' => $b,
+			'Kuantiti' => '1',
+			'Jumlah (RM)' => $b,
+			),
+			array (
+			'Skop projek' => 'Pembayaran pertama sebanyak 20% - projek bermula',
+			'Harga (RM)' => '20%', //700
+			'Kuantiti' => '1',
+			'Jumlah (RM)' => kira(0.2 * $b),
+			),array (
+			'Skop projek' => 'Pembayaran kedua sebanyak 30% - selepas demo projek pertama',
+			'Harga (RM)' => '30%', //30%	1	1050
+			'Kuantiti' => '1',
+			'Jumlah (RM)' => kira(0.3 * $b),
+			),array (
+			'Skop projek' => 'Pembayaran ketiga sebanyak 50% - Baki yang perlu dibayar',
+			'Harga (RM)' => '50%',//50%	1	1750
+			'Kuantiti' => '1',
+			'Jumlah (RM)' => kira(0.5 * $b),
+			),
+			array (
+			'Skop projek' => '&nbsp;',
+			'Harga (RM)' => '&nbsp;',
+			'Kuantiti' => 'JUMLAH',
+			'Jumlah (RM)' => $b,
+			),
+		);
+
+		$hasil2 = array(); # tiada nilai
+
+		return $hasil; # pulangkan pemboleubah
+	}
+#-------------------------------------------------------------------------------------------------#
 	function kiraJumlahBesar($hasil)
 	{
 		$kiraJum = array();
