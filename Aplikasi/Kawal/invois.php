@@ -10,8 +10,16 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		//\Aplikasi\Kitab\Kebenaran::kawalKeluar();
 		$this->_folder = 'invois';
 	}
-
-	public function index() { echo '<br>class Akaun::index() extend Kawal<br>'; }
+##-------------------------------------------------------------------------------------------------
+	public function index()
+	{
+		//echo '<br>class Akaun::index() extend Kawal<br>';
+		# isytihar pemboleubah
+		$this->papar->Tajuk = $this->_folder;
+		$f = array('index','index1');
+		# pergi papar kandungan
+		$this->paparTemplate($f[0]);
+	}
 ##-------------------------------------------------------------------------------------------------
 	public function paparTemplate($f)
 	{
