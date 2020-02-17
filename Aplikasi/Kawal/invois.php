@@ -68,6 +68,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		$this->papar->carian = 'id';
 		$this->papar->syarikat = $this->tanya->contohDataSyarikat002();
 		$this->papar->akaun['kes'] = $this->tanya->contohSebutHarga002();
+		$this->papar->skop['s001'] = $this->tanya->jadualPeratusBayar(WEB_APA, $a);
 		//$this->debugDaa(); # semak data
 
 		# pergi papar kandungan
