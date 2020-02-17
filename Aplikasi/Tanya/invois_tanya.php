@@ -5,6 +5,17 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 #==========================================================================================
 	public function __construct() { parent::__construct(); }
 #-------------------------------------------------------------------------------------------------#
+	public function semakPembolehubah($senarai,$jadual,$p='0')
+	{
+		echo '<pre>$' . $jadual . '=><br>';
+		if($p == '0') print_r($senarai);
+		if($p == '1') var_export($senarai);
+		echo '</pre>';//*/
+		//$this->semakPembolehubah($ujian,'ujian',0);
+		#http://php.net/manual/en/function.var-export.php
+		#http://php.net/manual/en/function.print-r.php
+	}
+#-------------------------------------------------------------------------------------------------#
 	public function contohDataSyarikat001()
 	{
 		# ada nilai
@@ -108,131 +119,135 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 		return $hasil; # pulangkan pemboleubah
 	}
 #-------------------------------------------------------------------------------------------------#
-	public function contohJadual001()
+	public function contohJadual001($a)
 	{
 		# ada nilai
 		$hasil = array(
 			array (
 			'Aktiviti' => 'Buat DFD',
 			'Masa' => '1',
-			'Kos' => 'RM100',
+			'Kos (RM)' => kira(1*$a),
 			'Alasan' => 'Supaya dapat tentukan saiz aplikasi',
 			),
 			array (
 			'Aktiviti' => 'Buat ERD',
 			'Masa' => '1',
-			'Kos' => 'RM100',
+			'Kos (RM)' => kira(1*$a),
 			'Alasan' => 'Supaya dapat tentukan berapa table/jadual yang perlu dibuat ',
 			),
 			array (
 			'Aktiviti' => 'Buat database/table',
 			'Masa' => '5',
-			'Kos' => 'RM500',
+			'Kos (RM)' => kira(5*$a),
 			'Alasan' => 'Memastikan semua table/jadual sudah dibuat awal-awal',
 			),
 			array (
 			'Aktiviti' => 'Buat fail-fail php',
 			'Masa' => '5',
-			'Kos' => 'RM500',
+			'Kos (RM)' => kira(5*$a),
 			'Alasan' => 'Memastikan semua fail asas dibuat dahulu sebelum koding ditulis ',
 			),
 			array (
 			'Aktiviti' => 'Buat class-class',
 			'Masa' => '5',
-			'Kos' => 'RM500',
+			'Kos (RM)' => kira(5*$a),
 			'Alasan' => 'Menulis rangka class dahulu sebelum fungsi dibuat ',
 			),
 			array (
 			'Aktiviti' => 'Buat fungsi/metod',
 			'Masa' => '5',
-			'Kos' => 'RM500',
+			'Kos (RM)' => kira(5*$a),
 			'Alasan' => 'Menulis fungsi dalam class sebelum pembolehubah ditulis',
 			),
 			array (
 			'Aktiviti' => 'Buat pembolehubah',
 			'Masa' => '5',
-			'Kos' => 'RM500',
+			'Kos (RM)' => kira(5*$a),
 			'Alasan' => 'Memastikan semua pembolehubah diambilkira dalam fungsi',
 			),
 			array (
 			'Aktiviti' => 'Buat borang',
 			'Masa' => '5',
-			'Kos' => 'RM500',
+			'Kos (RM)' => kira(5*$a),
 			'Alasan' => 'Memastikan semua borang dibuat mengunakan bootstrap twitter ',
 			),
 			array (
 			'Aktiviti' => 'Ujian sistem',
 			'Masa' => '8',
-			'Kos' => 'RM800',
+			'Kos (RM)' => kira(8*$a),
 			'Alasan' => 'Memastikan semua aplikasi berjalan lancar',
 			),
 		);
 
+		$jum = $this->kiraJumlahBesar($hasil);
+		$hasil = array_merge($hasil, $jum);
 		$hasil2 = array(); # tiada nilai
 
 		return $hasil; # pulangkan pemboleubah
 	}
 #-------------------------------------------------------------------------------------------------#
-	public function contohJadual002()
+	public function contohJadual002($a)
 	{
 		# ada nilai
 		$hasil = array(
 			array (
 			'Aktiviti' => 'Betulkan DFD',
 			'Masa' => '2',
-			'Kos' => 'RM200',
+			'Kos (RM)' => kira(2*$a),
 			'Alasan' => 'Supaya dapat tentukan saiz aplikasi semula',
 			),
 			array (
 			'Aktiviti' => 'Betulkan ERD',
 			'Masa' => '2',
-			'Kos' => 'RM200',
+			'Kos (RM)' => kira(2*$a),
 			'Alasan' => 'Supaya dapat tentukan berapa table/jadual yang perlu dibetulkan ',
 			),
 			array (
 			'Aktiviti' => 'Betulkan database/table',
 			'Masa' => '6',
-			'Kos' => 'RM600',
+			'Kos (RM)' => kira(6*$a),
 			'Alasan' => 'Memastikan semua table/jadual sudah dibetulkan berdasaran aktiviti no 2',
 			),
 			array (
 			'Aktiviti' => 'Betulkan fail-fail php',
 			'Masa' => '6',
-			'Kos' => 'RM600',
+			'Kos (RM)' => kira(6*$a),
 			'Alasan' => 'Memastikan semua fail asas dibetulkan dahulu sebelum koding ditulis ',
 			),
 			array (
 			'Aktiviti' => 'Betulkan class-class',
 			'Masa' => '6',
-			'Kos' => 'RM600',
+			'Kos (RM)' => kira(6*$a),
 			'Alasan' => 'Menulis semula rangka class sedia ada ',
 			),
 			array (
 			'Aktiviti' => 'Betulkan fungsi/metod',
 			'Masa' => '6',
-			'Kos' => 'RM600',
+			'Kos (RM)' => kira(6*$a),
 			'Alasan' => 'Menulis fungsi dalam class sebelum pembolehubah ditulis ',
 			),
 			array (
 			'Aktiviti' => 'Betulkan pembolehubah',
 			'Masa' => '6',
-			'Kos' => 'RM600',
+			'Kos (RM)' => kira(6*$a),
 			'Alasan' => 'Memastikan semua pembolehubah diambilkira dalam fungsi ',
 			),
 			array (
 			'Aktiviti' => 'Betulkan borang',
 			'Masa' => '6',
-			'Kos' => 'RM600',
+			'Kos (RM)' => kira(6*$a),
 			'Alasan' => 'Memastikan semua borang dibuat mengunakan bootstrap twitter ',
 			),
 			array (
 			'Aktiviti' => 'Ujian sistem',
 			'Masa' => '8',
-			'Kos' => 'RM800',
+			'Kos (RM)' => kira(8*$a),
 			'Alasan' => 'Memastikan semua aplikasi berjalan lancar',
 			),
 		);
 
+		$jum = $this->kiraJumlahBesar($hasil);
+		$hasil = array_merge($hasil, $jum);
 		$hasil2 = array(); # tiada nilai
 
 		return $hasil; # pulangkan pemboleubah
