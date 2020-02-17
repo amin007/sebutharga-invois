@@ -177,6 +177,7 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 	{
 		$kiraJum = array();
 		$kiraJum['Kos (RM)'] = 0;
+		$kiraJum['Masa'] = 0;
 		$abaikan = array('Aktiviti','Masa','Alasan');
 		foreach ($hasil as $k=>$subArray) {
 			foreach ($subArray as $id=>$value) {
@@ -186,7 +187,7 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 			}
 		}
 		$jum = array(array (
-			'Aktiviti' => '','Masa' => 'Jumlah',
+			'Aktiviti' => 'Jumlah','Masa' => $kiraJum['Masa'],
 			'Kos (RM)' => $kiraJum['Kos (RM)'],'Alasan' => '',
 			));
 		#
