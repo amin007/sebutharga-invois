@@ -39,18 +39,19 @@ function setDataAkaun($i, $akaun, $kiraPesanan)
 	return array($bilRujukan,$tarikh,$webapa);
 }
 #--------------------------------------------------------------------------------------------------
-	function ulangJadual($senarai)
+	function ulangJadual($senarai,$pilih)
 	{
 		foreach ($senarai as $myTable => $row)
 		{
 			if ( count($row)==0 ) echo '';
 			else
 			{
-				echo "\n<!-- Jadual $myTable "
-				. '########################################### -->';
-				bentukJadual($myTable,$row);
-				echo "\n<!-- Jadual $myTable "
-				. '########################################### -->';
+				echo "\n<!-- Jadual $myTable ########################################### -->";
+
+				if($pilih=='nombor') bentukJadualNombor($myTable,$row);
+				else bentukJadualBiasa($myTable,$row);
+
+				echo "\n<!-- Jadual $myTable ########################################### -->";
 			} // if ( count($row)==0 )
 		}
 		#
@@ -185,8 +186,9 @@ border-radius: 0.3rem;">
 	</table>
 
 	<?php
+	//semakPembolehubah($this->skop,'skop');
 	//semakPembolehubah($this->jadual,'jadual');
-	ulangJadual($this->jadual,'skop');
+	ulangJadual($this->skop,'skop');
 	ulangJadual($this->jadual,'nombor'); ?>
 
 	<strong>Terma pembayaran:</strong>
