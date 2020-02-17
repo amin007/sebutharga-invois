@@ -27,7 +27,7 @@ class Invois extends \Aplikasi\Kitab\Kawal
 	{
 		//echo '<br>class Akaun::index() extend Kawal<br>';
 		# isytihar pemboleubah
-		$this->papar->Tajuk = $this->_folder;
+		$this->papar->Tajuk_Muka_Surat = $this->_folder;
 		$f = array('index','index1');
 		# pergi papar kandungan
 		$this->paparTemplate($f[0]);
