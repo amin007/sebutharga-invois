@@ -39,6 +39,53 @@ function setDataAkaun($i, $akaun, $kiraPesanan)
 	return array($bilRujukan,$tarikh,$webapa);
 }
 #--------------------------------------------------------------------------------------------------
+	function ulangJadual($senarai)
+	{
+		foreach ($senarai as $myTable => $row)
+		{
+			if ( count($row)==0 ) echo '';
+			else
+			{
+				echo "\n<!-- Jadual $myTable "
+				. '########################################### -->';
+				bentukJadual($myTable,$row);
+				echo "\n<!-- Jadual $myTable "
+				. '########################################### -->';
+			} // if ( count($row)==0 )
+		}
+		#
+	}
+#--------------------------------------------------------------------------------------------------
+	function bentukJadual($myTable,$row)
+	{
+		//echo "\n" . '<table border="1" class="excel" id="example">';
+		echo "\n" . '<table border="1" class="table table-sm table-bordered">';
+		//echo "\n" . '<h3>'. $myTable . '</h3>';
+		$printed_headers = false; # mula bina jadual
+		#-----------------------------------------------------------------
+		for ($kira=0; $kira < count($row); $kira++)
+		{
+			if ( !$printed_headers ) # papar tajuk medan sekali sahaja:
+			{
+				echo "\n" . '<thead class="thead-dark"><tr><th>#</th>';
+				foreach ( array_keys($row[$kira]) as $tajuk )
+				{
+					echo "\n<th>$tajuk</th>";
+				}
+				echo "\n</tr></thead>\n<tbody>";
+				$printed_headers = true;
+			}
+		# papar data $row ------------------------------------------------
+		echo "\n" . '<tr><td align="center">' . ($kira+1) . '</td>';
+			foreach ( $row[$kira] as $key=>$data )
+			{
+				echo "\n<td>$data</td>";
+			}
+			echo "\n" . '</tr>';
+		}#-----------------------------------------------------------------
+		echo "\n" . '</tbody></table>';
+	}
+#--------------------------------------------------------------------------------------------------
 ?><?php
 # mula koding daa
 include 'diatas001.php';
@@ -106,6 +153,10 @@ border-radius: 0.3rem;">
 		<td align="center"><?php echo $this->hargaProjek[0] ?></td></tr>
 	</tbody>
 	</table>
+
+	<?php
+	//semakPembolehubah($this->jadual,'jadual');
+	ulangJadual($this->jadual); ?>
 
 	<strong>Terma pembayaran:</strong>
 	<ul>
