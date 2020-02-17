@@ -25,25 +25,6 @@ class Index extends \Aplikasi\Kitab\Kawal
 			$this->_folder . '/login',$jenis,1); # $noInclude=0
 	}
 #==========================================================================================
-	function muar() 
-	{
-		# Set pemboleubah utama
-		$this->papar->Tajuk_Muka_Surat='Enjin';
-		$this->papar->senaraiIP = dpt_ip(); # dapatkan senarai IP yang dibenarkan
-		$this->papar->ip = $ip = $_SERVER['REMOTE_ADDR'];
-		$this->papar->ip2 = substr($ip,0,10);
-		$this->papar->hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
-		$this->papar->server = $_SERVER['SERVER_NAME'];
-		$this->papar->tajuk = 'Login Untuk Muar';
-
-		# pergi papar kandungan
-		$this->_folder = 'mobile'; # untuk apps mobile
-		$jenis = $this->papar->pilihTemplate($template=0);
-		$this->papar->bacaTemplate(
-		//$this->papar->paparTemplate(
-			$this->_folder . '/muar',$jenis,0); # $noInclude=0
-	}
-
 	function login($user) 
 	{
 		# Set pemboleubah utama
