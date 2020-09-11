@@ -73,6 +73,26 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		header('location: ' . URL . "$this->_folder/$tugas/$harga/$kadar");
 	}
 #--------------------------------------------------------------------------------------------------
+	public function webKertasCadangan($a = 3500, $b = 100)
+	{
+		//echo '<hr>Anda berada di class :' . __METHOD__ . '<hr>';
+		# isytihar pembolehubah
+		$this->papar->hargaProjek[] = $a;
+		$this->papar->Tajuk_Muka_Surat = 'SebutHarga';
+		$this->papar->carian = 'id';
+		$this->papar->syarikat = $this->tanya->contohDataSyarikat002();
+		$this->papar->akaun['kes'] = $this->tanya->contohSebutHarga002();
+		$this->papar->skop['s001'] = $this->tanya->jadualSkopProjek(WEB_APA, $a);
+		$this->papar->skop['s002'] = $this->tanya->contohJadual000($b);
+		$this->papar->jadual['j001'] = $this->tanya->contohJadual001($b);
+		//$this->papar->jadual['j002'] = $this->tanya->contohJadual002($b);
+		//$this->debugDaa(); # semak data
+
+		# pergi papar kandungan
+		$f = array('cetakKertasCadangan','webKertasCadangan');
+		$this->paparTemplate($f[1]);
+	}
+#--------------------------------------------------------------------------------------------------
 	public function cthSebutHarga($a = 3500, $b = 100)
 	{
 		//echo '<hr>Anda berada di class :' . __METHOD__ . '<hr>';
