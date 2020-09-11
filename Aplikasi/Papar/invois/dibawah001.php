@@ -1,12 +1,11 @@
 <!-- Footer
 ================================================== -->
-<footer class="footer">
-	<div class="container">
-		<span class="label label-info">
-		Dokumen ini ditinggalkan tanpa sengaja kerana ia dicipta dan dihantar melalui cara dalam talian.
-		</span>
-	</div>
-</footer>
+<footer class="footer"><div class="container">
+	<span class="label label-info">
+		Dokumen ini dibiarkan tidak ditandatangani dengan sengaja kerana dibuat
+		dan dihantar melalui kaedah dalam talian.
+	</span>
+</div></footer>
 
 <!--
 # masukkan js dan jquery di bawah ini
