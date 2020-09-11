@@ -52,6 +52,25 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		//*/
 	}
 #--------------------------------------------------------------------------------------------------
+	public function webSebutHarga($a = 3500)
+	{
+		# isytihar pemboleubah
+		$this->papar->hargaProjek[] = $a;
+		$this->papar->Tajuk_Muka_Surat = 'SebutHarga';
+		$this->papar->carian = 'id';
+		$this->papar->syarikat = $this->tanya->contohDataSyarikat002();
+		$this->papar->akaun['kes'] = $this->tanya->contohSebutHarga002();
+		//$this->debugDaa(); # semak data
+
+		# pergi papar kandungan
+		$f = array('cetakSebutHarga','webSebutHarga');
+		$jenis = $this->papar->pilihTemplate($template=0);
+		$this->papar->bacaTemplate
+		//$this->papar->paparTemplate
+			($this->_folder . '/' . $f[0],$jenis,1); # $noInclude=0
+		//*/
+	}
+#--------------------------------------------------------------------------------------------------
 	public function cthInvois($a = 3500)
 	{
 		# isytihar pemboleubah
@@ -68,6 +87,25 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		$this->papar->bacaTemplate
 		//$this->papar->paparTemplate
 			($this->_folder . '/' . $f[1],$jenis,1); # $noInclude=0
+		//*/
+	}
+#--------------------------------------------------------------------------------------------------
+	public function webInvois($a = 3500)
+	{
+		# isytihar pemboleubah
+		$this->papar->hargaProjek[] = $a;
+		$this->papar->Tajuk_Muka_Surat = 'SebutHarga';
+		$this->papar->carian = 'id';
+		$this->papar->syarikat = $this->tanya->contohDataSyarikat002();
+		$this->papar->akaun['kes'] = $this->tanya->contohSebutHarga002();
+		//$this->debugDaa(); # semak data
+
+		# pergi papar kandungan
+		$f = array('cetakInvois','webInvois');
+		$jenis = $this->papar->pilihTemplate($template=0);
+		$this->papar->bacaTemplate
+		//$this->papar->paparTemplate
+			($this->_folder . '/' . $f[0],$jenis,1); # $noInclude=0
 		//*/
 	}
 #--------------------------------------------------------------------------------------------------
