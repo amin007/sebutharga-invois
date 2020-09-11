@@ -15,6 +15,7 @@ class Index extends \Aplikasi\Kitab\Kawal
 	{
 		# Set pemboleubah utama
 		$this->papar->Tajuk_Muka_Surat='Enjin';
+		$fail = array('login','mukadepan');
 		//$theme = array(0,1,2,3,4);
 		//$template = $theme[rand(0, count($theme)-1)];
 
@@ -22,7 +23,7 @@ class Index extends \Aplikasi\Kitab\Kawal
 		$jenis = $this->papar->pilihTemplate($template=0);
 		$this->papar->bacaTemplate(
 		//$this->papar->paparTemplate(
-			$this->_folder . '/login',$jenis,1); # $noInclude=0
+			$this->_folder . '/' . $fail[1],$jenis,1); # $noInclude=0
 	}
 #==========================================================================================
 	function muar() 
