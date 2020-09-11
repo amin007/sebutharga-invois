@@ -1,4 +1,5 @@
 <?php
+#--------------------------------------------------------------------------------------------------
 function semakPembolehubah($senarai,$jadual,$p='0')
 {
 		echo '<pre>$' . $jadual . '=><br>';
@@ -9,26 +10,117 @@ function semakPembolehubah($senarai,$jadual,$p='0')
 		#http://php.net/manual/en/function.var-export.php
 		#http://php.net/manual/en/function.print-r.php
 }
-function tukartarikh($lama)
+#--------------------------------------------------------------------------------------------------
+function setDataAwal($syarikat)
 {
-	$baru1 = @date_format($lama, 'j F, Y, g:i a');
-	$baru2 = date("j F, Y, g:i a");
-	$baru = ($lama == '0000-00-00 00:00:00') ? $baru2 : $baru1;
+	$namaOrang = $syarikat[0]['namaOrang'];
+	$namaSyarikat = $syarikat[0]['namaSyarikat'];
+	$noSSM = ' (' . $syarikat[0]['noSSM'] . ')';
+	$alamat = $syarikat[0]['alamat'];
+	$notel = $syarikat[0]['notel'];
+	$namaBank = $syarikat[0]['namaBank'];
+	$namaAkaunBank = $syarikat[0]['namaAkaunBank'];//*/
 
-	return $baru;
+	return array($namaOrang,$namaSyarikat,$noSSM,$alamat,$notel,$namaBank,$namaAkaunBank);
 }
-function pecahTarikhMesej($mesej)
+#--------------------------------------------------------------------------------------------------
+function setDataAkaun($i, $akaun, $kiraPesanan)
 {
-	@list($dataAsal, $data) = explode('Tarikh',$mesej);
-	//@list($tarikh, $data2) = explode('Masa',$data);
-	@list($tarikh, $data2) = explode('Takwim',$data);
-	@list($dataPC, $data3) = explode('Mesej',$data2);
-	$data4 = (isset($data3)) ? $data3 : '';
-	@list($dataMesej, $dataAkhir) = explode('-',$data4);
-	$dataMesej = (isset($dataMesej)) ? $dataMesej : '';
+	# untuk semakan ID
+	$id = $akaun['kes'][0]['id'];
+	$bilRujukan = 'YBK@00' . $id . '/' . $kiraPesanan;
+	# semak tarikh
+	$tarikh = ($akaun['kes'][$i]['Tarikh']);
+	$webapa = ($akaun['kes'][$i]['webapa']);
+	//semakPembolehubah($kiraPesanan,'kiraPesanan');
+	//semakPembolehubah($tarikh,'tarikh');
+	//semakPembolehubah($webapa,'webapa');
 
-	return array($tarikh, $dataMesej);
+	return array($bilRujukan,$tarikh,$webapa);
 }
+#--------------------------------------------------------------------------------------------------
+	function ulangJadual($senarai,$pilih)
+	{
+		foreach ($senarai as $myTable => $row)
+		{
+			if ( count($row)==0 ) echo '';
+			else
+			{
+				echo "<!-- Jadual $myTable ###########################################"
+				. " -->";
+
+				if($pilih=='nombor') bentukJadualNombor($myTable,$row);
+				else bentukJadualBiasa($myTable,$row);
+
+				echo "\n<!-- Jadual $myTable ###########################################"
+				. " -->\n\n";
+			}// if ( count($row)==0 )
+		}
+		#
+	}
+#--------------------------------------------------------------------------------------------------
+	function bentukJadualBiasa($myTable,$row)
+	{
+		//echo "\n" . '<table border="1" class="excel" id="example">';
+		echo "\n\t" . '<table border="1" class="table table-sm table-bordered">';
+		//echo "\n" . '<h3>'. $myTable . '</h3>';
+		$printed_headers = false; # mula bina jadual
+		#-----------------------------------------------------------------
+		for ($kira=0; $kira < count($row); $kira++)
+		{
+			if ( !$printed_headers ) # papar tajuk medan sekali sahaja:
+			{
+				echo "\n\t" . '<thead class="thead-dark"><tr>';
+				foreach ( array_keys($row[$kira]) as $tajuk )
+				{
+					echo "\n\t<th>$tajuk</th>";
+				}
+				echo "\n\t</tr></thead>\n\t<tbody>";
+				$printed_headers = true;
+			}
+		# papar data $row ------------------------------------------------
+		echo "\n\t" . '<tr>';
+			foreach ( $row[$kira] as $key=>$data )
+			{
+				echo "\n\t<td>$data</td>";
+			}
+			echo "\n\t" . '</tr>';
+		}#-----------------------------------------------------------------
+		echo "\n\t" . '</tbody></table>';
+	}
+#--------------------------------------------------------------------------------------------------
+	function bentukJadualNombor($myTable,$row)
+	{
+		//echo "\n" . '<table border="1" class="excel" id="example">';
+		echo "\n\t" . '<table border="1" class="table table-sm table-bordered">';
+		//echo "\n" . '<h3>'. $myTable . '</h3>';
+		$printed_headers = false; # mula bina jadual
+		#-----------------------------------------------------------------
+		for ($kira=0; $kira < count($row); $kira++)
+		{
+			if ( !$printed_headers ) # papar tajuk medan sekali sahaja:
+			{
+				echo "\n\t" . '<thead class="thead-dark"><tr><th>#</th>';
+				foreach ( array_keys($row[$kira]) as $tajuk )
+				{
+					echo "\n\t<th>$tajuk</th>";
+				}
+				echo "\n\t</tr></thead>\n\t<tbody>";
+				$printed_headers = true;
+			}
+		# papar data $row ------------------------------------------------
+		echo "\n\t" . '<tr><td align="center">' . ($kira+1) . '</td>';
+			foreach ( $row[$kira] as $key=>$data )
+			{
+				echo "\n<td>$data</td>";
+			}
+			echo "\n\t" . '</tr>';
+		}#-----------------------------------------------------------------
+		echo "\n\t" . '</tbody></table>';
+	}
+#--------------------------------------------------------------------------------------------------
+?><?php
+# mula koding daa
 include 'diatas001.php';
 if ($this->carian=='[tiada id diisi]')
     echo 'data kosong<br>';
@@ -36,32 +128,14 @@ elseif(!isset($this->akaun['kes'][0]['id']))
 	echo 'data kosong juga<br>';
 else # $this->carian=='ada' - mula
 {
+	//semakPembolehubah($this->syarikat,'syarikat');
+	list($namaOrang,$namaSyarikat,$noSSM,$alamat,$notel,$namaBank,$namaAkaunBank)
+		= setDataAwal($this->syarikat);
 	//semakPembolehubah($this->akaun,'akaun');
-	$namaOrang = $this->syarikat[0]['namaOrang'];
-	$namaSyarikat = $this->syarikat[0]['namaSyarikat'];
-	$noSSM = $this->syarikat[0]['noSSM'];
-	$alamat = $this->syarikat[0]['alamat'];
-	$notel = $this->syarikat[0]['notel'];
-	$namaBank = $this->syarikat[0]['namaBank'];
-	$namaAkaunBank = $this->syarikat[0]['namaAkaunBank'];//*/
-
+	$bilRujukan = $tarikh = $webapa = null;
 	$kiraPesanan = count($this->akaun['kes']);
 	for($i = 0; $i < $kiraPesanan; $i++):
-		list($tarikh,$dataMesej) = pecahTarikhMesej($this->akaun['kes'][$i]['Mesej']);
-		# untuk semakan ID
-		$bilRujukan =  \Aplikasi\Kitab\RahsiaHash::rahsia('md5', $dataMesej);
-		$id = $this->akaun['kes'][0]['id'];
-		//$bilRujukan = $bilRujukan . '@'. $i . '@' . $id . '/' . $kiraPesanan;
-		$bilRujukan = 'YBK@00' . $id . '/' . $kiraPesanan;
-		# untuk semakan email
-		$email = ($this->akaun['kes'][$i]['Email']);
-		$email = (isset($email)) ? $email : '';
-		# semak tarikh
-		$tarikh = ($this->akaun['kes'][$i]['Tarikh']);
-		$webapa = ($this->akaun['kes'][$i]['webapa']);
-		/*echo '<pre>jumlah data = ' . $kiraPesanan . '</pre>'; # debug data
-		echo '<pre>$tarikh '; print_r($tarikh); echo '</pre>';
-		echo '<pre>$dataMesej:'; print_r($dataMesej); echo '</pre>';//*/
+		list($bilRujukan,$tarikh,$webapa) = setDataAkaun($i, $this->akaun, $kiraPesanan);
 ?>
 <div class="container">
 <div style="padding: 1rem 1rem;
@@ -97,21 +171,11 @@ border-radius: 0.3rem;">
 
 	<P>Sila lihat sebutharga kami untuk produk dan perkhidmatan yang diminta di bawah:</p>
 
-	<table border="1" class="table table-sm table-bordered">
-	<!-- table class="excel" -->
-	<thead class="thead-dark">
-	<tr><th>Skop projek</th><th>Harga (RM)</th><th>Kuantiti</th><th>Jumlah (RM)</th></tr>
-	</thead>
-	<tbody>
-	<tr><td>
-		Untuk membuat website <?php echo $webapa ?> yang menggunakan gateway epayment billplz</td>
-		<td align="center"><?php echo $this->hargaProjek[0] ?></td>
-		<td align="center">1</td>
-		<td align="center"><?php echo $this->hargaProjek[0] ?></td></tr>
-	<tr><td colspan="3" align="right">JUMLAH</td>
-		<td align="center"><?php echo $this->hargaProjek[0] ?></td></tr>
-	</tbody>
-	</table>
+	<?php
+	//semakPembolehubah($this->skop,'skop');
+	//semakPembolehubah($this->jadual,'jadual');
+	if(isset($this->skop)) ulangJadual($this->skop,'skop');
+	if(isset($this->jadual)) ulangJadual($this->jadual,'nombor'); ?>
 
 	<strong>Terma pembayaran:</strong>
 	<ul>

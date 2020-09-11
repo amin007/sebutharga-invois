@@ -2,8 +2,19 @@
 namespace Aplikasi\Tanya; //echo __NAMESPACE__; 
 class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 {
-#==========================================================================================
+#==================================================================================================
 	public function __construct() { parent::__construct(); }
+#-------------------------------------------------------------------------------------------------#
+	public function semakPembolehubah($senarai,$jadual,$p='0')
+	{
+		echo '<pre>$' . $jadual . '=><br>';
+		if($p == '0') print_r($senarai);
+		if($p == '1') var_export($senarai);
+		echo '</pre>';//*/
+		//$this->semakPembolehubah($ujian,'ujian',0);
+		#http://php.net/manual/en/function.var-export.php
+		#http://php.net/manual/en/function.print-r.php
+	}
 #-------------------------------------------------------------------------------------------------#
 	public function contohDataSyarikat001()
 	{
@@ -79,6 +90,252 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 				'webapa' => WEB_APA,
 				));
 
+		$hasil2 = array(); # tiada nilai
+
+		return $hasil; # pulangkan pemboleubah
+	}
+#-------------------------------------------------------------------------------------------------#
+	public function jadualSkopProjek($a = 'www.apa.com',$b = 3500)
+	{
+		# ada nilai
+		$hasil = array(
+			array (
+			'Skop projek' => 'Untuk membuat website '
+				. $a . ' yang menggunakan gateway epayment billplz',
+			'Harga (RM)' => $b,
+			'Kuantiti' => '1',
+			'Jumlah (RM)' => $b,
+			),
+			array (
+			'Skop projek' => '&nbsp;',
+			'Harga (RM)' => '&nbsp;',
+			'Kuantiti' => 'JUMLAH',
+			'Jumlah (RM)' => $b,
+			),
+		);
+
+		$hasil2 = array(); # tiada nilai
+
+		return $hasil; # pulangkan pemboleubah
+	}
+#-------------------------------------------------------------------------------------------------#
+	public function jadualPeratusBayar($a = 'www.apa.com',$b = 3500)
+	{
+		# ada nilai
+		$hasil = array(
+			array (
+			'Skop projek' => 'Untuk membuat website '
+				. $a . ' yang menggunakan gateway epayment billplz',
+			'Harga (RM)' => $b,
+			'Kuantiti' => '1',
+			'Jumlah (RM)' => $b,
+			),
+			array (
+			'Skop projek' => 'Pembayaran pertama sebanyak 20% - projek bermula',
+			'Harga (RM)' => '20%', //700
+			'Kuantiti' => '1',
+			'Jumlah (RM)' => kira(0.2 * $b),
+			),array (
+			'Skop projek' => 'Pembayaran kedua sebanyak 30% - selepas demo projek pertama',
+			'Harga (RM)' => '30%', //30%	1	1050
+			'Kuantiti' => '1',
+			'Jumlah (RM)' => kira(0.3 * $b),
+			),array (
+			'Skop projek' => 'Pembayaran ketiga sebanyak 50% - Baki yang perlu dibayar',
+			'Harga (RM)' => '50%',//50%	1	1750
+			'Kuantiti' => '1',
+			'Jumlah (RM)' => kira(0.5 * $b),
+			),
+			array (
+			'Skop projek' => '&nbsp;',
+			'Harga (RM)' => '&nbsp;',
+			'Kuantiti' => 'JUMLAH',
+			'Jumlah (RM)' => $b,
+			),
+		);
+
+		$hasil2 = array(); # tiada nilai
+
+		return $hasil; # pulangkan pemboleubah
+	}
+#-------------------------------------------------------------------------------------------------#
+	function notaTambahan()
+	{
+		# ada nilai
+		$hasil = 'Catatan: Bayaran melalui maybank2u untuk deposit sebanyak 50% dari'
+		. 'jumlah besar iaitu sebanyak RM2000<br>'
+		. 'Sah sehingga tempoh 3 bulan dari tarikh sebutharga dikeluarkan<br>'
+		. 'Kami percaya anda mencari sebutharga yang memuaskan dan memandang ke hadapan'
+		. 'untuk masa depan anda. Sila hubungi kami untuk apa-apa soalan.';
+
+		$hasil2 = array();# tiada nilai
+
+		return $hasil;# pulangkan pemboleubah
+	}
+#-------------------------------------------------------------------------------------------------#
+	function kiraJumlahBesar($hasil)
+	{
+		$kiraJum = array();
+		$kiraJum['Kos (RM)'] = 0;
+		$kiraJum['Masa'] = 0;
+		$abaikan = array('Aktiviti','Alasan');
+		foreach ($hasil as $k=>$subArray) {
+			foreach ($subArray as $id=>$value) {
+				//echo $k. '|$id = ' . $id . '<br>';
+				if(!in_array($id,$abaikan))
+					$kiraJum[$id]+=$value;
+			}
+		}
+		$jum = array(array (
+			'Aktiviti' => 'Jumlah','Masa' => $kiraJum['Masa'],
+			'Kos (RM)' => $kiraJum['Kos (RM)'],'Alasan' => '',
+			));
+		#
+		return $jum;
+	}
+#-------------------------------------------------------------------------------------------------#
+	public function contohJadual000($a)
+	{
+		# ada nilai
+		$hasil = array(
+			array (
+			'Kadar Sejam' => $a
+			));
+		//$hasil = array_merge($hasil, $jum);
+		$hasil2 = array(); # tiada nilai
+
+		return $hasil; # pulangkan pemboleubah
+	}
+#-------------------------------------------------------------------------------------------------#
+	public function contohJadual001($a)
+	{
+		# ada nilai
+		$hasil = array(
+			array (
+			'Aktiviti' => 'Buat DFD',
+			'Masa' => '1',
+			'Kos (RM)' => kira(1*$a),
+			'Alasan' => 'Supaya dapat tentukan saiz aplikasi',
+			),
+			array (
+			'Aktiviti' => 'Buat ERD',
+			'Masa' => '1',
+			'Kos (RM)' => kira(1*$a),
+			'Alasan' => 'Supaya dapat tentukan berapa table/jadual yang perlu dibuat ',
+			),
+			array (
+			'Aktiviti' => 'Buat database/table',
+			'Masa' => '5',
+			'Kos (RM)' => kira(5*$a),
+			'Alasan' => 'Memastikan semua table/jadual sudah dibuat awal-awal',
+			),
+			array (
+			'Aktiviti' => 'Buat fail-fail php',
+			'Masa' => '5',
+			'Kos (RM)' => kira(5*$a),
+			'Alasan' => 'Memastikan semua fail asas dibuat dahulu sebelum koding ditulis ',
+			),
+			array (
+			'Aktiviti' => 'Buat class-class',
+			'Masa' => '5',
+			'Kos (RM)' => kira(5*$a),
+			'Alasan' => 'Menulis rangka class dahulu sebelum fungsi dibuat ',
+			),
+			array (
+			'Aktiviti' => 'Buat fungsi/metod',
+			'Masa' => '5',
+			'Kos (RM)' => kira(5*$a),
+			'Alasan' => 'Menulis fungsi dalam class sebelum pembolehubah ditulis',
+			),
+			array (
+			'Aktiviti' => 'Buat pembolehubah',
+			'Masa' => '5',
+			'Kos (RM)' => kira(5*$a),
+			'Alasan' => 'Memastikan semua pembolehubah diambilkira dalam fungsi',
+			),
+			array (
+			'Aktiviti' => 'Buat borang',
+			'Masa' => '5',
+			'Kos (RM)' => kira(5*$a),
+			'Alasan' => 'Memastikan semua borang dibuat mengunakan bootstrap twitter ',
+			),
+			array (
+			'Aktiviti' => 'Ujian sistem',
+			'Masa' => '8',
+			'Kos (RM)' => kira(8*$a),
+			'Alasan' => 'Memastikan semua aplikasi berjalan lancar',
+			),
+		);
+
+		$jum = $this->kiraJumlahBesar($hasil);
+		$hasil = array_merge($hasil, $jum);
+		$hasil2 = array(); # tiada nilai
+
+		return $hasil; # pulangkan pemboleubah
+	}
+#-------------------------------------------------------------------------------------------------#
+	public function contohJadual002($a)
+	{
+		# ada nilai
+		$hasil = array(
+			array (
+			'Aktiviti' => 'Betulkan DFD',
+			'Masa' => '2',
+			'Kos (RM)' => kira(2*$a),
+			'Alasan' => 'Supaya dapat tentukan saiz aplikasi semula',
+			),
+			array (
+			'Aktiviti' => 'Betulkan ERD',
+			'Masa' => '2',
+			'Kos (RM)' => kira(2*$a),
+			'Alasan' => 'Supaya dapat tentukan berapa table/jadual yang perlu dibetulkan ',
+			),
+			array (
+			'Aktiviti' => 'Betulkan database/table',
+			'Masa' => '6',
+			'Kos (RM)' => kira(6*$a),
+			'Alasan' => 'Memastikan semua table/jadual sudah dibetulkan berdasaran aktiviti no 2',
+			),
+			array (
+			'Aktiviti' => 'Betulkan fail-fail php',
+			'Masa' => '6',
+			'Kos (RM)' => kira(6*$a),
+			'Alasan' => 'Memastikan semua fail asas dibetulkan dahulu sebelum koding ditulis ',
+			),
+			array (
+			'Aktiviti' => 'Betulkan class-class',
+			'Masa' => '6',
+			'Kos (RM)' => kira(6*$a),
+			'Alasan' => 'Menulis semula rangka class sedia ada ',
+			),
+			array (
+			'Aktiviti' => 'Betulkan fungsi/metod',
+			'Masa' => '6',
+			'Kos (RM)' => kira(6*$a),
+			'Alasan' => 'Menulis fungsi dalam class sebelum pembolehubah ditulis ',
+			),
+			array (
+			'Aktiviti' => 'Betulkan pembolehubah',
+			'Masa' => '6',
+			'Kos (RM)' => kira(6*$a),
+			'Alasan' => 'Memastikan semua pembolehubah diambilkira dalam fungsi ',
+			),
+			array (
+			'Aktiviti' => 'Betulkan borang',
+			'Masa' => '6',
+			'Kos (RM)' => kira(6*$a),
+			'Alasan' => 'Memastikan semua borang dibuat mengunakan bootstrap twitter ',
+			),
+			array (
+			'Aktiviti' => 'Ujian sistem',
+			'Masa' => '8',
+			'Kos (RM)' => kira(8*$a),
+			'Alasan' => 'Memastikan semua aplikasi berjalan lancar',
+			),
+		);
+
+		$jum = $this->kiraJumlahBesar($hasil);
+		$hasil = array_merge($hasil, $jum);
 		$hasil2 = array(); # tiada nilai
 
 		return $hasil; # pulangkan pemboleubah
@@ -311,5 +568,5 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 		# pulangkan pemboleubah
 		return $posmen;
 	}
-#==========================================================================================
+#==================================================================================================
 }
