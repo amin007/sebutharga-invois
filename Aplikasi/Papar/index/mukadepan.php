@@ -88,7 +88,7 @@
 			for($i = 1; $i < $semak02; $i++): $p .= "&nbsp;"; endfor;
 			$p .= "|" . $data[3];
 			for($i = 1; $i < $semak03; $i++): $p .= "&nbsp;"; endfor;
-			$p .= "&nbsp;|</$p2><hr>";
+			$p .= "&nbsp;|</$p2><br>";
 		#
 		return $p;
 	}
