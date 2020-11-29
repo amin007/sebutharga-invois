@@ -28,7 +28,7 @@ function setDataAkaun($i, $akaun, $kiraPesanan)
 {
 	# untuk semakan ID
 	$id = $akaun['kes'][0]['id'];
-	$bilRujukan = 'YBK@00' . $id . '/' . $kiraPesanan;
+	$bilRujukan = 'PROJEK2020@00' . $id . '/' . $kiraPesanan;
 	# semak tarikh
 	$tarikh = ($akaun['kes'][$i]['Tarikh']);
 	$webapa = ($akaun['kes'][$i]['webapa']);
