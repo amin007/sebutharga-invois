@@ -96,10 +96,10 @@
 	function getWebList()
 	{
 		$web[]['name'] = 'https://localhost';
-		$web[]['name'] = URL . 'invois/webSebutHarga';
-		$web[]['name'] = URL . 'invois/webInvois';
-		$web[]['name'] = URL . 'invois/cthSebutHarga';
-		$web[]['name'] = URL . 'invois/cthInvois';
+		$web[]['name'] = 'invois/webSebutHarga';
+		$web[]['name'] = 'invois/webInvois';
+		$web[]['name'] = 'invois/cthSebutHarga';
+		$web[]['name'] = 'invois/cthInvois';
 		$web[]['name'] = 'https://www.office.com/?auth=1';
 		$web[]['name'] = 'http://www.maybank2u.com.my';
 		$web[]['name'] = 'http://www.cimbclicks.com.my';
