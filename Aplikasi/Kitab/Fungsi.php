@@ -187,6 +187,9 @@ function huruf($jenis , $papar)
 	case "Besar_Depan": # huruf('Besar_Depan', )
 		$papar = mb_convert_case($papar, MB_CASE_TITLE);
 		break;
+	case "RM": # huruf('RM', )
+		$papar = 'RM ' . $papar;
+		break;
 	}# tamat - pilih $jenis
 
 	return $papar;
@@ -240,39 +243,38 @@ function gambar_latarbelakang($lokasi)
 {
 	$tmpt1 = '../../../../private_html/bg/bg'; // utk localhost
 	//$tmpt = ($lokasi=='localhost') ? $tmpt1 : $tmpt2;
-    $dh = opendir($tmpt1);
-    $i=1;
-    while (($file = readdir($dh)) !== false)
-    {
-        if($file != "."
-            && $file != ".."
-            && $file != "Thumbs.db"
-            && $file != "index.html"
-            && $file != "index.php")
-        {
-            if ($file=='index.php') {echo "";}
-            elseif (is_dir($file)==false) 
-            {
-                //echo "\n" . $i++ . ")" . $file . "<br>";
-                $gambar = $file;
-                if (substr($gambar,-3) == 'jpg') 
-                    $papar[]=$gambar;
-            }
-        }
+	$dh = opendir($tmpt1);
+	$i=1;
+	while (($file = readdir($dh)) !== false)
+	{
+		if($file != "."
+			&& $file != ".."
+			&& $file != "Thumbs.db"
+			&& $file != "index.html"
+			&& $file != "index.php")
+		{
+			if ($file=='index.php') {echo "";}
+			elseif (is_dir($file)==false)
+			{
+				//echo "\n" . $i++ . ")" . $file . "<br>";
+				$gambar = $file;
+				if (substr($gambar,-3) == 'jpg')
+					$papar[]=$gambar;
+			}
+		}
+	}
+	closedir($dh);
 
-    }
-    closedir($dh);
+	/*
+	foreach(scandir($tmpt) as $gambar)
+	{
+		if (substr($gambar,-3) == 'jpg')
+			$papar[]=$gambar;
+	}
+	*/
 
-    /*
-    foreach(scandir($tmpt) as $gambar) 
-    {
-        if (substr($gambar,-3) == 'jpg') 
-            $papar[]=$gambar;
-    }
-    */
-
-    $today = rand(0, count($papar)-1); 
-    return $papar[$today];
+	$today = rand(0, count($papar)-1);
+	return $papar[$today];
 }
 #--------------------------------------------------------------------------------------------------
 # lisfile2 - mula
@@ -282,13 +284,13 @@ function GetMatchingFiles($files, $search)
 		return false;
 	else:
 		# Split to name and filetype
-		if(strpos($search,".")) 
+		if(strpos($search,"."))
 		{
 			$baseexp = substr($search,0,strpos($search,"."));
 			$typeexp = substr($search,strpos($search,".")+1,strlen($search));
-		} 
-		else 
-		{ 
+		}
+		else
+		{
 			$baseexp = $search;
 			$typeexp = "";
 		} 
@@ -304,17 +306,17 @@ function GetMatchingFiles($files, $search)
 		# Search for Matches
 		$i = 0;
 		$matches = null; # $matches adalah array()
-		foreach($files as $file) 
+		foreach($files as $file)
 		{
 			$filename = basename($file);
 				  
-			if(strpos($filename,".")) 
+			if(strpos($filename,"."))
 			{
 				$base = substr($filename,0,strpos($filename,"."));
 				$type = substr($filename,strpos($filename,".")+1,strlen($filename));
-			} 
-			else 
-			{ 
+			}
+			else
+			{
 				$base = $filename;
 				$type = "";
 			}
@@ -336,7 +338,7 @@ function GetContents($dir,$files=array())
 	//if(!($res=opendir($dir))): exit("folder $dir tidak wujud!!!");
 	if(!($res=@opendir($dir))): exit(\Aplikasi\Kitab\Peta::folderPaparTidakWujud());
 	else:
-		while(($file=readdir($res))==TRUE) 
+		while(($file=readdir($res))==TRUE)
 		if($file!="." && $file!="..")
 			if(is_dir("$dir/$file")) 
 				$files=GetContents("$dir/$file",$files);
