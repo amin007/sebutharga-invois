@@ -98,6 +98,8 @@ class Invois extends \Aplikasi\Kitab\Kawal
 		//echo '<hr>Anda berada di class :' . __METHOD__ . '<hr>';
 		# isytihar pembolehubah
 		$this->papar->hargaProjek[] = $a;
+		$this->papar->hargaProjek20 = 'RM ' . kira(0.2 * $a);
+		$this->papar->hargaProjek30 = 'RM ' . kira(0.3 * $a);
 		$this->papar->Tajuk_Muka_Surat = 'SebutHarga';
 		$this->papar->carian = 'id';
 		$this->papar->syarikat = $this->tanya->contohDataSyarikat002();
