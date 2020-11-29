@@ -24,8 +24,8 @@
 			echo "\n<li>" . pautan($file2, 'web') . '</li>';
 		endforeach;
 		echo "\n</ul></td>\n<td>" . '<ul class="fa-ul">';
-		foreach(dnschanger() as $file):
-			echo "\n<li>" . pautan2($file['dns'], 'web') . '</li>';
+		foreach(dnschanger() as $name => $web):
+			echo paparan($web,null);
 		endforeach;
 		echo "\n</ul";
 		echo "\n</td>" . '<td valign="top"><hr><br><i class="fas fa-user-tie fa-7x"></i>';
