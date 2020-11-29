@@ -55,6 +55,21 @@
 		return $p;
 	}
 #--------------------------------------------------------------------------------------------------
+	function kiraPaparan()
+	{
+		$kira[01] = $kira[02] = $kira[03] = 0;
+		//$kira[02] = 16;$kira[03] = 16;
+		foreach(dnschanger() as $name => $web):
+			$data = explode('|', $web);
+			//$data0 = strlen($data[0]);
+			if(strlen($data[1]) > $kira[01]) $kira[01] = strlen($data[1]);
+			if(strlen($data[2]) > $kira[02]) $kira[02] = strlen($data[2]);
+			if(strlen($data[3]) > $kira[03]) $kira[03] = strlen($data[3]);
+		endforeach;
+
+		return $kira;
+	}
+#--------------------------------------------------------------------------------------------------
 	function paparan($web, $test)
 	{
 		# set pembolehubah utama
