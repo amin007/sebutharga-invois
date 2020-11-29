@@ -174,10 +174,12 @@ border-radius: 0.3rem;">
 	<?php
 	//semakPembolehubah($this->skop,'skop');
 	//semakPembolehubah($this->jadual,'jadual');
-	$harga20 = $this->hargaProjek20;
-	$harga30 = $this->hargaProjek30;
 	if(isset($this->skop)) ulangJadual($this->skop,'skop');
-	if(isset($this->jadual)) ulangJadual($this->jadual,'nombor'); ?>
+	if(isset($this->jadual)) ulangJadual($this->jadual,'nombor');
+	$harga20 = $this->hargaProjek * 0.2;
+	$harga30 = $this->hargaProjek * 0.3;
+	$harga50 = $this->hargaProjek * 0.5;
+	#?>
 
 	<strong>Terma pembayaran:</strong>
 	<ul>
