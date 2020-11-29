@@ -23,11 +23,10 @@
 		foreach(getIdea() as $file2):
 			echo "\n<li>" . pautan($file2, 'web') . '</li>';
 		endforeach;
-		echo "\n</ul></td>\n<td>" . '<ul class="fa-ul">';
+		echo "\n</ul></td>\n<td>";
 		foreach(dnschanger() as $name => $web):
 			echo paparan($web,null);
 		endforeach;
-		echo "\n</ul";
 		echo "\n</td>" . '<td valign="top"><hr><br><i class="fas fa-user-tie fa-7x"></i>';
 		echo "\n</td></tr></table>\n";
 		//echo '<pre>'; print_r(getWebList()); echo '</pre>';
