@@ -64,7 +64,7 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 				'Bayaran' => 'Belum Daa',
 				'Status' => 'Fulan2 Bin Fulan2',
 				'Temujanji' => 'Fulan2 Bin Fulan2',
-				'Tarikh' => '18 Januari 2020',
+				'Tarikh' => date("j F Y")//'18 Januari 2020',
 				));
 
 		$hasil2 = array(); # tiada nilai
@@ -86,7 +86,7 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 				'Bayaran' => 'Belum Daa',
 				'Status' => 'Fulan2 Bin Fulan2',
 				'Temujanji' => 'Fulan2 Bin Fulan2',
-				'Tarikh' => '18 Januari 2020',
+				'Tarikh' => date("j F Y"),//'18 Januari 2020',
 				'webapa' => WEB_APA,
 				));
 
@@ -101,7 +101,7 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 		$hasil = array(
 			array (
 			'Skop projek' => 'Untuk membuat website '
-				. $a . ' yang menggunakan gateway epayment billplz',
+				. $a . ' yang menggunakan gateway epayment',
 			'Harga (RM)' => $b,
 			'Kuantiti' => '1',
 			'Jumlah (RM)' => $b,
@@ -125,7 +125,7 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 		$hasil = array(
 			array (
 			'Skop projek' => 'Untuk membuat website '
-				. $a . ' yang menggunakan gateway epayment billplz',
+				. $a . ' yang menggunakan gateway epayment',
 			'Harga (RM)' => $b,
 			'Kuantiti' => '1',
 			'Jumlah (RM)' => $b,
@@ -214,62 +214,62 @@ class Invois_Tanya extends \Aplikasi\Kitab\Tanya
 			array (
 			'Aktiviti' => 'Buat DFD',
 			'Masa' => '1',
-			'Kos (RM)' => kira(1*$a),
+			//'Kos (RM)' => kira((1/10)*$a),
 			'Alasan' => 'Supaya dapat tentukan saiz aplikasi',
 			),
 			array (
 			'Aktiviti' => 'Buat ERD',
 			'Masa' => '1',
-			'Kos (RM)' => kira(1*$a),
+			//'Kos (RM)' => kira(1*$a),
 			'Alasan' => 'Supaya dapat tentukan berapa table/jadual yang perlu dibuat ',
 			),
 			array (
 			'Aktiviti' => 'Buat database/table',
 			'Masa' => '5',
-			'Kos (RM)' => kira(5*$a),
+			//'Kos (RM)' => kira(5*$a),
 			'Alasan' => 'Memastikan semua table/jadual sudah dibuat awal-awal',
 			),
 			array (
 			'Aktiviti' => 'Buat fail-fail php',
 			'Masa' => '5',
-			'Kos (RM)' => kira(5*$a),
+			//'Kos (RM)' => kira(5*$a),
 			'Alasan' => 'Memastikan semua fail asas dibuat dahulu sebelum koding ditulis ',
 			),
 			array (
 			'Aktiviti' => 'Buat class-class',
 			'Masa' => '5',
-			'Kos (RM)' => kira(5*$a),
+			//'Kos (RM)' => kira(5*$a),
 			'Alasan' => 'Menulis rangka class dahulu sebelum fungsi dibuat ',
 			),
 			array (
 			'Aktiviti' => 'Buat fungsi/metod',
 			'Masa' => '5',
-			'Kos (RM)' => kira(5*$a),
+			//'Kos (RM)' => kira(5*$a),
 			'Alasan' => 'Menulis fungsi dalam class sebelum pembolehubah ditulis',
 			),
 			array (
 			'Aktiviti' => 'Buat pembolehubah',
 			'Masa' => '5',
-			'Kos (RM)' => kira(5*$a),
+			//'Kos (RM)' => kira(5*$a),
 			'Alasan' => 'Memastikan semua pembolehubah diambilkira dalam fungsi',
 			),
 			array (
 			'Aktiviti' => 'Buat borang',
 			'Masa' => '5',
-			'Kos (RM)' => kira(5*$a),
+			//'Kos (RM)' => kira(5*$a),
 			'Alasan' => 'Memastikan semua borang dibuat mengunakan bootstrap twitter ',
 			),
 			array (
 			'Aktiviti' => 'Ujian sistem',
 			'Masa' => '8',
-			'Kos (RM)' => kira(8*$a),
+			//'Kos (RM)' => kira(8*$a),
 			'Alasan' => 'Memastikan semua aplikasi berjalan lancar',
 			),
 		);
 
-		$jum = $this->kiraJumlahBesar($hasil);
+		/*$jum = $this->kiraJumlahBesar($hasil);
 		$hasil = array_merge($hasil, $jum);
-		$hasil2 = array(); # tiada nilai
+		$hasil2 = array(); # tiada nilai*/
 
 		return $hasil; # pulangkan pemboleubah
 	}
