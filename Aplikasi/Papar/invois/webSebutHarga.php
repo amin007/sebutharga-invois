@@ -176,16 +176,16 @@ border-radius: 0.3rem;">
 	//semakPembolehubah($this->jadual,'jadual');
 	if(isset($this->skop)) ulangJadual($this->skop,'skop');
 	if(isset($this->jadual)) ulangJadual($this->jadual,'nombor');
-	$harga20 = $this->hargaProjek * 0.2;
-	$harga30 = $this->hargaProjek * 0.3;
-	$harga50 = $this->hargaProjek * 0.5;
+	$harga20 = huruf('RM',$this->hargaProjek * 0.2);
+	$harga30 = huruf('RM',$this->hargaProjek * 0.3);
+	$harga50 = huruf('RM',$this->hargaProjek * 0.5);
 	#?>
 
 	<strong>Terma pembayaran:</strong>
 	<ul>
-	<li>Bayaran 20% (<strong><?php echo $harga20 ?></strong>) diperlukan semasa memulakan projek.</li>
-	<li>Satu lagi bayaran 30% (<strong><?php echo $harga30 ?></strong>) diperlukan selepas demo projek pertama.</li>
-	<li>Baki yang perlu dibayar sebelum penghantaran penuh kod.</li>
+	<li>Bayaran 20% <kbd><?php echo $harga20 ?></kbd> diperlukan semasa memulakan projek.</li>
+	<li>Satu lagi bayaran 30% <kbd><?php echo $harga30 ?></kbd> diperlukan selepas demo projek pertama.</li>
+	<li>Baki yang perlu dibayar <kbd><?php echo $harga50 ?></kbd> sebelum penghantaran penuh kod.</li>
 	</ul>
 
 	<strong>Kaedah Pembayaran</strong>
