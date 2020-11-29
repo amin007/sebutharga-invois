@@ -1,7 +1,7 @@
 <?php
 #--------------------------------------------------------------------------------------------------
-function semakPembolehubah($senarai,$jadual,$p='0')
-{
+	function semakPembolehubah($senarai,$jadual,$p='0')
+	{
 		echo '<pre>$' . $jadual . '=><br>';
 		if($p == '0') print_r($senarai);
 		if($p == '1') var_export($senarai);
@@ -9,35 +9,35 @@ function semakPembolehubah($senarai,$jadual,$p='0')
 		//$this->semakPembolehubah($ujian,'ujian',0);
 		#http://php.net/manual/en/function.var-export.php
 		#http://php.net/manual/en/function.print-r.php
-}
+	}
 #--------------------------------------------------------------------------------------------------
-function setDataAwal($syarikat)
-{
-	$namaOrang = $syarikat[0]['namaOrang'];
-	$namaSyarikat = $syarikat[0]['namaSyarikat'];
-	$noSSM = ' (' . $syarikat[0]['noSSM'] . ')';
-	$alamat = $syarikat[0]['alamat'];
-	$notel = $syarikat[0]['notel'];
-	$namaBank = $syarikat[0]['namaBank'];
-	$namaAkaunBank = $syarikat[0]['namaAkaunBank'];//*/
+	function setDataAwal($syarikat)
+	{
+		$namaOrang = $syarikat[0]['namaOrang'];
+		$namaSyarikat = $syarikat[0]['namaSyarikat'];
+		$noSSM = ' (' . $syarikat[0]['noSSM'] . ')';
+		$alamat = $syarikat[0]['alamat'];
+		$notel = $syarikat[0]['notel'];
+		$namaBank = $syarikat[0]['namaBank'];
+		$namaAkaunBank = $syarikat[0]['namaAkaunBank'];//*/
 
-	return array($namaOrang,$namaSyarikat,$noSSM,$alamat,$notel,$namaBank,$namaAkaunBank);
-}
+		return array($namaOrang,$namaSyarikat,$noSSM,$alamat,$notel,$namaBank,$namaAkaunBank);
+	}
 #--------------------------------------------------------------------------------------------------
-function setDataAkaun($i, $akaun, $kiraPesanan)
-{
-	# untuk semakan ID
-	$id = $akaun['kes'][0]['id'];
-	$bilRujukan = 'PROJEK2020@00' . $id . '/' . $kiraPesanan;
-	# semak tarikh
-	$tarikh = ($akaun['kes'][$i]['Tarikh']);
-	$webapa = ($akaun['kes'][$i]['webapa']);
-	//semakPembolehubah($kiraPesanan,'kiraPesanan');
-	//semakPembolehubah($tarikh,'tarikh');
-	//semakPembolehubah($webapa,'webapa');
+	function setDataAkaun($i, $akaun, $kiraPesanan)
+	{
+		# untuk semakan ID
+		$id = $akaun['kes'][0]['id'];
+		$bilRujukan = 'PROJEK2020@00' . $id . '/' . $kiraPesanan;
+		# semak tarikh
+		$tarikh = ($akaun['kes'][$i]['Tarikh']);
+		$webapa = ($akaun['kes'][$i]['webapa']);
+		//semakPembolehubah($kiraPesanan,'kiraPesanan');
+		//semakPembolehubah($tarikh,'tarikh');
+		//semakPembolehubah($webapa,'webapa');
 
-	return array($bilRujukan,$tarikh,$webapa);
-}
+		return array($bilRujukan,$tarikh,$webapa);
+	}
 #--------------------------------------------------------------------------------------------------
 	function ulangJadual($senarai,$pilih)
 	{
@@ -159,9 +159,9 @@ border-radius: 0.3rem;">
 	<!-- li>54321 Kuala Lumpur, Malaysia</li -->
 	<!-- li>Attn: Ahmad Kasan</li -->
 	<!-- li>Ref:	RUJUKAN-2014-01(1/3)</li -->
-	<!-- li>Date:	March 10, 2014</li -->
-	<li><?php echo $this->akaun['kes'][$i]['Nama'] ?></li>
-	<li><?php echo $this->akaun['kes'][$i]['Alamat'] ?></li>
+	<!-- li>Date:	March 10, 2014</li>
+	<li><?php //echo $this->akaun['kes'][$i]['Nama'] ?></li>
+	<li><?php //echo $this->akaun['kes'][$i]['Alamat'] ?></li> -->
 	<li>Untuk Perhatian: <?php echo $this->akaun['kes'][$i]['UP'] ?></li>
 	<li>Bil Rujukan : <?php echo $bilRujukan ?>/UNPAID</li>
 	<li>Tarikh: <?php echo nl2br($tarikh) ?></li>
@@ -174,13 +174,15 @@ border-radius: 0.3rem;">
 	<?php
 	//semakPembolehubah($this->skop,'skop');
 	//semakPembolehubah($this->jadual,'jadual');
+	$harga20 = $this->hargaProjek20;
+	$harga30 = $this->hargaProjek30;
 	if(isset($this->skop)) ulangJadual($this->skop,'skop');
 	if(isset($this->jadual)) ulangJadual($this->jadual,'nombor'); ?>
 
 	<strong>Terma pembayaran:</strong>
 	<ul>
-	<li>Bayaran 20% diperlukan semasa memulakan projek.</li>
-	<li>Satu lagi bayaran 30% diperlukan selepas demo projek pertama.</li>
+	<li>Bayaran 20% (<strong><?php echo $harga20 ?></strong>) diperlukan semasa memulakan projek.</li>
+	<li>Satu lagi bayaran 30% (<strong><?php echo $harga30 ?></strong>) diperlukan selepas demo projek pertama.</li>
 	<li>Baki yang perlu dibayar sebelum penghantaran penuh kod.</li>
 	</ul>
 
