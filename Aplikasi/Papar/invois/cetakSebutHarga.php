@@ -1,24 +1,44 @@
 <?php
-function tukartarikh($lama)
-{
-	$baru1 = @date_format($lama, 'j F, Y, g:i a');
-	$baru2 = date("j F, Y, g:i a");	
-	$baru = ($lama == '0000-00-00 00:00:00') ? $baru2 : $baru1;
+#--------------------------------------------------------------------------------------------------
+	function tukartarikh($lama)
+	{
+		$baru1 = @date_format($lama, 'j F, Y, g:i a');
+		$baru2 = date("j F, Y, g:i a");
+		$baru = ($lama == '0000-00-00 00:00:00') ? $baru2 : $baru1;
 
-	return $baru;
-}
-function pecahTarikhMesej($mesej)
-{
-	@list($dataAsal, $data) = explode('Tarikh',$mesej);
-	//@list($tarikh, $data2) = explode('Masa',$data);
-	@list($tarikh, $data2) = explode('Takwim',$data);
-	@list($dataPC, $data3) = explode('Mesej',$data2);
-	$data4 = (isset($data3)) ? $data3 : '';
-	@list($dataMesej, $dataAkhir) = explode('-',$data4);
-	$dataMesej = (isset($dataMesej)) ? $dataMesej : '';
+		return $baru;
+	}
+#--------------------------------------------------------------------------------------------------
+	function pecahTarikhMesej($mesej)
+	{
+		@list($dataAsal, $data) = explode('Tarikh',$mesej);
+		//@list($tarikh, $data2) = explode('Masa',$data);
+		@list($tarikh, $data2) = explode('Takwim',$data);
+		@list($dataPC, $data3) = explode('Mesej',$data2);
+		$data4 = (isset($data3)) ? $data3 : '';
+		@list($dataMesej, $dataAkhir) = explode('-',$data4);
+		$dataMesej = (isset($dataMesej)) ? $dataMesej : '';
 
-	return array($tarikh, $dataMesej);
-}
+		return array($tarikh, $dataMesej);
+	}
+#--------------------------------------------------------------------------------------------------
+	function ulangCss($listCss)
+	{
+		$style = null;
+		if (isset($listCss) && $listCss != null)
+		{
+			foreach ($listCss as $css)
+			{
+				$style .= "\n" . '<link rel="stylesheet" type="text/css" href="' . $css . '">';
+			}
+		}
+
+		return $style;
+	}
+#--------------------------------------------------------------------------------------------------
+$style = ulangCss(dpt_senarai('css_array_cdn'));
+$js = dpt_senarai('js_array_cdn');
+#--------------------------------------------------------------------------------------------------
 include 'diatas.php';
 /*echo '<pre>';
 echo '$this->akaun:<br>'; print_r($this->akaun);
