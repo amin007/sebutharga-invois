@@ -112,12 +112,29 @@
 		echo "\n\t" . '<tr><td align="center">' . ($kira+1) . '</td>';
 			foreach ( $row[$kira] as $key=>$data )
 			{
-				echo "\n<td>$data</td>";
+				echo "\n\t<td>$data</td>";
 			}
 			echo "\n\t" . '</tr>';
 		}#-----------------------------------------------------------------
 		echo "\n\t" . '</tbody></table>';
 	}
+#--------------------------------------------------------------------------------------------------
+	function ulangCss($listCss)
+	{
+		$style = null;
+		if (isset($listCss) && $listCss != null)
+		{
+			foreach ($listCss as $css)
+			{
+				$style .= "\n" . '<link rel="stylesheet" type="text/css" href="' . $css . '">';
+			}
+		}
+
+		return $style;
+	}
+#--------------------------------------------------------------------------------------------------
+$style = ulangCss(dpt_senarai('css_array_cdn'));
+$js = dpt_senarai('js_array_cdn');
 #--------------------------------------------------------------------------------------------------
 ?><?php
 # mula koding daa
