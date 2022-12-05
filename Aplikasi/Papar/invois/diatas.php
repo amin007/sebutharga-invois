@@ -5,10 +5,9 @@
 <meta charset="utf-8">
 <title><?php echo $this->Tajuk_Muka_Surat ?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<?php echo $style ?>
 <!-- link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" -->
 <!-- link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cerulean/bootstrap.min.css" rel="stylesheet" type="text/css" -->
-<link href="<?php echo FONTAWESOME ?>" rel="stylesheet" type="text/css">
-<link href="<?php echo BOOTSTRAPCSS ?>" rel="stylesheet" type="text/css">
 
 <style type="text/css">
 table.excel {
