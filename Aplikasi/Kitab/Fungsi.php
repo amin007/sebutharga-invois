@@ -41,10 +41,14 @@ function pecah_url($ulang)
 function dpt_senarai($pilih)
 {
 	# define('MSICBARU', serialize (array()) );
-	if ($pilih == 'msicbaru') : 
+	if ($pilih == 'msicbaru') :
 		$jadual = unserialize(MSICBARU);
-	elseif ($pilih == 'produk') : 
+	elseif ($pilih == 'produk') :
 		$jadual = unserialize(PRODUK);
+	elseif ($pilih == 'css_array_cdn') :
+		$jadual = unserialize(CSS_ARRAY_CDN);
+	elseif ($pilih == 'js_array_cdn') :
+		$jadual = unserialize(JS_ARRAY_CDN);
 	else : $jadual = array(); //unserialize()
 	endif;
 
